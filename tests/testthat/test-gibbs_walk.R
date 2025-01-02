@@ -1,0 +1,16 @@
+test_that("x within bounds", {
+  expect_error(gibbs_walk(init_pos = c(-5, 0.5)))
+  expect_error(gibbs_walk(init_pos = c(0.5, 5)))
+  expect_error(gibbs_walk(n_cycle = -1))
+  expect_error(gibbs_walk(z1 = -1))
+  expect_error(gibbs_walk(n1 = -1))
+  expect_error(gibbs_walk(n1 = 0))
+  expect_error(gibbs_walk(a1 = -1))
+  expect_error(gibbs_walk(b1 = -1))
+  expect_error(gibbs_walk(z2 = -1))
+  expect_error(gibbs_walk(n2 = -1))
+  expect_error(gibbs_walk(n2 = 0))
+  expect_error(gibbs_walk(a2 = -1))
+  expect_error(gibbs_walk(b2 = -1))
+})
+
