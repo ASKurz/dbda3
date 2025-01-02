@@ -1,0 +1,62 @@
+url: ~
+template:
+  bootstrap: 5
+  math-rendering: mathjax
+
+# Learn more about this here: https://r-pkgs.org/website.html#index-organization
+reference:
+- title: Distribution parameter helpers
+  desc: Functions to help define priors in terms of familiar descriptive statistics
+
+- subtitle: Beta distribution
+  contents:
+  - beta_a_b_from_mean_kappa
+  - beta_a_b_from_mean_sd
+  - beta_a_b_from_mode_kappa
+
+- subtitle: Gamma distribution
+  contents:
+  - gamma_s_r_from_mean_sd
+  - gamma_s_r_from_mode_sd
+
+- title: Interval functions
+  desc: Functions to help compute intervals from probability distributions
+  contents:
+  - hdi_of_icdf
+  - in_eti_grid
+  - in_hdi_grid
+
+- title: Likelihood functions
+  contents:
+  - dbern
+
+- title: Plotting functions
+  desc: Convience functions to make plots similar to some of the figures in the text
+  contents:
+  - bern_grid
+  - bern_grid2
+  - bf_plot
+
+- title: Sampler functions
+  desc: Functions designed to highlight various MCMC samplers and their technical details
+  contents:
+  - gibbs_walk
+  - hmc_proposal
+  - metro_walk
+
+- title: Miscelaneous
+  desc: This is a placeholder section for functions without clear categories [may be ammended]
+  contents:
+  - neg_log_lik
+  - lpd
+
+- title: Data sets
+  desc: Example data sets used in the text
+  contents:
+  - my_pkg_data
+  - hair_eye_color
+  - therapeutic_touch
+  - set_a
+  - set_b
+  - set_c
+

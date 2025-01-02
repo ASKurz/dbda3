@@ -1,0 +1,33 @@
+Package: dbda3
+Title: R package supporting the third edition of 'Doing Bayesian Data Analysis'
+Version: 0.0.0.9000
+Authors@R: c(
+    person("A. Solomon", "Kurz", email = "a.solomon.kurz@gmail.com", role = c("aut", "cre")),
+    person("John", "Kruschke", email = "johnkruschke@gmail.com", role = "aut"))
+Description: This provides a variety of convenience functions supporting Bayesian data analysis, with an emphasis on a tidyverse-oriented workflow, and models fit with the brms package.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports:
+  checkmate,
+  colorspace,
+  dplyr,
+  ggplot2,
+  patchwork,
+  purrr,
+  stringr
+Suggests:
+  brms,
+  ggdist,
+  knitr,
+  posterior,
+  rmarkdown,
+  testthat (>= 3.0.0),
+  tidybayes,
+  tibble
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Depends: 
+    R (>= 3.5)
+LazyData: true
