@@ -12,7 +12,7 @@ bern_grid2(
   interval = c("eti", "hdi", "none")[3],
   prob = 0.95,
   pp_point = c("mean", "median", "mode", "none")[4],
-  l_point = c("mode", "none")[2],
+  l_point = c("max", "none")[2],
   arrow_linewidth = 0.67,
   arrow_length = 0.075,
   col_width = NULL,
@@ -24,37 +24,37 @@ bern_grid2(
 )
 }
 \arguments{
-\item{theta}{a vector of success probabilities ranging from \code{0} to \code{1}.}
+\item{theta}{A vector of success probabilities ranging from \code{0} to \code{1}.}
 
-\item{p_theta}{a vector of probability mass values for the values of \code{theta}, of the same length as \code{theta}.}
+\item{p_theta}{A vector of probability mass values for the values of \code{theta}, of the same length as \code{theta}.}
 
-\item{z}{the number of \code{1}'s for the Bernoulli likelihood.}
+\item{z}{The number of \code{1}'s for the Bernoulli likelihood.}
 
-\item{n}{the total number of Bernoulli trials.}
+\item{n}{The total number of Bernoulli trials.}
 
-\item{interval}{the type of credible interval displayed. Must be \code{"eti"}, \code{"hdi"}, or \code{"none"}. Defaults to \code{"none"}.}
+\item{interval}{The type of credible interval displayed. Must be \code{"eti"}, \code{"hdi"}, or \code{"none"}. Defaults to \code{"none"}.}
 
-\item{prob}{a single numeric value in the range \eqn{[0, 1]} for the desired probability mass displayed with the interval. Defaults to \code{0.95}.}
+\item{prob}{A single numeric value in the range \eqn{[0, 1]} for the desired probability mass displayed with the interval. Defaults to \code{0.95}.}
 
-\item{pp_point}{a character value for the type of central tendency displayed for the prior and posterior. Must be \code{"mean"}, \code{"median"}, \code{"mode"} or \code{"none"}. Defaults to \code{"none"}.}
+\item{pp_point}{A character value for the type of central tendency displayed for the prior and posterior. Must be \code{"mean"}, \code{"median"}, \code{"mode"} or \code{"none"}. Defaults to \code{"none"}.}
 
-\item{l_point}{a character value for the type of central tendency displayed for the likelihood. Must be \code{"mode"} or \code{"none"}. Defaults to \code{"none"}.}
+\item{l_point}{A character value for the type of central tendency displayed for the likelihood. Must be \code{"max"} or \code{"none"}. Defaults to \code{"none"}.}
 
-\item{arrow_linewidth}{a numeric value for the \code{linewidth} weight of the arrow marking off the interval. Defaults to \code{0.67}.}
+\item{arrow_linewidth}{A numeric value for the \code{linewidth} weight of the arrow marking off the interval. Defaults to \code{0.67}.}
 
-\item{arrow_length}{a numeric value for the \code{length} of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to \code{0.075}.}
+\item{arrow_length}{A numeric value for the \code{length} of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to \code{0.075}.}
 
-\item{col_width}{a numeric value for the \code{width} argument within \code{geom_col()} for all three panels, which controls the widths of the vertical bars. Defaults to \code{NULL}.}
+\item{col_width}{A numeric value for the \code{width} argument within \code{geom_col()} for all three panels, which controls the widths of the vertical bars. Defaults to \code{NULL}.}
 
-\item{fill_color}{a character value for the \code{fill} and \code{color} aesthetic mappings for the columns in \code{geom_col()}. Defaults to \code{"gray70"}.}
+\item{fill_color}{A character value for the \code{fill} and \code{color} aesthetic mappings for the columns in \code{geom_col()}. Defaults to \code{"gray70"}.}
 
-\item{darken_amount}{a numeric vector of two values for the \code{amount} argument within the \code{darken()} function to decrease and increase the \code{fill} and \code{color} values for the interval. Defaults to \code{c(-0.15, 0.15)}.}
+\item{darken_amount}{A numeric vector of two values for the \code{amount} argument within the \code{darken()} function to decrease and increase the \code{fill} and \code{color} values for the interval. Defaults to \code{c(-0.15, 0.15)}.}
 
-\item{point_size}{a numeric value for the \code{size} argument of the central-tendency points in \code{geom_point()}. Defaults to \code{1.5}.}
+\item{point_size}{A numeric value for the \code{size} argument of the central-tendency points in \code{geom_point()}. Defaults to \code{1.5}.}
 
-\item{text_size}{a numeric value for the \code{size} argument of the text annotation describing the central tendency points, and the data description, in \code{geom_text()}. Defaults to \code{3.25}.}
+\item{text_size}{A numeric value for the \code{size} argument of the text annotation describing the central tendency points, and the data description, in \code{geom_text()}. Defaults to \code{3.25}.}
 
-\item{return_post}{a logical value dictating whether to return the posterior distribution as a numeric vector. Defaults to \code{FALSE}.}
+\item{return_post}{A logical value dictating whether to return the posterior distribution as a numeric vector. Defaults to \code{FALSE}.}
 }
 \value{
 If \code{return_post == FALSE}, an object of class \code{patchwork}, \verb{gg,} and \code{ggplot}. If \code{return_post == TRUE}, a numeric vector the same length as \code{theta}.
@@ -77,25 +77,25 @@ bern_grid2(theta = theta_vector, p_theta = prior_vector, z = z, n = n)
 bern_grid2(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
           interval = "hdi",
           pp_point = "mode",
-          l_point = "mode")
+          l_point = "max")
 
-# Add median/67\% ETIs
+# Add median/66.7\% ETIs
 bern_grid2(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
           interval = "eti",
-          prob = 0.67,
+          prob = 0.667,
           pp_point = "median")
 
 # Add mean and ML
 bern_grid2(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
           pp_point = "mean",
-          l_point = "mode")
+          l_point = "max")
 
 # Make further aesthetic adjustments
 bern_grid2(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
           interval = "eti",
           prob = 0.67,
           pp_point = "median",
-          # new setttings
+          # new settings
           arrow_linewidth = 1.5,
           arrow_length = 0.125,
           col_width = 0.01,
