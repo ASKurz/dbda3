@@ -1,9 +1,9 @@
 #' Make plots for Bayes factors
 #'
-#' A ggplot2-based revision of the `bfplot()` function, as introduced in Kruschke (2021).
+#' A ggplot2-based revision of the `bfplot()` function, as introduced in Kruschke (2021). For an input Bayes factor, `bf_plot()` creates a plot of the posterior model probability as a function of the prior model probability.
 #'
-#' @param bf A single numeric value for the Bayes factor.
-#' @param crit_post A single numeric value in the range \eqn{[0, 1]}. Defaults to `0.95`.
+#' @param bf A single numeric value for the Bayes factor, within the range \eqn{[0, \infty]}. Defaults to `1`.
+#' @param crit_post A single numeric value in the range \eqn{[0.5, 1]}, or `NA`, for the critical value for posterior probability of numerator model to 'accept' the numerator model. Defaults to `0.95`.
 #' @param xlab The title to the x axis. Passed to the `x` argument within `labs()`. Defaults to `expression(italic(p)(Numerator~Model))`.
 #' @param ylab The title to the y axis. Passed to the `y` argument within `labs()`. Defaults to `expression(italic(p)(Numerator~Model*' | '*D))`.
 #' @param title The text for the title. Passed to the `title` argument within `labs()`. Defaults to `NULL`.
@@ -11,13 +11,15 @@
 #' @param bf_col The color for the BF annotation. Defaults to `"deepskyblue"`.
 #' @param accept_col The color for the acceptance annotation. Defaults to `"darkgreen"`.
 #' @param reject_col The color for the rejection annotation. Defaults to `"darkred"`.
-#' @param bf_label_nudge A single numeric value for the amount of position nudging the BF label takes from the curve. Defaults to `0.2`.
+#' @param bf_label_nudge A single numeric value for the amount of position nudging the BF label takes relative to the curve. Defaults to `0.2`.
 #' @param bf_size A single numeric value for the size of the BF text annotation, passed to the `size` argument in `geom_text()`. Defaults to `6`.
 #' @param ar_size A single numeric value for the size of the accept/reject text annotation, passed to the `size` argument in `geom_text()`. Defaults to `3.5`.
 #' @param axis_breaks A numeric vector for the breaks in the x and y axes, passed to the `breaks` argument in `scale_x_continuous()` and `scale_y_continuous()`. Defaults to `0:5 / 5`.
 #' @param no_plot A logical value. Currently serves no function, and will be fleshed out later.
 #'
-#' @returns If `no_plot == FALSE`, an object of class `ggplot`.
+#' @details For an input Bayes factor, `bf_plot()` plots the posterior probability of the numerator model as a function of the prior probability of the numerator model. The plot is optionally annotated with the critical posterior probability for deciding to accept or reject the models, and with the corresponding prior probability required to reach that threshold.
+#'
+#' @returns If `no_plot == FALSE`, an object of class `gg` and `ggplot`.
 #'
 #' @source
 #' Kruschke, J. K. (2021).
@@ -29,7 +31,7 @@
 #' library(ggplot2)
 #'
 #' # Default behavior
-#' bf_plot(bf = 5)
+#' bf_plot()
 #'
 #' # Adjust a few parameters
 #' bf_plot(bf = 7.5,
@@ -45,7 +47,7 @@
 #' @import dplyr ggplot2
 #' @export
 bf_plot <- function(
-    bf,
+    bf = 1,
     crit_post = 0.95,  # or NA
     xlab = expression(italic(p)(Numerator~Model)),
     ylab = expression(italic(p)(Numerator~Model*' | '*D)),
@@ -55,7 +57,6 @@ bf_plot <- function(
     accept_col = "darkgreen",
     reject_col = "darkred",
     bf_label_nudge = 0.2,
-    # new
     bf_size = 6,
     ar_size = 3.5,
     axis_breaks = 0:5 / 5,
@@ -64,10 +65,17 @@ bf_plot <- function(
 
   # Check the inputs values
   if (bf <= 0) stop("`bf` must be greater than zero.")
+  if (is.infinite(bf)) stop("`bf` must be finite.")
+  if (!is.numeric(bf)) stop("`bf` must be numeric.")
+
   if (!is.na(crit_post)) {
     if (crit_post <= 0.50) stop("`crit_post` must be greater than 0.50.")
     if (crit_post > 1) stop("`crit_post` must not exceed 1.")
+    if (!is.numeric(crit_post)) stop("`crit_post` must be numeric or `NA`.")
   }
+
+  if (!is.numeric(bf_size)) stop("`bf_size` must be numeric.")
+  if (!is.numeric(ar_size)) stop("`ar_size` must be numeric.")
 
   # Primary data frame for the curve
   bf_df <- data.frame(prior = seq(from = 0, to = 1, length.out = 501)) |>
@@ -98,12 +106,12 @@ bf_plot <- function(
   }
 
   # Compute critical values for prior probability
-  hi_crit_post <- crit_post                                      # hiCritPost
-  hi_crit_post_odds <- hi_crit_post / (1 - hi_crit_post)         # hiCritPostOdds
-  hi_crit_prior <- hi_crit_post_odds / (bf + hi_crit_post_odds)  # hiCritPrior
-  lo_crit_post <- 1 - crit_post                                  # loCritPost
-  lo_crit_post_odds <- lo_crit_post / (1 - lo_crit_post)         # loCritPostOdds
-  lo_crit_prior <- lo_crit_post_odds / (bf + lo_crit_post_odds)  # loCritPrior
+  hi_crit_post <- crit_post
+  hi_crit_post_odds <- hi_crit_post / (1 - hi_crit_post)
+  hi_crit_prior <- hi_crit_post_odds / (bf + hi_crit_post_odds)
+  lo_crit_post <- 1 - crit_post
+  lo_crit_post_odds <- lo_crit_post / (1 - lo_crit_post)
+  lo_crit_prior <- lo_crit_post_odds / (bf + lo_crit_post_odds)
 
   # Annotation related to `crit_post`
   crit_post_df <- data.frame(
@@ -137,26 +145,28 @@ bf_plot <- function(
   # Make the plot
   the_bf_plot <- bf_df |>
     ggplot(aes(x = prior, y = post)) +
+    # The BF curve
     geom_line(color = bf_col, linewidth = 1) +
+    # The text for the BF
     geom_text(data = bf_label_df,
               aes(label = label),
               color = bf_col, hjust = h_just, parse = TRUE,
               size = bf_size, vjust = v_just) +
+    # The lines for the critical values
     geom_line(data = crit_post_df,
               aes(color = level, linetype = decision, linewidth = decision)) +
+    # The text for the critical values
     geom_text(data = crit_value_df,
               aes(label = label, color = level, vjust = vjust),
               size = ar_size) +
     geom_text(data = crit_label_df,
               aes(label = label, color = level, hjust = hjust, vjust = vjust),
               parse = TRUE, size = ar_size) +
-    # Note the flexible axis breaks (maybe not needed)
     scale_x_continuous(breaks = axis_breaks, expand = expansion(mult = 0.075)) +
     scale_y_continuous(breaks = axis_breaks, expand = expansion(mult = 0.075)) +
     scale_color_manual(values = c(accept_col, reject_col)) +
     scale_linetype_manual(values = c(1, 2)) +
     scale_linewidth_manual(values = c(1, 1/3)) +
-    # This keeps the axis titles from getting too long
     labs(x = xlab,
          y = ylab,
          title = title,
