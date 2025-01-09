@@ -53,6 +53,7 @@ in_hdi_grid <- function(x, prob = 0.95) {
   hdi_height_idx <- min(which(cumsum(sorted_prob_mass) >= prob))
   hdi_height <- sorted_prob_mass[hdi_height_idx]
 
+  # Return vector of values to this logical statement
   x >= hdi_height
 
 }
