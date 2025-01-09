@@ -35,6 +35,7 @@ reference:
   contents:
   - bern_grid
   - bern_grid2
+  - bern_beta
   - bf_plot
 
 - title: Sampler functions
