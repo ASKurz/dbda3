@@ -1,0 +1,88 @@
+---
+title: "Function code"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{function_code}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Function list
+
+Users can find many of the custom functions used throughout *DBDA3* by installing the **dbda3** package, and executing `help(package = "dbda3")`. You can also find a list of those functions by navigating to the Reference tab on the package website. 
+
+## Function access
+
+### Load the **dbda3** package
+
+After installing the **dbda3** package, users can access its functions after loading the package by executing `library("dbda3")` in their R console. For example, here we load the package and then use the `beta_a_b_from_mean_sd()` function to find the $a$ and $b$ parameters for a beta distribution with a mean of 0.5 and a standard deviation of 0.1.
+
+```{r}
+library("dbda3")
+
+beta_a_b_from_mean_sd(mean = 0.5, sd = 0.1)
+```
+
+After executing `library("dbda3")` once, all other functions from **dbda3** remain available until users terminate their R session. If one, for example, wanted to next compute the parameters for a  gamma distribution with a mean of 10 and a standard deviation of 2, one could just execute the following without further use of the `library()` function.
+
+```{r}
+gamma_s_r_from_mean_sd(mean = 10, sd = 2)
+```
+
+### Access **dbda3** functions withoug loading the **dbda3** package
+
+The double-colon operator `::` allows users to access functions from a package without loading that package (execute `help("::")`). For example, if you had not loaded package **dbda3** with the `library()` function, as above, you could have instead used the `beta_a_b_from_mean_sd()` like so.
+
+```{r}
+dbda3::beta_a_b_from_mean_sd(mean = 0.5, sd = 0.1)
+```
+### Define the function manually
+
+For some of the simpler functions, we show a streamlined version of their code directly in *DBDA3*. For example, we can define a lean version of the `dbern()` function, which we'll name `dbern_lean()` to avoid naming conflicts.
+
+```{r}
+dbern_lean <- function(x, z, n) {
+  x^z * (1 - x)^(n - z)
+}
+```
+
+In many cases, this hand-made `dbern_lean()` will behave the same as the `dbern()` function exported by the **dbda3** package. For example, here we compare the output of each for computing the density value for $\theta = 0.5$, given one successful Bernoulli trial (i.e., $z = 1$ for $N = 1$).
+
+```{r}
+dbern_lean(x = 0.5, z = 1, n = 1)
+dbern(x = 0.5, z = 1, n = 1)
+```
+
+However, the `dbern()` function has a few internal checks to help catch out-of-bounds input. For example, here's what happens when you try to compute the density for when $\theta = 5$.^[Recall that the success probability parameter for the Bernoulli distribution is only supported for values within the range of zero to one.]
+
+```{r, error = TRUE}
+dbern_lean(x = 5, z = 1, n = 1)
+dbern(x = 5, z = 1, n = 1)
+```
+
+Whereas the simple `dbern_lean()` function happily returns a density estimate for an out-of-bounds input, the internal checks for `dbern()` return an error, warning users that the input for `x` must not exceed one. Many of the functions in the **dbda3** package use a variety of internal checks to help users avoid invalid inputs.
+
+Because *DBDA3* is focused on introductory statistics, we do not show the code for these kinds of internal checks in the text. Those kinds of programming details are tangential, and are perhaps more appropriate for courses in computer science or package development workshops.
+
+## Function documentation
+
+### From within R
+
+When you execute `help(package = "dbda3")` from within R, you will find a list of the functions in the **dbda3** package. You can find function-specific documentation by clicking on any of the function names. In addition, you can go directly to the function-specific documentation by executing `?function_name` in your console. For example, you can learn the technical details for the `dbern()` function by executing `?dbern`. That documentation will often contain a description of the function, a list of its arguments, what it returns, and one or more examples of it in use.
+
+### Package website
+
+When online, you can find a list of the functions in the **dbda3** package by navigating to the Reference tab on the package website. From within that section, you can click on the name of any of the functions to get function-specific details of the same kind you would by executing `?function_name` from within your R console.
+
+### Code files on GitHub
+
+Users can find the R code underlying the functions in the **dbda3** package in the repository for the package on GitHub ([https://github.com/ASKurz/dbda3](https://github.com/ASKurz/dbda3)). Each function is defined within its own `.R` script file within the `R` folder ([https://github.com/ASKurz/dbda3/tree/main/R](https://github.com/ASKurz/dbda3/tree/main/R)). For example, users can find the file for the `dbern()` function at [https://github.com/ASKurz/dbda3/blob/main/R/dbern.R](https://github.com/ASKurz/dbda3/blob/main/R/dbern.R). From within their R consoles, users can also find a version of the R code for each function by executing `function_name`. Here's what that looks like for the `dbern()` function.
+
+```{r}
+dbern
+```
+
+Note the `checkmate::assert_numeric()` lines, which we use for the validity checks we hinted at above. This approach for accessing the function code has its limitations. It does not include any line breaks or any annotations that may be present in the `.R` script files, both of which can be particularly helpful for understanding the more complicated functions (e.g., see the `metro_walk()` function). For those perks and details, interested users must go directly to the `.R` script files on GitHub.
+
+When navigating the `.R` script files for the functions on GitHub, it is important to keep track of whether the version of the **dbda3** package installed on your computer is the same as the current version on GitHub. You can check the package version number on your computer by executing `help(package = "dbda3")` from within your R console. You can find the current version of the package by navigating to the `tags` section on GitHub ([https://github.com/ASKurz/dbda3/tags](https://github.com/ASKurz/dbda3/tags)). We recommend keeping apace with the current version of the package.
+
