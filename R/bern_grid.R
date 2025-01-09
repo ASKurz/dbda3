@@ -2,22 +2,22 @@
 #'
 #' Make figures highlighting the effect a beta prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 5 of *DBDA3*.
 #'
-#' @param theta a vector of success probabilities ranging from `0` to `1`.
-#' @param p_theta a vector of probability mass values for the values of `theta`, of the same length as `theta`.
-#' @param z the number of `1`'s for the Bernoulli likelihood.
-#' @param n the total number of Bernoulli trials.
-#' @param interval the type of credible interval displayed. Must be `"eti"`, `"hdi"`, or `"none"`. Defaults to `"none"`.
-#' @param prob a single numeric value in the range \eqn{[0, 1]} for the desired probability mass displayed with the interval. Defaults to `0.95`.
-#' @param pp_point a character value for the type of central tendency displayed for the prior and posterior. Must be `"median"`, `"mode"` or `"none"`. Defaults to `"none"`.
-#' @param l_point a character value for the type of central tendency displayed for the likelihood. Must be `"mode"` or `"none"`. Defaults to `"none"`.
-#' @param arrow_linewidth a numeric value for the `linewidth` weight of the arrow marking off the interval. Defaults to `0.67`.
-#' @param arrow_length a numeric value for the `length` of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to `0.075`.
-#' @param col_width a numeric value for the `width` argument within `geom_col()` for all three panels, which controls the widths of the vertical bars. Defaults to `NULL`.
-#' @param fill_color a character value for the `fill` and `color` aesthetic mappings for the columns in `geom_col()`. Defaults to `"gray65"`.
-#' @param darken_amount a numeric vector of two values for the `amount` argument within the `darken()` function to decrease and increase the `fill` and `color` values for the interval. Defaults to `c(-0.25, 0.15)`.
-#' @param point_size a numeric value for the `size` argument of the central-tendency points in `geom_point()`. Defaults to `1.5`.
-#' @param text_size a numeric value for the `size` argument of the text annotation describing the central tendency points, and the data description, in `geom_text()`. Defaults to `3.25`.
-#' @param return_post a logical value dictating whether to return the posterior distribution as a numeric vector. Defaults to `FALSE`.
+#' @param theta A vector of success probabilities ranging from `0` to `1`.
+#' @param p_theta A vector of probability mass values for the values of `theta`, of the same length as `theta`.
+#' @param z The number of `1`'s for the Bernoulli likelihood.
+#' @param n The total number of Bernoulli trials.
+#' @param interval The type of credible interval displayed. Must be `"eti"`, `"hdi"`, or `"none"`. Defaults to `"none"`.
+#' @param prob A single numeric value in the range \eqn{[0, 1]} for the desired probability mass displayed with the interval. Defaults to `0.95`.
+#' @param pp_point A character value for the type of central tendency displayed for the prior and posterior. Must be `"median"`, `"mode"` or `"none"`. Defaults to `"none"`.
+#' @param l_point A character value for the type of central tendency displayed for the likelihood. Must be `"max"` or `"none"`. Defaults to `"none"`.
+#' @param arrow_linewidth A numeric value for the `linewidth` weight of the arrow marking off the interval. Defaults to `0.67`.
+#' @param arrow_length A numeric value for the `length` of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to `0.075`.
+#' @param col_width A numeric value for the `width` argument within `geom_col()` for all three panels, which controls the widths of the vertical bars. Defaults to `NULL`.
+#' @param fill_color A character value for the `fill` and `color` aesthetic mappings for the columns in `geom_col()`. Defaults to `"gray65"`.
+#' @param darken_amount A numeric vector of two values for the `amount` argument within the `darken()` function to decrease and increase the `fill` and `color` values for the interval. Defaults to `c(-0.25, 0.15)`.
+#' @param point_size A numeric value for the `size` argument of the central-tendency points in `geom_point()`. Defaults to `1.5`.
+#' @param text_size A numeric value for the `size` argument of the text annotation describing the central tendency points, and the data description, in `geom_text()`. Defaults to `3.25`.
+#' @param return_post A logical value dictating whether to return the posterior distribution as a numeric vector. Defaults to `FALSE`.
 #'
 #' @returns If `return_post == FALSE`, an object of class `patchwork`, `gg,` and `ggplot`. If `return_post == TRUE`, a numeric vector the same length as `theta`.
 #'
@@ -36,7 +36,7 @@
 #' bern_grid(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
 #'           interval = "hdi",
 #'           pp_point = "mode",
-#'           l_point = "mode")
+#'           l_point = "max")
 #'
 #' # Add median/67% ETIs
 #' bern_grid(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
@@ -49,7 +49,7 @@
 #'           interval = "eti",
 #'           prob = 0.67,
 #'           pp_point = "median",
-#'           # new setttings
+#'           # new settings
 #'           arrow_linewidth = 1.5,
 #'           arrow_length = 0.125,
 #'           col_width = 0.01,
@@ -76,7 +76,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
                       prob = 0.95,
                       # Central tendency arguments
                       pp_point = c("median", "mode", "none")[3],
-                      l_point = c("mode", "none")[2],
+                      l_point = c("max", "none")[2],
                       # General aesthetic arguments
                       arrow_linewidth = 0.67,
                       arrow_length = 0.075,
@@ -86,6 +86,13 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
                       point_size = 1.5,
                       text_size = 3.25,
                       return_post = c(TRUE, FALSE)[2]) {
+
+  checkmate::assert_numeric(z, lower = 0)
+  checkmate::assert_numeric(n, lower = 1)
+  checkmate::assert_numeric(prob, lower = 0, upper = 1)
+  checkmate::assert_choice(interval, choices = c("eti", "hdi", "none"))
+  checkmate::assert_choice(pp_point, choices = c("mean", "median", "mode", "none"))
+  checkmate::assert_choice(l_point, choices = c("max", "none"))
 
   # Make the primary data frame
   grid_df <- data.frame(theta = theta,
@@ -256,9 +263,9 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
               aes(label = label, hjust = hjust),
               parse = TRUE, size = text_size, vjust = 1)
 
-  # Likelihood z / n (mode) point
-  if (l_point == "mode") {
-    # Augment likelihood panel with mode
+  # Likelihood z / n (max) point
+  if (l_point == "max") {
+    # Augment likelihood panel with max
     p2 <- p2 +
       geom_point(data = grid_df |>
                    slice_max(likelihood),
