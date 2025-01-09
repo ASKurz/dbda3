@@ -11,7 +11,7 @@ Bayesian Analysis Reporting Guidelines.
 }
 \usage{
 bf_plot(
-  bf,
+  bf = 1,
   crit_post = 0.95,
   xlab = expression(italic(p)(Numerator ~ Model)),
   ylab = expression(italic(p)(Numerator ~ Model * " | " * D)),
@@ -28,9 +28,9 @@ bf_plot(
 )
 }
 \arguments{
-\item{bf}{A single numeric value for the Bayes factor.}
+\item{bf}{A single numeric value for the Bayes factor, within the range \eqn{[0, \infty]}. Defaults to \code{1}.}
 
-\item{crit_post}{A single numeric value in the range \eqn{[0, 1]}. Defaults to \code{0.95}.}
+\item{crit_post}{A single numeric value in the range \eqn{[0.5, 1]}, or \code{NA}, for the critical value for posterior probability of numerator model to 'accept' the numerator model. Defaults to \code{0.95}.}
 
 \item{xlab}{The title to the x axis. Passed to the \code{x} argument within \code{labs()}. Defaults to \code{expression(italic(p)(Numerator~Model))}.}
 
@@ -46,7 +46,7 @@ bf_plot(
 
 \item{reject_col}{The color for the rejection annotation. Defaults to \code{"darkred"}.}
 
-\item{bf_label_nudge}{A single numeric value for the amount of position nudging the BF label takes from the curve. Defaults to \code{0.2}.}
+\item{bf_label_nudge}{A single numeric value for the amount of position nudging the BF label takes relative to the curve. Defaults to \code{0.2}.}
 
 \item{bf_size}{A single numeric value for the size of the BF text annotation, passed to the \code{size} argument in \code{geom_text()}. Defaults to \code{6}.}
 
@@ -57,16 +57,19 @@ bf_plot(
 \item{no_plot}{A logical value. Currently serves no function, and will be fleshed out later.}
 }
 \value{
-If \code{no_plot == FALSE}, an object of class \code{ggplot}.
+If \code{no_plot == FALSE}, an object of class \code{gg} and \code{ggplot}.
 }
 \description{
-A ggplot2-based revision of the \code{bfplot()} function, as introduced in Kruschke (2021).
+A ggplot2-based revision of the \code{bfplot()} function, as introduced in Kruschke (2021). For an input Bayes factor, \code{bf_plot()} creates a plot of the posterior model probability as a function of the prior model probability.
+}
+\details{
+For an input Bayes factor, \code{bf_plot()} plots the posterior probability of the numerator model as a function of the prior probability of the numerator model. The plot is optionally annotated with the critical posterior probability for deciding to accept or reject the models, and with the corresponding prior probability required to reach that threshold.
 }
 \examples{
 library(ggplot2)
 
 # Default behavior
-bf_plot(bf = 5)
+bf_plot()
 
 # Adjust a few parameters
 bf_plot(bf = 7.5,
