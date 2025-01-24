@@ -3,6 +3,12 @@
 \name{bern_beta}
 \alias{bern_beta}
 \title{Plot prior, likelihood, and posterior for a beta Bernoulli model}
+\source{
+Kruschke, J. K. (2015).
+\emph{Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan} (2nd ed.).
+Elsevier.
+\url{https://sites.google.com/site/doingbayesiandataanalysis/}
+}
 \usage{
 bern_beta(
   a = 1,
@@ -54,17 +60,17 @@ bern_beta(
 An object of class \code{patchwork}, \verb{gg,} and \code{ggplot}.
 }
 \description{
-Make figures highlighting the effect a beta prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 5 of \emph{DBDA3}.
+A \link{ggplot2}-based update of the \code{BernBeta()} function, as introduced in Chapter 6 of \emph{DBDA2}. The revised \code{bern_beta()} function makes figures highlighting the effect a beta prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 6 of \emph{DBDA3}. The solution is based on exact mathematical analysis.
 }
 \examples{
 # Default behavior
 bern_beta()
 
 # Define the primary input values
-a <- 5
-b <- 5
-z <- 5
-n <- 14
+a <- 2
+b <- 2
+z <- 1
+n <- 10
 
 # Add modes/95\% HDIs
 bern_beta(a = a, b = b, z = z, n = n,
@@ -72,10 +78,10 @@ bern_beta(a = a, b = b, z = z, n = n,
           pp_point = "mode",
           l_point = "max")
 
-# Add median/67\% ETIs
+# Add median/66.7\% ETIs
 bern_beta(a = a, b = b, z = z, n = n,
           interval = "eti",
-          prob = 0.67,
+          prob = 0.667,
           pp_point = "median")
 
 # Add mean and ML
@@ -86,14 +92,17 @@ bern_beta(a = a, b = b, z = z, n = n,
 # Make further aesthetic adjustments
 bern_beta(a = a, b = b, z = z, n = n,
           interval = "eti",
-          prob = 0.67,
-          pp_point = "median",
-          # new settings
-          arrow_linewidth = 1.5,
-          arrow_length = 0.125,
-          fill_color = "skyblue2",
-          darken_amount = c(-0.4, 0.3),
+          prob = 0.8,
+          pp_point = "mean",
+          # Aesthetic settings
+          arrow_linewidth = 1.25,
+          arrow_length = 0.1,
+          fill_color = "steelblue1",
+          darken_amount = c(-0.3, 0.2),
           point_size = 3,
-          text_size = 4)
+          text_size = 5)
 
+}
+\seealso{
+\code{\link[=bern_grid]{bern_grid()}} for similar plots based on a general prior distribution defined with a grid.
 }

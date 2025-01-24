@@ -3,6 +3,12 @@
 \name{bern_grid}
 \alias{bern_grid}
 \title{Plot prior, likelihood, and posterior for a beta Bernoulli model}
+\source{
+Kruschke, J. K. (2015).
+\emph{Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan} (2nd ed.).
+Elsevier.
+\url{https://sites.google.com/site/doingbayesiandataanalysis/}
+}
 \usage{
 bern_grid(
   theta,
@@ -11,13 +17,13 @@ bern_grid(
   n,
   interval = c("eti", "hdi", "none")[3],
   prob = 0.95,
-  pp_point = c("median", "mode", "none")[3],
+  pp_point = c("mean", "median", "mode", "none")[4],
   l_point = c("max", "none")[2],
   arrow_linewidth = 0.67,
   arrow_length = 0.075,
   col_width = NULL,
-  fill_color = "gray65",
-  darken_amount = c(-0.25, 0.15),
+  fill_color = "gray70",
+  darken_amount = c(-0.15, 0.15),
   point_size = 1.5,
   text_size = 3.25,
   return_post = c(TRUE, FALSE)[2]
@@ -60,51 +66,59 @@ bern_grid(
 If \code{return_post == FALSE}, an object of class \code{patchwork}, \verb{gg,} and \code{ggplot}. If \code{return_post == TRUE}, a numeric vector the same length as \code{theta}.
 }
 \description{
-Make figures highlighting the effect a beta prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 5 of \emph{DBDA3}.
+A \link{ggplot2}-based update of the \code{BernGrid()} function, as introduced in Chapter 5 of \emph{DBDA2}. The revised \code{bern_grid()} function makes figures highlighting the effect the prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 5 of \emph{DBDA3}. The solution is based on the grid-approximation approach.
 }
 \examples{
 # Define the primary input values
-theta_vector <- seq(from = 0, to = 1, length.out = 51)
-prior_vector <- pmin(theta_vector, 1 - theta_vector)
-prior_vector <- prior_vector / sum(prior_vector)  # Normalize `prior_vector`
+theta_vec <- seq(from = 0, to = 1, length.out = 51)
+prior_vec <- pmin(theta_vec, 1 - theta_vec)
+prior_vec <- prior_vec / sum(prior_vec)  # Normalize `prior_vec`
 z <- 5
 n <- 6
 
 # Default behavior
-bern_grid(theta = theta_vector, p_theta = prior_vector, z = z, n = n)
+bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n)
 
 # Add modes/95\% HDIs
-bern_grid(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
+bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
           interval = "hdi",
           pp_point = "mode",
           l_point = "max")
 
-# Add median/67\% ETIs
-bern_grid(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
+# Add median/66.7\% ETIs
+bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
           interval = "eti",
-          prob = 0.67,
+          prob = 0.667,
           pp_point = "median")
 
+# Add mean and ML
+bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
+          pp_point = "mean",
+          l_point = "max")
+
 # Make further aesthetic adjustments
-bern_grid(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
+bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
           interval = "eti",
-          prob = 0.67,
+          prob = 0.667,
           pp_point = "median",
           # new settings
-          arrow_linewidth = 1.5,
-          arrow_length = 0.125,
-          col_width = 0.01,
-          fill_color = "skyblue2",
-          darken_amount = c(-0.4, 0.3),
+          arrow_linewidth = 1.25,
+          arrow_length = 0.1,
+          col_width = 0.015,
+          fill_color = "skyblue1",
+          darken_amount = c(-0.3, 0.2),
           point_size = 3,
           text_size = 4)
 
 # Return the vector of posterior values
-posterior_vector <- bern_grid(theta = theta_vector, p_theta = prior_vector, z = z, n = n,
-                              return_post = TRUE)
-str(posterior_vector)
+posterior_vec <- bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
+                           return_post = TRUE)
+str(posterior_vec)
 
-# Use the `posterior_vector` in `p_theta` and update `z` and `n`
-bern_grid(theta = theta_vector, p_theta = posterior_vector, z = z + 1, n = n + 1)
+# Use the `posterior_vec` in `p_theta` and update `z` and `n`
+bern_grid(theta = theta_vec, p_theta = posterior_vec, z = z + 1, n = n + 1)
 
+}
+\seealso{
+\code{\link[=bern_beta]{bern_beta()}} for similar plots based on a beta prior and mathematical analysis.
 }
