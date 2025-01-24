@@ -6,6 +6,13 @@
 #' @param z the number of `1`'s (e.g., heads in coin flips, successes in pass/fail trials).
 #' @param n the total number of Bernoulli trials.
 #'
+#' @details
+#' If we let the outcome of the \eqn{i^{th}} trial be \eqn{y_i}, and let the set of outcomes be \eqn{\{y_i\}}, we can summarize the total number of \eqn{1}'s or \emph{successful} trials as \eqn{z}, and the total number of trials as \eqn{N}. We can compute likelihood of an entire set of multiple independent flips as
+#'
+#' \deqn{p(\{y_i\} \mid \theta) = \theta^z \, (1 - \theta)^{(N - z)},}
+#'
+#' where \eqn{\theta} is the overall success probability for the set of outcomes.
+#'
 #' @returns A numeric vector of size `x` of density values.
 #'
 #' @examples
@@ -20,8 +27,6 @@ dbern <- function(x, z = NULL, n = NULL) {
   checkmate::assert_numeric(x, lower = 0, upper = 1)
   checkmate::assert_numeric(z, lower = 0)
   checkmate::assert_numeric(n, lower = 1)
-  # checkmate::assert_scalar(z)
-  # checkmate::assert_scalar(n)
 
   return(x^z * (1 - x)^(n - z))
 
