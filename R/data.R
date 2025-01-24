@@ -51,6 +51,31 @@
 #'
 "hair_eye_color"
 
+#' Weight loss data based on Horan & Johnson (1971)
+#'
+#' This is an adjusted and simplified version of the primary outcome data presented in Table 2 of Horan & Johnson (1971, p. 246). The original data were pre- and post-treatment weights (lbs.) for participants in four weight loss groups. For the purposes of the example in Chapter 11 of *DBDA3*, we:
+#'  * simplified the outcomes to whether each participants lost weight,
+#'  * computed the proportion of weight loss in each condition, and then
+#'  * adjusted those proportions and the sample size for each group.
+#'
+#' @format A tibble with 4 rows and 3 columns:
+#' \describe{
+#'   \item{treatment}{The experimental groups (ordered factor)}
+#'   \item{z}{The number who lost weight in each group (numeric)}
+#'   \item{n}{Total number per group (numeric)}
+#' }
+#'
+#' @source
+#' Horan, J. J., & Johnson, R. G. (1971).
+#' Coverant conditioning through a self-management application of the Premack principle: Its effect on weight reduction.
+#' \emph{Journal of Behavior Therapy and Experimental Psychiatry, 2}(4), 243–249.
+#' <https://doi.org/10.1016/0005-7916(71)90040-1>
+#'
+#' @examples
+#' tibble::glimpse(weight_loss)
+#'
+"weight_loss"
+
 #' Individual Bernoulli trials
 #'
 #' Three data sets (`set_a`, `set_b`, and `set_c`) used in Chapter 9 of *DBDA3* to showcase how shrinkage in hierarchical models is influenced by different numbers of Bernoulli trials \eqn{(N_s)}, and different success proportions \eqn{(z_s / N_s)} per subject \eqn{(s)}.

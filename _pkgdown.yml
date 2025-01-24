@@ -34,7 +34,6 @@ reference:
   desc: Convience functions to make plots similar to some of the figures in the text
   contents:
   - bern_grid
-  - bern_grid2
   - bern_beta
   - bf_plot
 
@@ -60,4 +59,5 @@ reference:
   - set_a
   - set_b
   - set_c
+  - weight_loss
 
