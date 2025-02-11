@@ -53,7 +53,7 @@ gibbs_walk <- function(init_pos = c(0.01, 0.01),
                        n_cycle = 1000, seed = 47405,
                        z1 = 5, n1 = 7, a1 = 1, b1 = 1,
                        z2 = 2, n2 = 7, a2 = 1, b2 = 1) {
-
+  # Checks
   checkmate::assert_numeric(init_pos, lower = 0, upper = 1)
   checkmate::assert_numeric(n_cycle, lower = 0)
   checkmate::assert_numeric(seed)
@@ -99,6 +99,5 @@ gibbs_walk <- function(init_pos = c(0.01, 0.01),
   # Convert the output to a data frame
   traj <- data.frame(traj)
   return(traj)
-
 }
 
