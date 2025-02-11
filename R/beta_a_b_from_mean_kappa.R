@@ -47,16 +47,14 @@
 #'
 #' @export
 beta_a_b_from_mean_kappa <- function(mean, kappa) {
-
+  # Checks
   checkmate::assert_numeric(mean)
   checkmate::assert_numeric(kappa)
-
-  if (mean <= 0 | mean >= 1) stop("Must have 0 < `mean` < 1.")
+  if (mean <= 0 || mean >= 1) stop("Must have 0 < `mean` < 1.")
   if (kappa <= 0) stop("`kappa` must be > 0.")
 
   a <- mean * kappa
   b <- (1.0 - mean) * kappa
   return(list(a = a, b = b))
-
 }
 

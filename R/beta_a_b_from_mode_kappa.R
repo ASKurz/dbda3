@@ -49,17 +49,14 @@
 #'
 #' @export
 beta_a_b_from_mode_kappa <- function(mode, kappa) {
-
+  # Checks
   checkmate::assert_numeric(mode)
   checkmate::assert_numeric(kappa)
-
-  if (mode <= 0 | mode >= 1) stop("Must have 0 < `mode` < 1.")
+  if (mode <= 0 || mode >= 1) stop("Must have 0 < `mode` < 1.")
   if (kappa <= 2) stop("`kappa` must be > 2 for mode parameterization.")
 
   a <- mode * (kappa - 2) + 1
   b <- (1.0 - mode) * (kappa - 2) + 1
-
   return(list(a = a, b = b))
-
 }
 
