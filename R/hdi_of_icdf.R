@@ -2,10 +2,10 @@
 #'
 #' Given the name of an R function for an inverse cumulative density function (ICDF), compute the highest density interval (HDI) of interest.
 #'
-#' @param name an R function name for the ICDF of the distribution of interest (e.g., `qbeta` for the beta distribution, `qnorm` for the normal distribution).
-#' @param prob a single numeric value in the range \eqn{[0, 1]} for the desired probability mass of the HDI region. Defaults to `0.95`.
-#' @param tol a numeric value passed to the `tol` argument in the `stats::optimize()` function. Defaults to `1e-8`.
-#' @param ... additional named arguments passed on to the ICDF identified in `name`.
+#' @param name An R function name for the ICDF of the distribution of interest (e.g., `qbeta` for the beta distribution, `qnorm` for the normal distribution).
+#' @param prob A single numeric value in the range \eqn{[0, 1]} for the desired probability mass of the HDI region. Defaults to `0.95`.
+#' @param tol A positive finite numeric value passed to the `tol` argument in the `stats::optimize()` function. Defaults to `1e-8`.
+#' @param ... Additional named arguments passed on to the ICDF identified in `name`.
 #'
 #' @returns A numeric vector of the HDI limits.
 #'
