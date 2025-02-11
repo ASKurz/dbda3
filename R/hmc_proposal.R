@@ -44,10 +44,12 @@
 #'   facet_grid(l ~ epsilon, labeller = label_both)
 #'
 #' @export
-hmc_proposal <- function(epsilon = 0.1, l = 5,
-                         mo_sd = 1, init_pos = 2,
+hmc_proposal <- function(epsilon = 0.1,
+                         l = 5,
+                         mo_sd = 1,
+                         init_pos = 2,
                          seed = 47405) {
-
+  # Checks
   checkmate::assert_numeric(epsilon, lower = 0)
   checkmate::assert_numeric(l, lower = 1)
   checkmate::assert_numeric(mo_sd, lower = 0)
@@ -94,6 +96,5 @@ hmc_proposal <- function(epsilon = 0.1, l = 5,
     proposal = proposal_vector)
 
   return(hmc_results)
-
 }
 
