@@ -49,17 +49,14 @@
 #'
 #' @export
 gamma_s_r_from_mode_sd <- function(mode, sd) {
-
+  # Checks
   checkmate::assert_numeric(mode)
   checkmate::assert_numeric(sd)
-
   if (mode <= 0) stop("`mode` must be > 0")
   if (sd   <= 0) stop("`sd` must be > 0")
 
   rate  <- (mode + sqrt(mode^2 + 4 * sd^2)) / (2 * sd^2)
   shape <- 1 + mode * rate
-
   return(list(shape = shape, rate = rate))
-
 }
 

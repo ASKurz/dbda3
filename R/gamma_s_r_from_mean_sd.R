@@ -49,17 +49,14 @@
 #'
 #' @export
 gamma_s_r_from_mean_sd <- function(mean, sd) {
-
+  # Checks
   checkmate::assert_numeric(mean)
   checkmate::assert_numeric(sd)
-
   if (mean <= 0) stop("`mean` must be > 0")
   if (sd   <= 0) stop("`sd` must be > 0")
 
   shape <- mean^2 / sd^2
   rate  <- mean   / sd^2
-
   return(list(shape = shape, rate = rate))
-
 }
 
