@@ -86,7 +86,7 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
                        darken_amount = c(-0.15, 0.15),
                        point_size = 1.5,
                        text_size = 3.25) {
-
+  # Checks
   checkmate::assert_numeric(a, lower = 0)
   checkmate::assert_numeric(b, lower = 0)
   checkmate::assert_numeric(z, lower = 0)
@@ -141,14 +141,31 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
         interval == "eti" ~ between(theta, left = posterior_eti[1], right = posterior_eti[2]),
         interval == "hdi" & (z + a > 1 & n - z + b > 1) ~ between(theta, left = posterior_hdi[1], right = posterior_hdi[2]),
         interval == "hdi" & (z + a <= 1 | n - z + b <= 1) ~ NA,
-        interval == "none" ~ NA))
+        interval == "none" ~ NA),
+      prior_group = case_when(
+        # Logic matches that used in `dplyr::between()`
+        interval == "eti" & theta <= prior_eti[1] ~ "1",
+        interval == "eti" & theta <= prior_eti[2] ~ "2",
+        interval == "eti" & theta >  prior_eti[2] ~ "3",
+        interval == "hdi" & theta <= prior_hdi[1] ~ "1",
+        interval == "hdi" & theta <= prior_hdi[2] ~ "2",
+        interval == "hdi" & theta >  prior_hdi[2] ~ "3",
+        interval == "none" ~ "1"),
+      posterior_group = case_when(
+        interval == "eti" & theta <= posterior_eti[1] ~ "1",
+        interval == "eti" & theta <= posterior_eti[2] ~ "2",
+        interval == "eti" & theta >  posterior_eti[2] ~ "3",
+        interval == "hdi" & theta <= posterior_hdi[1] ~ "1",
+        interval == "hdi" & theta <= posterior_hdi[2] ~ "2",
+        interval == "hdi" & theta >  posterior_hdi[2] ~ "3",
+        interval == "none" ~ "1"))
 
   # Intervals
-  if (interval == "eti" | interval == "hdi") {
+  if (interval == "eti" || interval == "hdi") {
     # Initial prior panel with interval information
     p1 <- grid_df |>
       ggplot(aes(x = theta, y = prior)) +
-      geom_area(aes(fill = prior_in_interval),
+      geom_area(aes(fill = prior_in_interval, group = prior_group),
                 position = "identity") +
       geom_line(data = grid_df |>
                   filter(prior_in_interval == TRUE) |>
@@ -162,7 +179,7 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
     # Initial posterior panel with interval information
     p3 <- grid_df |>
       ggplot(aes(x = theta, y = posterior)) +
-      geom_area(aes(fill = posterior_in_interval),
+      geom_area(aes(fill = posterior_in_interval, group = posterior_group),
                 position = "identity") +
       geom_line(data = grid_df |>
                   filter(posterior_in_interval == TRUE) |>
@@ -191,7 +208,7 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
 
   if (pp_point != "none") {
     # Prior panel
-    if (pp_point == "mean" | pp_point ==  "median" | (pp_point == "mode" & unique_prior_mode == TRUE)) {
+    if (pp_point == "mean" || pp_point ==  "median" || (pp_point == "mode" && unique_prior_mode == TRUE)) {
       # Make supporting data frame for the dot and text annotation
       prior_point_df <- grid_df |>
         summarise(
@@ -214,7 +231,7 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
                   size = text_size, vjust = -0.75)
     }
     # Posterior panel
-    if (pp_point == "mean" | pp_point ==  "median" | (pp_point == "mode" & unique_posterior_mode == TRUE)) {
+    if (pp_point == "mean" || pp_point ==  "median" || (pp_point == "mode" && unique_posterior_mode == TRUE)) {
       # Make supporting data frame for the dot and text annotation
       posterior_point_df <- grid_df |>
         summarise(
@@ -239,7 +256,7 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
   }
 
   # Prior/posterior point/interval name label
-  if (pp_point != "none" | interval != "none") {
+  if (pp_point != "none" || interval != "none") {
     # Make supporting data frame for the prior name label
     prior_label_df <- grid_df |>
       summarise(
@@ -330,6 +347,5 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
     theme(panel.grid = element_blank())
 
   p1 / p2 / p3
-
 }
 
