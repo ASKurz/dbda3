@@ -99,7 +99,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
                       point_size = 1.5,
                       text_size = 3.25,
                       return_post = c(TRUE, FALSE)[2]) {
-
+  # Checks
   checkmate::assert_numeric(theta, lower = 0, upper = 1, any.missing = FALSE)
   checkmate::assert_numeric(p_theta, lower = 0, upper = 1, any.missing = FALSE)
   checkmate::assert_numeric(z, lower = 0)
@@ -146,8 +146,11 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
     slice_max(posterior) |>
     nrow()
 
+  # Save a common character value
+  pp_point_name <- str_to_sentence(pp_point)
+
   # Intervals
-  if (interval == "eti" | interval == "hdi") {
+  if (interval == "eti" || interval == "hdi") {
     # Initial prior panel with interval information
     p1 <- grid_df |>
       ggplot(aes(x = theta, y = prior)) +
@@ -198,11 +201,8 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
 
   # Prior/posterior central tendency points
   if (pp_point != "none") {
-    # Save a common character value
-    pp_point_name <- str_to_sentence(pp_point)
-
     # Prior panel
-    if (pp_point %in% c("mean", "median") | (pp_point == "mode" & n_mode_prior == 1)) {
+    if (pp_point %in% c("mean", "median") || (pp_point == "mode" & n_mode_prior == 1)) {
       # Make supporting data frame for the dot and text annotation
       prior_point_df <- grid_df |>
         summarise(
@@ -224,7 +224,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
                   size = text_size, vjust = -0.75)
     }
     # Posterior panel
-    if (pp_point %in% c("mean", "median") | (pp_point == "mode" & n_mode_posterior == 1)) {
+    if (pp_point %in% c("mean", "median") || (pp_point == "mode" & n_mode_posterior == 1)) {
       # Make supporting data frame for the dot and text annotation
       posterior_point_df <- grid_df |>
         summarise(
@@ -248,7 +248,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
   }
 
   # Prior/posterior point/interval name label
-  if (pp_point != "none" | interval != "none") {
+  if (pp_point != "none" || interval != "none") {
     # Make supporting data frame for the prior name label
     prior_label_df <- grid_df |>
       summarise(
@@ -366,6 +366,5 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
   } else {
     pull(grid_df, posterior)
   }
-
 }
 
