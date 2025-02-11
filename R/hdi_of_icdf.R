@@ -17,18 +17,23 @@
 #'
 #' @export
 hdi_of_icdf <- function(name, prob = 0.95, tol = 1e-8, ...) {
+  # Checks
+  checkmate::assert_numeric(prob, lower = 0, upper = 1)
+  checkmate::assert_numeric(tol, lower = 0, finite = TRUE)
 
   incredible_mass <- 1.0 - prob
   interval_width <- function(low_tail_prob, name, prob, ...) {
     name(prob + low_tail_prob, ...) - name(low_tail_prob, ...)
   }
-  opt_info <- optimize(interval_width, c(0, incredible_mass),
-                       name = name, prob = prob,
-                       tol = tol, ...)
+  opt_info <- optimize(
+    f = interval_width,
+    interval = c(0, incredible_mass),
+    name = name, prob = prob,
+    tol = tol,
+    ...)
   hdi_lower_tail_prob <- opt_info$minimum
 
   return(c(name(hdi_lower_tail_prob, ...),
            name(prob + hdi_lower_tail_prob, ...)))
-
 }
 
