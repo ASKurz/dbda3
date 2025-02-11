@@ -23,12 +23,11 @@
 #'
 #' @export
 dbern <- function(x, z = NULL, n = NULL) {
-
+  # Checks
   checkmate::assert_numeric(x, lower = 0, upper = 1)
   checkmate::assert_numeric(z, lower = 0)
   checkmate::assert_numeric(n, lower = 1)
 
   return(x^z * (1 - x)^(n - z))
-
 }
 

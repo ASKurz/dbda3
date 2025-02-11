@@ -60,20 +60,17 @@ bf_plot <- function(
     bf_size = 6,
     ar_size = 3.5,
     axis_breaks = 0:5 / 5,
-    # if TRUE then only returns info, no plot
+    # If TRUE then only returns info, no plot
     no_plot = FALSE) {
-
   # Check the inputs values
   if (bf <= 0) stop("`bf` must be greater than zero.")
   if (is.infinite(bf)) stop("`bf` must be finite.")
   if (!is.numeric(bf)) stop("`bf` must be numeric.")
-
   if (!is.na(crit_post)) {
     if (crit_post <= 0.50) stop("`crit_post` must be greater than 0.50.")
     if (crit_post > 1) stop("`crit_post` must not exceed 1.")
     if (!is.numeric(crit_post)) stop("`crit_post` must be numeric or `NA`.")
   }
-
   if (!is.numeric(bf_size)) stop("`bf_size` must be numeric.")
   if (!is.numeric(ar_size)) stop("`ar_size` must be numeric.")
 
@@ -178,6 +175,5 @@ bf_plot <- function(
           plot.subtitle = element_text(hjust = 0.5))
 
   the_bf_plot
-
 }
 
