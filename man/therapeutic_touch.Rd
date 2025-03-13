@@ -7,8 +7,8 @@
 \format{
 A tibble with 280 rows and 2 columns:
 \describe{
-\item{y}{Bernoulli trials (integer with values \code{0} and \code{1})}
-\item{s}{Subject number (integer ranging from \code{1} to \code{28})}
+\item{participant}{Participant number (character values ranging from \code{"S01"} to \code{"S28"})}
+\item{response}{Bernoulli trial results (character values \code{"wrong"} and \code{"correct"})}
 }
 }
 \source{
