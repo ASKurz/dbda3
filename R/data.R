@@ -4,8 +4,8 @@
 #'
 #' @format A tibble with 280 rows and 2 columns:
 #' \describe{
-#'   \item{y}{Bernoulli trials (integer with values `0` and `1`)}
-#'   \item{s}{Subject number (integer ranging from `1` to `28`)}
+#'   \item{participant}{Participant number (character values ranging from `"S01"` to `"S28"`)}
+#'   \item{response}{Bernoulli trial results (character values `"wrong"` and `"correct"`)}
 #' }
 #'
 #' @source
@@ -111,4 +111,51 @@
 #'
 #' @source <https://r-pkgs.org/data.html#sec-documenting-data>
 "my_pkg_data"
+
+#' Height and Weight data for 300 cases
+#'
+#' This is a reformatted version of the `HtWtData300.csv` used in *DBDA2*. The data were originally made with Kruschke's `HtWtDataGenerator()` function.
+#'
+#' @format A tibble with 300 rows and 4 columns:
+#' \describe{
+#'   \item{height}{numeric values (in inches)}
+#'   \item{weight}{numeric values (in pounds)}
+#'   \item{height_z}{numeric values (standardized version of `height`)}
+#'   \item{weight_z}{numeric values (standardized version of `weight`)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' @examples
+#' tibble::glimpse(height_weight_300)
+#'
+"height_weight_300"
+
+#' Height and Weight data for 40 cases
+#'
+#' A data set of 40 height and weight values simulated with the `height_weight_generator()` function. The final two rows have been altered to make them outliers relative to the rest. To streamline the data set for the purposes of the book, we removed the `male` column.
+#'
+#' @format A tibble with 40 rows and 2 columns:
+#' \describe{
+#'   \item{height}{numeric values (in inches)}
+#'   \item{weight}{numeric values (in pounds)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(height_weight_40)
+#'
+"height_weight_40"
+
+
+
+
+
+
+
+
+
 
