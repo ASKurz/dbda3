@@ -44,10 +44,9 @@
 #'
 #' @export
 in_eti_grid <- function(x, prob = 0.95) {
-
+  # Checks
   checkmate::assert_numeric(x, lower = 0, upper = 1)
   checkmate::assert_numeric(prob, lower = 0, upper = 1)
-  checkmate::assert_scalar(prob)
 
   cdf <- cumsum(x)
   rcdf <- cumsum(rev(x))
@@ -56,6 +55,5 @@ in_eti_grid <- function(x, prob = 0.95) {
   in_eti <- tail_low == FALSE & tail_high == FALSE
 
   return(in_eti)
-
 }
 

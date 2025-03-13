@@ -7,13 +7,13 @@
 hdi_of_icdf(name, prob = 0.95, tol = 1e-08, ...)
 }
 \arguments{
-\item{name}{an R function name for the ICDF of the distribution of interest (e.g., \code{qbeta} for the beta distribution, \code{qnorm} for the normal distribution).}
+\item{name}{An R function name for the ICDF of the distribution of interest (e.g., \code{qbeta} for the beta distribution, \code{qnorm} for the normal distribution).}
 
-\item{prob}{a single numeric value in the range \eqn{[0, 1]} for the desired probability mass of the HDI region. Defaults to \code{0.95}.}
+\item{prob}{A single numeric value in the range \eqn{[0, 1]} for the desired probability mass of the HDI region. Defaults to \code{0.95}.}
 
-\item{tol}{a numeric value passed to the \code{tol} argument in the \code{stats::optimize()} function. Defaults to \code{1e-8}.}
+\item{tol}{A positive finite numeric value passed to the \code{tol} argument in the \code{stats::optimize()} function. Defaults to \code{1e-8}.}
 
-\item{...}{additional named arguments passed on to the ICDF identified in \code{name}.}
+\item{...}{Additional named arguments passed on to the ICDF identified in \code{name}.}
 }
 \value{
 A numeric vector of the HDI limits.

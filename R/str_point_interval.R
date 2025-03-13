@@ -48,6 +48,5 @@ str_point_interval <- function(shape1, shape2, interval, pp_point, prob, unique_
     interval == "none" & pp_point == "median"                                            ~ pp_point_name,
     interval == "none" & pp_point == "mode"   & unique_mode == TRUE                      ~ pp_point_name,
     interval == "none" & pp_point == "mode"   & unique_mode == FALSE                     ~ "")
-
 }
 
