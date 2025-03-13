@@ -29,6 +29,7 @@ reference:
 - title: Likelihood functions
   contents:
   - dbern
+  - height_weight_generator
 
 - title: Plotting functions
   desc: Convience functions to make plots similar to some of the figures in the text
@@ -36,6 +37,7 @@ reference:
   - bern_grid
   - bern_beta
   - bf_plot
+  - plot_hmc
 
 - title: Sampler functions
   desc: Functions designed to highlight various MCMC samplers and their technical details
@@ -47,14 +49,20 @@ reference:
 - title: Miscelaneous
   desc: This is a placeholder section for functions without clear categories [may be ammended]
   contents:
+  - exp_loss_rope_decis
   - neg_log_lik
+  - logistic
+  - logit
   - lpd
+  - summarize_draws_dbda3
 
 - title: Data sets
   desc: Example data sets used in the text
   contents:
   - my_pkg_data
   - hair_eye_color
+  - height_weight_40
+  - height_weight_300
   - therapeutic_touch
   - set_a
   - set_b
