@@ -4,12 +4,14 @@
 \alias{summarize_draws_dbda3}
 \title{Summarize \code{draws} objects}
 \usage{
-summarize_draws_dbda3(.x, probs = c(0.5, 0.025, 0.975))
+summarize_draws_dbda3(.x, probs = c(0.5, 0.025, 0.975), ...)
 }
 \arguments{
 \item{.x}{An object of class \code{draws} passed to the \code{.x} argument within the \code{summarize_draws()} function.}
 
 \item{probs}{A numeric vector of probability values ranging from \code{0} to \code{1} passed to the \code{probs} argument of the \code{ess_quantile()}, \code{mcse_quantile()}, and \code{quantile2()} functions from the posterior package. Defaults to \code{c(0.50, 0.025, 0.975)}.}
+
+\item{...}{Additional arguments passed to \code{summarize_draws()}.}
 }
 \value{
 An object of \code{draws_summary}, \code{tbl_df}, \code{tbl}, and \code{data.frame} returned by the \code{summarize_draws()} function. The first column, \code{variable}, is a character vector of the names of the summarized columns. The remaining columns contain numeric values for the summary statistics and convergence measures from the following functions: \code{rhat()}, \code{ess_quantile()}, \code{mcse_quantile()}, and \code{quantile2()}.
