@@ -21,6 +21,8 @@ height_weight_40 <- height_weight_38 |>
   # Add the adjusted fitted values to the data frame
   bind_rows(nd |>
               mutate(weight = predict(fit1, newdata = nd) |>
+                       # `predict()` returns a named vector; this removes the name attribute
+                       unname() |>
                        # Adjust the fitted values to make them outliers
                        round(digits = 1) + c(5, - 4) * epsilon))
 
