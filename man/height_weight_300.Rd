@@ -5,12 +5,11 @@
 \alias{height_weight_300}
 \title{Height and Weight data for 300 cases}
 \format{
-A tibble with 300 rows and 4 columns:
+A data frame with 30 rows and 3 columns:
 \describe{
+\item{male}{numeric values coded \code{0} for women and \code{1} for  men}
 \item{height}{numeric values (in inches)}
 \item{weight}{numeric values (in pounds)}
-\item{height_z}{numeric values (standardized version of \code{height})}
-\item{weight_z}{numeric values (standardized version of \code{weight})}
 }
 }
 \source{

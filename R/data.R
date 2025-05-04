@@ -24,6 +24,42 @@
 #'
 "therapeutic_touch"
 
+#' Retrospective chart review data
+#'
+#' This is a reformatted version of the t-distributed data used in Figure 16.5 of *DBDA2* (p. 460), originally published in Boyd et al (1998), and further highlighted in Holcomb & Spalsbury (2005).
+#'
+#' @format A tibble with 178 rows and 8 columns:
+#' \describe{
+#'   \item{obsno}{Participant number (numeric values ranging from `1` to `178`)}
+#'   \item{age}{Years old (numeric values ranging from `1` to `178`)}
+#'   \item{sex}{Binary (factor)}
+#'   \item{alkphos}{Alkaline phosphatase (numeric values in liters)}
+#'   \item{lab}{Lab (factor)}
+#'   \item{cammol}{Calcium (numeric values in mmol/L)}
+#'   \item{phosmmol}{Inorganic phosphorus (numeric values in mmol/L)}
+#'   \item{age_group}{Binned age (factor)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' Boyd, J. L., Delost, M. E., & Holcomb, J. P. (1998).
+#' Calcium, phosphorus, and alkaline phosphatase values of elderly subjects.
+#' \emph{Clinical Laboratory Science, 11}(4), 223.
+#'
+#' Holcomb, J., & Spalsbury, A. (2005).
+#' Teaching Students to Use Summary Statistics and Graphics to Clean and Analyze Data.
+#' \emph{Journal of Statistics Education, 13}(3).
+#' <https://doi.org/10.1080/10691898.2005.11910567>
+#'
+#' @examples
+#' tibble::glimpse(chart_review)
+#'
+"chart_review"
+
 #' Hair and eye color data
 #'
 #' This is a reformatted version of the `HairEyeColor.csv` used in *DBDA2*, which were themselves from the `HairEyeColor` data from the {datasets} package (`?datasets::HairEyeColor`).
@@ -116,12 +152,11 @@
 #'
 #' This is a reformatted version of the `HtWtData300.csv` used in *DBDA2*. The data were originally made with Kruschke's `HtWtDataGenerator()` function.
 #'
-#' @format A tibble with 300 rows and 4 columns:
+#' @format A data frame with 30 rows and 3 columns:
 #' \describe{
+#'   \item{male}{numeric values coded `0` for women and `1` for  men}
 #'   \item{height}{numeric values (in inches)}
 #'   \item{weight}{numeric values (in pounds)}
-#'   \item{height_z}{numeric values (standardized version of `height`)}
-#'   \item{weight_z}{numeric values (standardized version of `weight`)}
 #' }
 #'
 #' @source
@@ -134,6 +169,28 @@
 #' tibble::glimpse(height_weight_300)
 #'
 "height_weight_300"
+
+#' Height and Weight data for 30 cases
+#'
+#' This is a reformatted version of the `HtWtData30.csv` used in *DBDA2*. The data were originally made with Kruschke's `HtWtDataGenerator()` function.
+#'
+#' @format A data frame with 30 rows and 3 columns:
+#' \describe{
+#'   \item{male}{numeric values coded `0` for women and `1` for  men}
+#'   \item{height}{numeric values (in inches)}
+#'   \item{weight}{numeric values (in pounds)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' @examples
+#' tibble::glimpse(height_weight_30)
+#'
+"height_weight_30"
 
 #' Height and Weight data for 40 cases
 #'
@@ -150,8 +207,39 @@
 #'
 "height_weight_40"
 
+#' Gaussian data for multiple linear regression
+#'
+#' A synthetic data set of a single Gaussian predicted variable `y`, and two continuous predictor variables `x1` and `x2`, made originally for Chapter 13 of *DBDA3*.
+#'
+#' @format A data frame with 400 rows and 3 columns:
+#' \describe{
+#'   \item{x1}{A numeric variable uniformly distributed between -4 and 2.}
+#'   \item{x2}{A numeric variable uniformly distributed between -4 and 2, simulated independently from `x1`.}
+#'   \item{y}{A numeric variable simulated to be Gaussian with a mean conditional on `x1` and `x2`.}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(linear_data)
+#'
+"linear_data"
 
-
+#' Multilevel Gaussian data with a single metric predictor
+#'
+#' A data set used in Chapter 15 of *DBDA3* to showcase a Gaussian multilevel model with random intercepts and slopes for a predictor `x` and predicted variable `y`.
+#'
+#' @format A data frame with 146 rows and 5 columns:
+#' \describe{
+#'   \item{panel}{Panel index (character values ranging from `"1"` to `"28"`, saved as a factor)}
+#'   \item{x}{numeric values}
+#'   \item{y}{numeric values}
+#'   \item{z_x}{numeric values (standardized `x`)}
+#'   \item{z_y}{numeric values (standardized `y`)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(normal_panels)
+#'
+"normal_panels"
 
 
 
