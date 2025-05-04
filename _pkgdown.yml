@@ -49,20 +49,27 @@ reference:
 - title: Miscelaneous
   desc: This is a placeholder section for functions without clear categories [may be ammended]
   contents:
+  - cor_to_01
   - exp_loss_rope_decis
   - neg_log_lik
   - logistic
   - logit
   - lpd
+  - rescale_bounds
+  - standardize
   - summarize_draws_dbda3
 
 - title: Data sets
   desc: Example data sets used in the text
   contents:
   - my_pkg_data
+  - chart_review
   - hair_eye_color
+  - height_weight_30
   - height_weight_40
   - height_weight_300
+  - linear_data
+  - normal_panels
   - therapeutic_touch
   - set_a
   - set_b
