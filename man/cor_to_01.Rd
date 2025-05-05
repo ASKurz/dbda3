@@ -13,7 +13,7 @@ cor_to_01(x)
 A numeric vector the same length as \code{x}.
 }
 \description{
-Transform correlation values to the \eqn{[0, 1]} range.
+Transform correlation values to the \eqn{[0, 1]} range.  This is the inverse of the \code{cor_from_01()} function.
 }
 \examples{
 cor_vec <- -4:4 / 4
@@ -21,5 +21,7 @@ cor_to_01(cor_vec)
 
 }
 \seealso{
+\code{\link[=cor_from_01]{cor_from_01()}} for the inverse function.
+
 \code{\link[=rescale_bounds]{rescale_bounds()}} for a more general application.
 }

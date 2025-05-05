@@ -49,6 +49,7 @@ reference:
 - title: Miscelaneous
   desc: This is a placeholder section for functions without clear categories [may be ammended]
   contents:
+  - cor_from_01
   - cor_to_01
   - exp_loss_rope_decis
   - neg_log_lik
