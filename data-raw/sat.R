@@ -6,7 +6,9 @@ sat <- read_csv("data-raw/data.R/Guber1999data.csv")
 
 # Convert all column names to lower case
 sat <- sat |>
-  rename_with(.fn = tolower)
+  rename_with(.fn = tolower) |>
+  # Save as a conventional data frame
+  data.frame()
 
 # Inspect the data
 glimpse(sat)
