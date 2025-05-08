@@ -241,7 +241,37 @@
 #'
 "normal_panels"
 
-
+#' Scholastic Aptitude Test (SAT) data
+#'
+#' This is a reformatted version of the `Guber1999data.csv` used in *DBDA2*, originally published in Guber (1992). The data are average values for the 50 US states.
+#'
+#' @format A tibble with 50 rows and 8 columns:
+#' \describe{
+#'   \item{state}{One of the 50 US states (character values ranging from `"Alabama"` to `"Wyoming"`)}
+#'   \item{spend}{The average spending per student (numeric values, in thousands of dolars)}
+#'   \item{stutearat}{The student/teacher ratio (numeric values)}
+#'   \item{salary}{The average teacher salary (numeric values, in thousands of dolars)}
+#'   \item{prcnttake}{The percentage of students who take the SAT (numeric values)}
+#'   \item{satv}{The verbal subscore of the SAT (numeric values)}
+#'   \item{satm}{The math subscore of the SAT (numeric values)}
+#'   \item{satt}{The average total SAT score (numeric values)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' Guber, D. L. (1999).
+#' Getting what you pay for: The debate over equity in public school expenditures.
+#' \emph{Journal of Statistics Education}, 2(7).
+#' <https://doi.org/10.1080/10691898.1999.12131274>
+#'
+#' @examples
+#' tibble::glimpse(sat)
+#'
+"sat"
 
 
 
