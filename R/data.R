@@ -273,7 +273,27 @@
 #'
 "sat"
 
-
-
-
+#' Kentucky Derby data
+#'
+#' [To be completed later]
+#'
+#' @format A data frame with 143 rows and 8 columns:
+#' \describe{
+#'   \item{year}{ (numeric values)}
+#'   \item{winner}{ (character values )}
+#'   \item{surface}{ (character values )}
+#'   \item{condition}{ (character values )}
+#'   \item{starters}{ (numeric values)}
+#'   \item{poleposition}{ (numeric values)}
+#'   \item{time}{ (numeric values)}
+#'   \item{speed}{ (numeric values)}
+#' }
+#'
+#' @source
+#' Some source
+#'
+#' @examples
+#' tibble::glimpse(derby)
+#'
+"derby"
 

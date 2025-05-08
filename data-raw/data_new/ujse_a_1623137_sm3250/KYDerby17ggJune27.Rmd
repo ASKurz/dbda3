@@ -1,0 +1,173 @@
+---
+title: "KentuckyDerby"
+output: word_document
+---
+
+```{r}
+#install.packages("ggplot2")
+library(ggplot2)
+
+KYDerby = read.delim("~/Desktop/KYDerby17.txt", header=T)
+#this version includes speed, but I  ask students to create instead
+names(KYDerby)
+KYDerby = KYDerby[,-8]  #deleting the speed variable
+#adding 2018 data
+KYDerby = rbind(KYDerby, data.frame(Year = 2018, winner = "Justify", Surface = "dirt", condition = "sloppy", Starters = 20, PolePosition = 7, Time = 124.2)) 
+
+ggplot(data = KYDerby, aes(x = Year, y = Time)) + 
+  geom_point() + geom_line(size = 0.5) + theme_classic()
+```
+
+```{r}
+#fastest two minutes in sports?
+mean(KYDerby$Time[KYDerby$Year>1895])
+t.test(KYDerby$Time[KYDerby$Year>1895], mu=120)
+```
+
+```{r}
+#convert to speed of winning horse
+KYDerby$speed = (.25*(KYDerby$Year<1896)+1.25)/(KYDerby$Time/3600)
+
+ggplot(data = KYDerby, aes(x = Year, y = speed)) + 
+  geom_point() + theme_classic() + 
+  geom_smooth(method = "lm", se = F, aes(color = "blue"), linetype = "solid") + geom_smooth(method = lm, formula = y ~ splines::bs(x, 10), se = F, aes(color = "red"), linetype = "longdash") + 
+  scale_colour_manual(name=" ", values=c("blue", "red"), labels=c("linear", "smooth"))
+
+#recode the conditions
+levels(KYDerby$condition)
+coded_categories = c("good", "fast", "good", "slow", "slow", "slow", "slow", "fast")
+KYDerby$coded_condition = coded_categories[KYDerby$condition]
+table(KYDerby$coded_condition)
+```
+
+```{r}
+ggplot(data = KYDerby, aes(x = Year, y = speed)) + 
+  geom_point() + theme_classic() + stat_smooth(se = F)
+model1 = lm(speed ~ Year, data = KYDerby)
+summary(model1)
+plot(model1)
+shapiro.test(resid(model1))
+library(car)
+outlierTest(model1)
+```
+
+```{r}
+#quadratic model
+KYDerby$centeredyear = KYDerby$Year - mean(KYDerby$Year)
+KYDerby$centeredyearsq = KYDerby$centeredyear**2
+model2 = lm(speed ~ centeredyear + centeredyearsq, data = KYDerby); summary(model2)
+KYDerby$fits2 = predict(model2, KYDerby)
+
+ggplot(data = KYDerby, aes(x = Year, y = speed)) + 
+  geom_point() + theme_classic() + stat_smooth(se = F) +
+  geom_smooth(color = "red", aes(x = Year, y = fits2))
+
+plot(model2)
+shapiro.test(resid(model2))
+cooks.distance(model2)[17]
+
+KYDerby$YearSq = KYDerby$Year**2
+model2a = lm(speed ~ Year + YearSq, data = KYDerby); summary(model2a)
+plot(model2a)
+
+ggplot(data = KYDerby, aes(x = Year, y = speed)) 
++ geom_point() + theme_classic() 
++ geom_smooth(method = "lm", formula = y ~ poly(x, 2), se = F)
+```
+
+```{r}
+#log transformation
+KYDerby$shiftedyear = KYDerby$Year - 1874
+KYDerby$logshiftyear = log(KYDerby$shiftedyear)
+model3 = lm(speed ~ logshiftyear, data = KYDerby); summary(model3)
+KYDerby$fits3 = predict(model3, KYDerby)
+
+model4 = lm(speed~ KYDerby$Year, data = KYDerby)
+KYDerby$fits = predict(model4, KYDerby)
+
+ggplot(data = KYDerby, aes(x = Year, y = speed)) + 
+  geom_point() + theme_classic() + stat_smooth(color = "black", se = F) +
+  geom_smooth(color = "red", aes(x = Year, y = fits2)) + 
+  geom_smooth(color = "blue", aes(x = Year, y = fits3))
+
+plot(model3)
+shapiro.test(resid(model3))
+
+ggplot(data = KYDerby, aes(x = Year, y = speed)) +  
+  geom_point() + theme_classic() + 
+  geom_smooth(aes(x = Year, y = fits, colour="linear"), linetype="solid") +
+  geom_smooth(aes(x = Year, y = fits2, colour="quadratic"), linetype="longdash") + 
+  geom_smooth(se=F, aes(x = Year, y = fits3, colour="log"), linetype = "dotdash") +
+  scale_colour_manual(name=" ", values=c("blue", "red", "forestgreen"))  + guides(color=guide_legend(override.aes=list(fill=NA)))
+ 
+ 
+ggplot(data = KYDerby, aes(x = shiftedyear, y = speed)) + 
+  geom_point() + theme_classic() + 
+  geom_smooth(method = "lm", se = F, aes(color="linear"), linetype="solid") +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2), se = F, aes(color = "quadratic"), linetype = "longdash") + 
+  geom_smooth(method = "glm", formula = y ~ log(x), se = F, aes(color = "log"), linetype = "dotdash") + 
+  scale_colour_manual(name=" ", values=c("blue", "red", "forestgreen"), labels=c("linear", "log", "quadratic"))  
+```
+
+
+```{r}
+#categorical variable
+ggplot(data = KYDerby, aes(y = speed, x = Year, color = condition)) +
+  geom_point() + theme_classic()
+model4 = lm(speed ~ centeredyear + centeredyearsq + condition, data = KYDerby)
+KYDerby$fits4 = predict(model4, KYDerby)
+summary(model4); anova(model4)
+
+KYDerby$fits4dusty <- predict(model4, data.frame(centeredyear = KYDerby$centeredyear, centeredyearsq = KYDerby$centeredyearsq, condition = rep("dusty",nrow(KYDerby)))) 
+KYDerby$fits4fast <- predict(model4, data.frame(centeredyear = KYDerby$centeredyear, centeredyearsq = KYDerby$centeredyearsq, condition = rep("fast",nrow(KYDerby))))
+KYDerby$fits4good <- predict(model4, data.frame(centeredyear = KYDerby$centeredyear, centeredyearsq = KYDerby$centeredyearsq, condition = rep("good",nrow(KYDerby))))
+KYDerby$fits4heavy <- predict(model4, data.frame(centeredyear = KYDerby$centeredyear, centeredyearsq = KYDerby$centeredyearsq, condition = rep("heavy",nrow(KYDerby)))) 
+KYDerby$fits4muddy <- predict(model4, data.frame(centeredyear = KYDerby$centeredyear, centeredyearsq = KYDerby$centeredyearsq, condition = rep("muddy",nrow(KYDerby))))
+KYDerby$fits4sloppy <- predict(model4, data.frame(centeredyear = KYDerby$centeredyear, centeredyearsq = KYDerby$centeredyearsq, condition = rep("sloppy",nrow(KYDerby))))
+KYDerby$fits4slow <- predict(model4, data.frame(centeredyear = KYDerby$centeredyear, centeredyearsq = KYDerby$centeredyearsq, condition = rep("slow",nrow(KYDerby)))) 
+KYDerby$fits4wet <- predict(model4, data.frame(centeredyear = KYDerby$centeredyear, centeredyearsq = KYDerby$centeredyearsq, condition = rep("wet fast",nrow(KYDerby))))
+
+ggplot(data = KYDerby, aes(x = Year, y = speed, color = condition)) + 
+  geom_point() + theme_classic() + 
+  geom_smooth(color = "red", aes(x = Year, y = fits4dusty), se = F) +
+  geom_smooth(color = "orange", aes(x = Year, y = fits4fast), se = F) + 
+  geom_smooth(color = "olivedrab", aes(x = Year, y = fits4good), se = F) + 
+  geom_smooth(color = "seagreen", aes(x = Year, y = fits4heavy), se = F) + 
+  geom_smooth(color = "turquoise", aes(x = Year, y = fits4muddy), se = F) +
+  geom_smooth(color = "deepskyblue", aes(x = Year, y = fits4sloppy), se = F) +
+  geom_smooth(color = "mediumpurple1", aes(x = Year, y = fits4slow), se = F) +
+  geom_smooth(color = "violetred", aes(x = Year, y = fits4wet), se = F)
+
+
+model5 = lm(speed ~ centeredyear + I(centeredyear^2) + coded_condition, data = KYDerby)
+KYDerby$fits5 = predict(model5, KYDerby)
+summary(model5); anova(model5)
+
+KYDerby$fits5fast <- predict(model5, data.frame(centeredyear = KYDerby$centeredyear, coded_condition = rep("fast",nrow(KYDerby)))) 
+KYDerby$fits5good <- predict(model5, data.frame(centeredyear = KYDerby$centeredyear, coded_condition = rep("good",nrow(KYDerby))))
+KYDerby$fits5slow <- predict(model5, data.frame(centeredyear = KYDerby$centeredyear, coded_condition = rep("slow",nrow(KYDerby))))
+
+ggplot(data = KYDerby, aes(x = Year, y = speed, color = coded_condition)) + 
+  geom_point() + theme_classic() + 
+  geom_smooth(color = "red", aes(x = Year, y = fits5fast), se = F) + 
+  geom_smooth(color = "forest green", aes(x = Year, y = fits5good), se = F) + 
+  geom_smooth(color = "blue", aes(x = Year, y = fits5slow), se = F)
+
+model6 = lm(speed ~ centeredyear + centeredyearsq + coded_condition + centeredyear*coded_condition, data = KYDerby)
+summary(model6); anova(model6)
+
+model7 = lm(speed ~ Year + I(Year*Year) + coded_condition + Year*coded_condition, data = KYDerby)
+summary(model7); anova(model7)
+```
+
+```{r}
+#prediction interval
+#create newx to match the model
+#e.g., newx = data.frame(logx = log(2018-1875), coded_condition="fast")
+#or
+newx = data.frame(centeredyear = 2018-mean(KYDerby$Year), centeredyearsq = (2018-mean(KYDerby$Year))*(2018-mean(KYDerby$Year)), coded_condition="fast")
+#or can use own choice of model
+predict(model5, newx, interval="confidence", level = .95)
+predict(model5, newx, interval="prediction", level = .95)
+```
+
