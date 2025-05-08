@@ -245,7 +245,7 @@
 #'
 #' This is a reformatted version of the `Guber1999data.csv` used in *DBDA2*, originally published in Guber (1992). The data are average values for the 50 US states.
 #'
-#' @format A tibble with 50 rows and 8 columns:
+#' @format A data frame with 50 rows and 8 columns:
 #' \describe{
 #'   \item{state}{One of the 50 US states (character values ranging from `"Alabama"` to `"Wyoming"`)}
 #'   \item{spend}{The average spending per student (numeric values, in thousands of dolars)}

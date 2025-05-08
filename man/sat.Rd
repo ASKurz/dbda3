@@ -5,7 +5,7 @@
 \alias{sat}
 \title{Scholastic Aptitude Test (SAT) data}
 \format{
-A tibble with 50 rows and 8 columns:
+A data frame with 50 rows and 8 columns:
 \describe{
 \item{state}{One of the 50 US states (character values ranging from \code{"Alabama"} to \code{"Wyoming"})}
 \item{spend}{The average spending per student (numeric values, in thousands of dolars)}
