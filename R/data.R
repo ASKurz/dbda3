@@ -297,3 +297,29 @@
 #'
 "derby"
 
+#' US Family Income
+#'
+#' This is a reformatted version of the `IncomeFamszState3yr.csv` used in *DBDA2*. The data were from the American Community Survey and Puerto Rico Community Survey, and downloaded from the Census Bureau at [http://www.census.gov/hhes/www/income/data/Fam_Inc_SizeofFam1.xls](http://www.census.gov/hhes/www/income/data/Fam_Inc_SizeofFam1.xls). In addition to the 50 states, they also contain information about Puerto Rico and the District of Columbia
+#'
+#' @format A data frame with 312 rows and 4 columns:
+#' \describe{
+#'   \item{state}{One of the 50 US states, plus Puerto Rico and the District of Columbia (character values ranging from `"Alabama"` to `"Wyoming"`)}
+#'   \item{family_size}{Number of persons per family (integer values, ranging from `2` to `7`)}
+#'   \item{income}{Median family income (numeric values, in dollars)}
+#'   \item{income_se}{The margin of error (standard error) for the median family income (numeric values)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' The US Census Bureau.
+#' <https://www.census.gov/>
+#'
+#' @examples
+#' tibble::glimpse(income)
+#'
+"income"
+
