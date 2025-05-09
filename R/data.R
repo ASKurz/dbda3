@@ -299,7 +299,7 @@
 
 #' US Family Income
 #'
-#' This is a reformatted version of the `IncomeFamszState3yr.csv` used in *DBDA2*. The data were from the American Community Survey and Puerto Rico Community Survey, and downloaded from the Census Bureau at [http://www.census.gov/hhes/www/income/data/Fam_Inc_SizeofFam1.xls](http://www.census.gov/hhes/www/income/data/Fam_Inc_SizeofFam1.xls). In addition to the 50 states, they also contain information about Puerto Rico and the District of Columbia
+#' This is a reformatted version of the `IncomeFamszState3yr.csv` used in *DBDA2*. The data were from the American Community Survey and Puerto Rico Community Survey, and downloaded on December 11, 2013, from the Census Bureau at [http://www.census.gov/hhes/www/income/data/Fam_Inc_SizeofFam1.xls](http://www.census.gov/hhes/www/income/data/Fam_Inc_SizeofFam1.xls). In addition to the 50 states, they also contain information about Puerto Rico and the District of Columbia
 #'
 #' @format A data frame with 312 rows and 4 columns:
 #' \describe{

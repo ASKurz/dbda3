@@ -12,6 +12,9 @@ income <- income |>
             family_size = FamilySize,
             income = MedianIncome,
             income_se = SampErr) |>
+  # Add spaces and make "of" lower case
+  mutate(state = str_replace_all(state, "([a-z])([A-Z])", "\\1 \\2") |>
+           str_replace(" Of", " of")) |>
   # Save as a conventional data frame
   data.frame()
 
