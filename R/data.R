@@ -323,3 +323,25 @@
 #'
 "income"
 
+#' Trivariate-Normal Data
+#'
+#' Two data sets (`two_x_cor` and `two_x_uncor`) used in Chapter 16 of *DBDA3* to show the consequences of weakly- and strongly-correlated predictors in simple regression models of the form \eqn{y_i = \beta_0 + \beta_1 x1_i + \beta_2 x2_i + \epsilon}.
+#'
+#' @format Each data set is a data frame with 200 rows and 3 columns:
+#' \describe{
+#'   \item{x1}{The first continuous predictor.}
+#'   \item{x2}{The second continuous predictor.}
+#'   \item{y}{The dependent variable, also continuous.}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(two_x_cor)
+#'
+#' tibble::glimpse(two_x_uncor)
+#'
+"two_x_cor"
+
+#' @rdname two_x_cor
+#' @format NULL
+"two_x_uncor"
+
