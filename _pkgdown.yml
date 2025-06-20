@@ -52,6 +52,7 @@ reference:
   - cor_from_01
   - cor_to_01
   - exp_loss_rope_decis
+  - get_inits
   - neg_log_lik
   - logistic
   - logit
@@ -78,5 +79,7 @@ reference:
   - set_a
   - set_b
   - set_c
+  - two_x_cor
+  - two_x_uncor
   - weight_loss
 
