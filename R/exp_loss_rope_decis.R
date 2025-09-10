@@ -7,6 +7,7 @@
 #' @param rope_narrow,rope_wide A two-element numeric vector of narrow or wide ROPE limits, respectively. Default to `rope`, and can be specified instead of `rope` alone.
 #' @param loss_type A character value indicating the type of loss function. Must be `"step"`, `"halfstep"`, or `"thick"`. Defaults to `"step"`.
 #' @param alpha A numeric value for the loss for 'uncommitted.' Defaults to `0.05`.
+#' @param na.rm A logical value indicating whether missing values should be removed. Defaults to `FALSE`.
 #'
 #' @returns A list of 4:
 #'  * `exp_loss_equiv` A numeric value for the expected loss for deciding 'equivalent.'
@@ -20,7 +21,8 @@ exp_loss_rope_decis <- function(x,
                                 rope_narrow = rope,
                                 rope_wide = rope,
                                 loss_type = c("step", "halfstep", "thick")[1],
-                                alpha = 0.05) {
+                                alpha = 0.05,
+                                na.rm = FALSE) {
   # Checks
   checkmate::assert_numeric(x, any.missing = FALSE)
   checkmate::assert_numeric(rope, null.ok = TRUE)
@@ -28,6 +30,12 @@ exp_loss_rope_decis <- function(x,
   checkmate::assert_numeric(rope_wide, null.ok = TRUE)
   checkmate::assert_choice(loss_type, choices = c("step", "halfstep", "thick"))
   checkmate::assert_numeric(alpha, lower = 0, upper = 1, any.missing = FALSE)
+  checkmate::assert_logical(na.rm)
+
+  # Remove NA from param_sample:
+  if (isTRUE(na.rm)) {
+    x <- x[!is.na(x)]
+  }
 
   expleq <- loss_equiv(
     x = x,
