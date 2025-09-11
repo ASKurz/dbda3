@@ -15,6 +15,23 @@
 #'  * `exp_loss_uncom` A numeric value for the expected loss for deciding 'uncommitted.'
 #'  * `decision` A character value for the decision based on loss.
 #'
+#' @examples
+#' # Simulate a vector of posterior draws resembling a distribution of college-graduate IQ scores
+#' set.seed(47)
+#' x <- rnorm(n = 1e4, mean = 110, sd = 15)
+#'
+#' # Use a narrow ROPE around the population mean
+#' exp_loss_rope_decis(x, rope = c(99, 101))
+#'
+#' # Adjust the loss for 'uncommitted'.
+#' exp_loss_rope_decis(x, rope = c(99, 101), alpha = 0.01)
+#'
+#' # Use `loss_type = "halfstep"` and different ROPE criteria
+#' exp_loss_rope_decis(x,
+#'                     rope_narrow = 110 + c(-29, 29),
+#'                     rope_wide = 110 + c(-31, 31),
+#'                     loss_type = "halfstep")
+#'
 #' @export
 exp_loss_rope_decis <- function(x,
                                 rope = NULL,
