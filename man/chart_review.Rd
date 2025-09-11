@@ -8,7 +8,7 @@
 A tibble with 178 rows and 8 columns:
 \describe{
 \item{obsno}{Participant number (numeric values ranging from \code{1} to \code{178})}
-\item{age}{Years old (numeric values ranging from \code{1} to \code{178})}
+\item{age}{Years old (numeric values)}
 \item{sex}{Binary (factor)}
 \item{alkphos}{Alkaline phosphatase (numeric values in liters)}
 \item{lab}{Lab (factor)}
