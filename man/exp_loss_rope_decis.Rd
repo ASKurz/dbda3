@@ -10,7 +10,8 @@ exp_loss_rope_decis(
   rope_narrow = rope,
   rope_wide = rope,
   loss_type = c("step", "halfstep", "thick")[1],
-  alpha = 0.05
+  alpha = 0.05,
+  na.rm = FALSE
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ exp_loss_rope_decis(
 \item{loss_type}{A character value indicating the type of loss function. Must be \code{"step"}, \code{"halfstep"}, or \code{"thick"}. Defaults to \code{"step"}.}
 
 \item{alpha}{A numeric value for the loss for 'uncommitted.' Defaults to \code{0.05}.}
+
+\item{na.rm}{A logical value indicating whether missing values should be removed. Defaults to \code{FALSE}.}
 }
 \value{
 A list of 4:
@@ -35,4 +38,22 @@ A list of 4:
 }
 \description{
 The expected loss for an MCMC sample computed from Equation 11.3 in \emph{DBDA3}.
+}
+\examples{
+# Simulate a vector of posterior draws resembling a distribution of college-graduate IQ scores
+set.seed(47)
+x <- rnorm(n = 1e4, mean = 110, sd = 15)
+
+# Use a narrow ROPE around the population mean
+exp_loss_rope_decis(x, rope = c(99, 101))
+
+# Adjust the loss for 'uncommitted'.
+exp_loss_rope_decis(x, rope = c(99, 101), alpha = 0.01)
+
+# Use `loss_type = "halfstep"` and different ROPE criteria
+exp_loss_rope_decis(x,
+                    rope_narrow = 110 + c(-29, 29),
+                    rope_wide = 110 + c(-31, 31),
+                    loss_type = "halfstep")
+
 }
