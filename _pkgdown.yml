@@ -65,8 +65,12 @@ reference:
   desc: Example data sets used in the text
   contents:
   - my_pkg_data
+  - big5_12
+  - big5_mexico
+  - big5_usa
   - chart_review
   - derby
+  - fruitfly
   - hair_eye_color
   - height_weight_30
   - height_weight_40
@@ -79,6 +83,7 @@ reference:
   - set_a
   - set_b
   - set_c
+  - two_group_iq
   - two_x_cor
   - two_x_uncor
   - weight_loss

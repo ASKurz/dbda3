@@ -31,7 +31,7 @@
 #' @format A tibble with 178 rows and 8 columns:
 #' \describe{
 #'   \item{obsno}{Participant number (numeric values ranging from `1` to `178`)}
-#'   \item{age}{Years old (numeric values ranging from `1` to `178`)}
+#'   \item{age}{Years old (numeric values)}
 #'   \item{sex}{Binary (factor)}
 #'   \item{alkphos}{Alkaline phosphatase (numeric values in liters)}
 #'   \item{lab}{Lab (factor)}
@@ -344,4 +344,101 @@
 #' @rdname two_x_cor
 #' @format NULL
 "two_x_uncor"
+
+#' IPIP 300 Data
+#'
+#' Three data sets (`big5_12`, `big5_mexico`, and `big5_usa`) containing subsets of the IPIP 300 data from Johnson (2014).
+#'
+#' @format `big5_mexico` and `big5_usa` contain 100 rows each, and `big5_12` contains 1200 rows. All three data sets contain 9 columns:
+#' \describe{
+#'   \item{id}{Participant identifier (integers)}
+#'   \item{sex}{Binary (factor)}
+#'   \item{age}{Years old (integer values)}
+#'   \item{country}{The country from which the data were collected (character values)}
+#'   \item{a}{The sum score for the Agreeableness scale (numeric values)}
+#'   \item{c}{The sum score for the Conscientiousness scale (numeric values)}
+#'   \item{e}{The sum score for the Extraversion scale (numeric values)}
+#'   \item{n}{The sum score for the Neuroticism scale (numeric values)}
+#'   \item{o}{The sum score for the Openness to Experience scale (numeric values)}
+#' }
+#'
+#' @source
+#' Johnson, J. A. (2014).
+#' Measuring thirty facets of the Five Factor Model with a 120-item public domain inventory: Development of the IPIP-NEO-120.
+#' \emph{Journal of Research in Personality}, 51, 78-89.
+#' <https://doi.org/10.1016/j.jrp.2014.05.003>
+#'
+#' Johnson, J. A. (2023, December 6).
+#' Data from Johnson, J. A. (2014). Measuring thirty facets of the five factor model with a 120-item public domain inventory: Development of the IPIP-NEO-120.
+#' \emph{Journal of Research in Personality}, 51, 78-89.
+#' Retrieved from <https://osf.io/wxvth/>
+#'
+#' Johnson, J. A. (2024, April 4).
+#' Scoring Key for the IPIP-NEO-300 and IPIP-NEO-120.
+#' Retrieved from <https://osf.io/ycvdk>
+#'
+#' @examples
+#' tibble::glimpse(big5_12)
+#'
+#' tibble::glimpse(big5_mexico)
+#'
+#' tibble::glimpse(big5_usa)
+#'
+"big5_12"
+
+#' @rdname big5_12
+#' @format NULL
+"big5_mexico"
+
+#' @rdname big5_12
+#' @format NULL
+"big5_usa"
+
+#' Two Group IQ Data
+#'
+#' This is a reformatted version of the `TwoGroupIQ.csv` used in *DBDA2*. The data are synthetic, and follow a basic two-group design where each person received one of the two levels of the intervention.
+#'
+#' @format A tibble with 120 rows and 2 columns:
+#' \describe{
+#'   \item{group}{Experimental group (factor with two levels: `"Placebo"` and `"Smart Drug"`)}
+#'   \item{score}{IQ test score (integer values)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' @examples
+#' tibble::glimpse(two_group_iq)
+#'
+"two_group_iq"
+
+#' Sexual Activity and the Lifespan of Male Fruitflies
+#'
+#' This is a reformatted version of the `FruitflyDataReduced.csv` used in *DBDA2*, as published in James and Stanley (1994). In the original experiment, `longevity` was the primary outcome variable, and `thorax` was one of the baseline covariates.
+#'
+#' @format A tibble with 125 rows and 3 columns:
+#' \describe{
+#'   \item{companion_number}{Experimental group (factor with five levels: `"none_0"`, `"pregnant_8"`, `"pregnant_8"`, `"virgin_1"`, and `"virgin_8"`)}
+#'   \item{thorax}{Length of thorax in millimeters (numeric values)}
+#'   \item{longevity}{Lifespan in days (integer values)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' James A., H., & Stanley H., S (1994).
+#' Sexual activity and the lifespan of male fruitflies: A dataset that gets attention.
+#' \emph{Journal of Statistics Education}, 2(1).
+#' Retrieved from <https://doi.org/10.1080/10691898.1994.11910467>
+#'
+#' @examples
+#' tibble::glimpse(fruitfly)
+#'
+"fruitfly"
 
