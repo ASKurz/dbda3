@@ -5,7 +5,7 @@
 \alias{fruitfly}
 \title{Sexual Activity and the Lifespan of Male Fruitflies}
 \format{
-A tibble with 125 rows and 3 columns:
+A data frame with 125 rows and 3 columns:
 \describe{
 \item{companion_number}{Experimental group (factor with five levels: \code{"none_0"}, \code{"pregnant_8"}, \code{"pregnant_8"}, \code{"virgin_1"}, and \code{"virgin_8"})}
 \item{thorax}{Length of thorax in millimeters (numeric values)}
