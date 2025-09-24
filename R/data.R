@@ -419,7 +419,7 @@
 #'
 #' This is a reformatted version of the `FruitflyDataReduced.csv` used in *DBDA2*, as published in James and Stanley (1994). In the original experiment, `longevity` was the primary outcome variable, and `thorax` was one of the baseline covariates.
 #'
-#' @format A tibble with 125 rows and 3 columns:
+#' @format A data frame with 125 rows and 3 columns:
 #' \describe{
 #'   \item{companion_number}{Experimental group (factor with five levels: `"none_0"`, `"pregnant_8"`, `"pregnant_8"`, `"virgin_1"`, and `"virgin_8"`)}
 #'   \item{thorax}{Length of thorax in millimeters (numeric values)}
@@ -441,4 +441,23 @@
 #' tibble::glimpse(fruitfly)
 #'
 "fruitfly"
+
+#' Blah blah blah...
+#'
+#' This is an adjusted version of blah blah blah...
+#'
+#' @format A data frame with 72 rows and 3 columns:
+#' \describe{
+#'   \item{therapy}{Therapy group (ordered factor with three levels: `"control"`, `"a"`, `"b"`)}
+#'   \item{medication}{Medication group (ordered factor with four levels: `"placebo"`, `"low"`, `"medium"`, `"high"`)}
+#'   \item{edr}{TBD (numeric values)}
+#' }
+#'
+#' @source
+#' TBD
+#'
+#' @examples
+#' tibble::glimpse(boik)
+#'
+"boik"
 
