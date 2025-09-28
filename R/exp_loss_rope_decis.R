@@ -9,9 +9,10 @@
 #' @param alpha A numeric value for the loss for 'uncommitted.' Defaults to `0.05`.
 #' @param na.rm A logical value indicating whether missing values should be removed. Defaults to `FALSE`.
 #'
-#' @returns A list of 4:
+#' @returns A list of 5:
+#'  * `exp_loss_lessthan` A numeric value for the expected loss for deciding 'less than'
 #'  * `exp_loss_equiv` A numeric value for the expected loss for deciding 'equivalent.'
-#'  * `exp_loss_differ` A numeric value for the expected loss for deciding 'different.'
+#'  * `exp_loss_greaterthan` A numeric value for the expected loss for deciding 'greater than'
 #'  * `exp_loss_uncom` A numeric value for the expected loss for deciding 'uncommitted.'
 #'  * `decision` A character value for the decision based on loss.
 #'
@@ -54,6 +55,14 @@ exp_loss_rope_decis <- function(x,
     x <- x[!is.na(x)]
   }
 
+  # Compute
+  expllt <- loss_lessthan(
+    x = x,
+    rope = rope,
+    rope_wide = rope_wide,
+    rope_narrow = rope_narrow,
+    loss_type = loss_type) |>
+    mean()
   expleq <- loss_equiv(
     x = x,
     rope = rope,
@@ -61,7 +70,7 @@ exp_loss_rope_decis <- function(x,
     rope_narrow = rope_narrow,
     loss_type = loss_type) |>
     mean()
-  expldif <- loss_differ(
+  explgt <- loss_greaterthan(
     x = x,
     rope = rope,
     rope_wide = rope_wide,
@@ -70,9 +79,11 @@ exp_loss_rope_decis <- function(x,
     mean()
   explunc <- loss_uncom(x = x, alpha = alpha) |> mean()
 
-  list(exp_loss_equiv = expleq,
-       exp_loss_differ = expldif,
+  # Arrange
+  list(exp_loss_lessthan = expllt,
+       exp_loss_equiv = expleq,
+       exp_loss_greaterthan = explgt,
        exp_loss_uncom = explunc,
-       decision = c("equivalent", "different", "uncommitted")[which.min(c(expleq, expldif, alpha))])
+       decision = c("less than", "equivalent", "greater than", "uncommitted")[which.min(c(expllt, expleq, explgt, alpha))])
 }
 

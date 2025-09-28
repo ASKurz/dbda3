@@ -28,10 +28,11 @@ exp_loss_rope_decis(
 \item{na.rm}{A logical value indicating whether missing values should be removed. Defaults to \code{FALSE}.}
 }
 \value{
-A list of 4:
+A list of 5:
 \itemize{
+\item \code{exp_loss_lessthan} A numeric value for the expected loss for deciding 'less than'
 \item \code{exp_loss_equiv} A numeric value for the expected loss for deciding 'equivalent.'
-\item \code{exp_loss_differ} A numeric value for the expected loss for deciding 'different.'
+\item \code{exp_loss_greaterthan} A numeric value for the expected loss for deciding 'greater than'
 \item \code{exp_loss_uncom} A numeric value for the expected loss for deciding 'uncommitted.'
 \item \code{decision} A character value for the decision based on loss.
 }
