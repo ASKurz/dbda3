@@ -461,3 +461,23 @@
 #'
 "boik"
 
+#' Blah blah blah...
+#'
+#' This is an adjusted version of blah blah blah...
+#'
+#' @format A data frame with 100 rows and 2 columns:
+#' \describe{
+#'   \item{group}{Experimental group (factor with four levels: `"A"`, `"B"`, `"C"`, `"D"`)}
+#'   \item{y}{blah... (numeric values)}
+#' }
+#'
+#' @source
+#' TBD
+#'
+#' @examples
+#' tibble::glimpse(het_dat)
+"het_dat"
+
+
+
+
