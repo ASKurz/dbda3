@@ -1,13 +1,13 @@
-#' Helper function for `exp_loss_rope_decis()`
+#' Helper function for `loss_decision()`
 #'
-#' This helper function streamlines some of the code for the `exp_loss_rope_decis()` function. It is not meant for regular use.
+#' This helper function streamlines some of the code for the `loss_decision()` function. It is not meant for regular use.
 #'
 #' @param x A numeric vector of MCMC samples.
 #' @param rope A two-element numeric vector of ROPE limits. Defaults to `NULL`.
 #' @param rope_narrow,rope_wide A two-element numeric vector of narrow or wide ROPE limits, respectively. Default to `rope`, and can be specified instead of `rope` alone.
 #' @param loss_type A character value indicating the type of loss function. Must be `"step"`, `"halfstep"`, or `"thick"`. Defaults to `"step"`.
 #'
-#' @returns A numeric vector the same length of `x` to be passed internally to `exp_loss_rope_decis()`.
+#' @returns A numeric vector the same length of `x` to be passed internally to `loss_decision()`.
 #'
 #' @keywords internal
 #' @export

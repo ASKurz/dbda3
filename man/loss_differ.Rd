@@ -2,7 +2,7 @@
 % Please edit documentation in R/loss_differ.R
 \name{loss_differ}
 \alias{loss_differ}
-\title{Helper function for \code{exp_loss_rope_decis()}}
+\title{Helper function for \code{loss_decision()}}
 \usage{
 loss_differ(
   x,
@@ -22,9 +22,9 @@ loss_differ(
 \item{loss_type}{A character value indicating the type of loss function. Must be \code{"step"}, \code{"halfstep"}, or \code{"thick"}. Defaults to \code{"step"}.}
 }
 \value{
-A numeric vector the same length of \code{x} to be passed internally to \code{exp_loss_rope_decis()}.
+A numeric vector the same length of \code{x} to be passed internally to \code{loss_decision()}.
 }
 \description{
-This helper function streamlines some of the code for the \code{exp_loss_rope_decis()} function. It is not meant for regular use.
+This helper function streamlines some of the code for the \code{loss_decision()} function. It is not meant for regular use.
 }
 \keyword{internal}

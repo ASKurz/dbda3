@@ -51,11 +51,11 @@ reference:
   contents:
   - cor_from_01
   - cor_to_01
-  - exp_loss_rope_decis
   - get_inits
   - neg_log_lik
   - logistic
   - logit
+  - loss_decision
   - lpd
   - rescale_bounds
   - standardize
@@ -76,14 +76,15 @@ reference:
   - height_weight_30
   - height_weight_40
   - height_weight_300
+  - het_dat
   - income
   - linear_data
   - normal_panels
-  - therapeutic_touch
   - sat
   - set_a
   - set_b
   - set_c
+  - therapeutic_touch
   - two_group_iq
   - two_x_cor
   - two_x_uncor
