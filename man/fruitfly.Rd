@@ -31,6 +31,5 @@ This is a reformatted version of the \code{FruitflyDataReduced.csv} used in \emp
 }
 \examples{
 tibble::glimpse(fruitfly)
-
 }
 \keyword{datasets}

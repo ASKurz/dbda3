@@ -19,6 +19,5 @@ A data set of 40 height and weight values simulated with the \code{height_weight
 }
 \examples{
 tibble::glimpse(height_weight_40)
-
 }
 \keyword{datasets}

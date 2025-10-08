@@ -51,6 +51,5 @@ tibble::glimpse(big5_12)
 tibble::glimpse(big5_mexico)
 
 tibble::glimpse(big5_usa)
-
 }
 \keyword{datasets}

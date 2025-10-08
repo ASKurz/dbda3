@@ -28,6 +28,5 @@ derby
 }
 \examples{
 tibble::glimpse(derby)
-
 }
 \keyword{datasets}

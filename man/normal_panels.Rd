@@ -22,6 +22,5 @@ A data set used in Chapter 15 of \emph{DBDA3} to showcase a Gaussian multilevel 
 }
 \examples{
 tibble::glimpse(normal_panels)
-
 }
 \keyword{datasets}

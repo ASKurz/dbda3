@@ -31,6 +31,5 @@ This is an adjusted and simplified version of the primary outcome data presented
 }
 \examples{
 tibble::glimpse(weight_loss)
-
 }
 \keyword{datasets}

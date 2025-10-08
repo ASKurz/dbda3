@@ -20,6 +20,5 @@ A synthetic data set of a single Gaussian predicted variable \code{y}, and two c
 }
 \examples{
 tibble::glimpse(linear_data)
-
 }
 \keyword{datasets}

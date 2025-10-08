@@ -40,6 +40,5 @@ This is a reformatted version of the t-distributed data used in Figure 16.5 of \
 }
 \examples{
 tibble::glimpse(chart_review)
-
 }
 \keyword{datasets}

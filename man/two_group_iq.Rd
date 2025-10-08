@@ -25,6 +25,5 @@ This is a reformatted version of the \code{TwoGroupIQ.csv} used in \emph{DBDA2}.
 }
 \examples{
 tibble::glimpse(two_group_iq)
-
 }
 \keyword{datasets}

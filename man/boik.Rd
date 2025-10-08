@@ -23,6 +23,5 @@ This is an adjusted version of blah blah blah...
 }
 \examples{
 tibble::glimpse(boik)
-
 }
 \keyword{datasets}

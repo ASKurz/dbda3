@@ -30,6 +30,5 @@ This is a reformatted version of the \code{IncomeFamszState3yr.csv} used in \emp
 }
 \examples{
 tibble::glimpse(income)
-
 }
 \keyword{datasets}

@@ -26,6 +26,5 @@ This is a reformatted version of the \code{HtWtData300.csv} used in \emph{DBDA2}
 }
 \examples{
 tibble::glimpse(height_weight_300)
-
 }
 \keyword{datasets}

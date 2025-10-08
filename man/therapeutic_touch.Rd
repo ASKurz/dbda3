@@ -30,6 +30,5 @@ This is a reformatted version of the \code{TherapeuticTouchData.csv} used in \em
 }
 \examples{
 tibble::glimpse(therapeutic_touch)
-
 }
 \keyword{datasets}

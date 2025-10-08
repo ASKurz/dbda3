@@ -31,6 +31,5 @@ This is a reformatted version of the \code{HairEyeColor.csv} used in \emph{DBDA2
 }
 \examples{
 tibble::glimpse(hair_eye_color)
-
 }
 \keyword{datasets}

@@ -36,6 +36,5 @@ This is a reformatted version of the \code{Guber1999data.csv} used in \emph{DBDA
 }
 \examples{
 tibble::glimpse(sat)
-
 }
 \keyword{datasets}

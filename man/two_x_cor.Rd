@@ -25,6 +25,5 @@ Two data sets (\code{two_x_cor} and \code{two_x_uncor}) used in Chapter 16 of \e
 tibble::glimpse(two_x_cor)
 
 tibble::glimpse(two_x_uncor)
-
 }
 \keyword{datasets}
