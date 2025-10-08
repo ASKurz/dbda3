@@ -21,7 +21,6 @@
 #'
 #' @examples
 #' tibble::glimpse(therapeutic_touch)
-#'
 "therapeutic_touch"
 
 #' Retrospective chart review data
@@ -57,7 +56,6 @@
 #'
 #' @examples
 #' tibble::glimpse(chart_review)
-#'
 "chart_review"
 
 #' Hair and eye color data
@@ -84,7 +82,6 @@
 #'
 #' @examples
 #' tibble::glimpse(hair_eye_color)
-#'
 "hair_eye_color"
 
 #' Weight loss data based on Horan & Johnson (1971)
@@ -109,7 +106,6 @@
 #'
 #' @examples
 #' tibble::glimpse(weight_loss)
-#'
 "weight_loss"
 
 #' Individual Bernoulli trials
@@ -167,7 +163,6 @@
 #'
 #' @examples
 #' tibble::glimpse(height_weight_300)
-#'
 "height_weight_300"
 
 #' Height and Weight data for 30 cases
@@ -189,7 +184,6 @@
 #'
 #' @examples
 #' tibble::glimpse(height_weight_30)
-#'
 "height_weight_30"
 
 #' Height and Weight data for 40 cases
@@ -204,7 +198,6 @@
 #'
 #' @examples
 #' tibble::glimpse(height_weight_40)
-#'
 "height_weight_40"
 
 #' Gaussian data for multiple linear regression
@@ -220,7 +213,6 @@
 #'
 #' @examples
 #' tibble::glimpse(linear_data)
-#'
 "linear_data"
 
 #' Multilevel Gaussian data with a single metric predictor
@@ -238,7 +230,6 @@
 #'
 #' @examples
 #' tibble::glimpse(normal_panels)
-#'
 "normal_panels"
 
 #' Scholastic Aptitude Test (SAT) data
@@ -270,7 +261,6 @@
 #'
 #' @examples
 #' tibble::glimpse(sat)
-#'
 "sat"
 
 #' Kentucky Derby data
@@ -294,7 +284,6 @@
 #'
 #' @examples
 #' tibble::glimpse(derby)
-#'
 "derby"
 
 #' US Family Income
@@ -320,7 +309,6 @@
 #'
 #' @examples
 #' tibble::glimpse(income)
-#'
 "income"
 
 #' Trivariate-Normal Data
@@ -338,7 +326,6 @@
 #' tibble::glimpse(two_x_cor)
 #'
 #' tibble::glimpse(two_x_uncor)
-#'
 "two_x_cor"
 
 #' @rdname two_x_cor
@@ -383,7 +370,6 @@
 #' tibble::glimpse(big5_mexico)
 #'
 #' tibble::glimpse(big5_usa)
-#'
 "big5_12"
 
 #' @rdname big5_12
@@ -412,7 +398,6 @@
 #'
 #' @examples
 #' tibble::glimpse(two_group_iq)
-#'
 "two_group_iq"
 
 #' Sexual Activity and the Lifespan of Male Fruitflies
@@ -439,7 +424,6 @@
 #'
 #' @examples
 #' tibble::glimpse(fruitfly)
-#'
 "fruitfly"
 
 #' Blah blah blah...
@@ -458,7 +442,6 @@
 #'
 #' @examples
 #' tibble::glimpse(boik)
-#'
 "boik"
 
 #' Blah blah blah...
@@ -478,6 +461,18 @@
 #' tibble::glimpse(het_dat)
 "het_dat"
 
-
-
+#' Grouped Gaussian data
+#'
+#' A synthetic data set of a single Gaussian predicted variable `y`, and two factor variables `group_first` and `group_last`, made originally for Chapter 17 of *DBDA3*.
+#'
+#' @format A data frame with 25 rows and 3 columns:
+#' \describe{
+#'   \item{y}{A numeric variable simulated to be Gaussian with a mean varying by group.}
+#'   \item{group_first}{An ordered factor with five levels: `"A"`, `"B"`, `"C"`, `"D"`, `"E"`.}
+#'   \item{group_last}{An ordered factor with five levels: `"A"`, `"B"`, `"C"`, `"D"`, `"E"`.}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(group_levels)
+"group_levels"
 
