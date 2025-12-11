@@ -52,11 +52,12 @@ reference:
   - cor_from_01
   - cor_to_01
   - get_inits
-  - neg_log_lik
   - logistic
   - logit
   - loss_decision
+  - loss_decision_2
   - lpd
+  - neg_log_lik
   - rescale_bounds
   - standardize
   - summarize_draws_dbda3
@@ -79,12 +80,14 @@ reference:
   - height_weight_300
   - het_dat
   - income
+  - iq_sat
   - linear_data
   - normal_panels
   - sat
   - set_a
   - set_b
   - set_c
+  - splitplot
   - therapeutic_touch
   - two_group_iq
   - two_x_cor

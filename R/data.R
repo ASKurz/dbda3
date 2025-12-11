@@ -380,7 +380,7 @@
 #' @format NULL
 "big5_usa"
 
-#' Two Group IQ Data
+#' Two group IQ data
 #'
 #' This is a reformatted version of the `TwoGroupIQ.csv` used in *DBDA2*. The data are synthetic, and follow a basic two-group design where each person received one of the two levels of the intervention.
 #'
@@ -475,4 +475,57 @@
 #' @examples
 #' tibble::glimpse(group_levels)
 "group_levels"
+
+#' Two group IQ data with a covariate
+#'
+#' Simulated data based loosely on the `TwoGroupIQ.csv` used in *DBDA2*. The data follow a basic two-group design where each person received one of the two levels of the intervention. The outcome variable is full-scale IQ (`iq`), and SAT total scores (`sat`) are a baseline covariate. The SAT population mean and standard deviation some from National Center for Education Statistics, and its correlation with IQ is based on Frey & Detterman (2004).
+#'
+#' @format A data frame with 100 rows and 4 columns:
+#' \describe{
+#'   \item{group}{Experimental group (factor with two levels: `"Placebo"` and `"Smart Drug"`)}
+#'   \item{tx}{Experimental group as an integer of `0` (`"Placebo"`) and `1` (`"Smart Drug"`)}
+#'   \item{iq}{A numeric variable of full-scale IQ scores simulated to be Gaussian, consitional on `group`.}
+#'   \item{sat}{A numeric variable of SAT total scores simulated to be Gaussian.}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' Frey, M. C., & Detterman, D. K. (2004).
+#' Scholastic Assessment or g?: The Relationship Between the Scholastic Assessment Test and General Cognitive Ability.
+#' \emph{Psychological Science}, 15(6), 373-378.
+#' <https://doi.org/10.1111/j.0956-7976.2004.00687.x>
+#'
+#' National Center for Education Statistics (2025, October 10).
+#' \emph{Table 226.40.	SAT mean scores, standard deviations, and score ranges for high school seniors, and percentage of the graduating class taking the SAT, by state: 2017.}
+#' <https://nces.ed.gov/programs/digest/d17/tables/dt17_226.40.asp>
+#'
+#' @examples
+#' tibble::glimpse(iq_sat)
+"iq_sat"
+
+#' Experimental corn production data
+#'
+#' This is a reformatted and modified version of the `SplitPlotAgriData.csv` used in *DBDA2*. They are designed to resemble an experiment in agronomy that measured corn production (in bushels per acre) as a function of how the fields were tilled and how fertilizer was applied.
+#'
+#' @format A data frame with 99 rows and 4 columns:
+#' \describe{
+#'   \item{field}{Corn field (factor with 33 levels)}
+#'   \item{till}{Tilling method (factor with 4 levels)}
+#'   \item{fert}{Fertilization method (factor with 4 levels)}
+#'   \item{yield}{Number of corn bushels per acre (integer)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' @examples
+#' tibble::glimpse(splitplot)
+"splitplot"
 
