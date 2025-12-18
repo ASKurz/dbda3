@@ -3,7 +3,7 @@
 ## Package {dbda3}
 
 Welcome to the homepage for the dbda3 package. This is an R package
-supporting the third edition of *Doing Bayesian Data Analysis*. The
+supporting the third edition of *Doing Bayesian Data Analysis* (order [here](https://www.amazon.com/Doing-Bayesian-Data-Analysis-tidyverse-ebook/dp/B0F93CXTRL)). The
 dbda3 package provides a variety of convenience functions supporting
 Bayesian data analysis, with an emphasis on a tidyverse-oriented
 workflow, and on models fit with the brms package.
