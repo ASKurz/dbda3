@@ -3,23 +3,30 @@
 \docType{data}
 \name{boik}
 \alias{boik}
-\title{Blah blah blah...}
+\title{Synthetic data of a 3 X 4 factorial experiment}
 \format{
 A data frame with 72 rows and 3 columns:
 \describe{
 \item{therapy}{Therapy group (ordered factor with three levels: \code{"control"}, \code{"a"}, \code{"b"})}
 \item{medication}{Medication group (ordered factor with four levels: \code{"placebo"}, \code{"low"}, \code{"medium"}, \code{"high"})}
-\item{edr}{TBD (numeric values)}
+\item{edr}{Electrodermal response (numeric values)}
 }
 }
 \source{
-TBD
+Boik, R. J. (1979).
+Interactions, Partial Interactions, and Interaction Contrasts in the Analysis of Variance.
+\emph{Psychological Bulletin}, 86(5), 1084-1089.
+\url{https://doi.org/10.1037/0033-2909.86.5.1084}
+
+De Rosario-Martinez, H. (2025).
+\emph{phia: Post-hoc interaction analysis} \link{Manual}.
+\url{https://CRAN.R-project.org/package=phia}
 }
 \usage{
 boik
 }
 \description{
-This is an adjusted version of blah blah blah...
+This is an adjusted version of the \code{Boik} data set from the {phia} package (\code{?phia::Boik}). The \code{Boik} data frame was based on a hypothetical example in Boik (1979). Similar to Boik (1979) and \code{Boik}, our \code{boik} data are designed to mirror a balanced 3 X 4 factorial experimental design wherein 72 persons complaining of hemophobia were randomly assigned to receive a combination of behavioral therapies (\code{therapy}) and antianxiety medication (\code{medication}). The outcome variable is electrodermal response (\code{edr}), which is a physiological correlate of fear.
 }
 \examples{
 tibble::glimpse(boik)
