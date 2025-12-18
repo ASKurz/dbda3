@@ -7,11 +7,22 @@
 #' @returns An object of class `tt` representing the table.
 #'
 #' @examples
-#' posterior::example_draws() |>
-#'   posterior::as_draws_df() |>
-#'   summarize_draws_dbda3() |>
-#'   dplyr::select(variable, q50, q2.5, q97.5, ess_q50) |>
+#' library(tinytable)
+#'
+#' # Extract, summarize, and subset example HMC draws
+#' example_draws_diag <- posterior::example_draws() |>
+#'   dbda3::summarize_draws_dbda3() |>
+#'   dplyr::select(variable, q50, q2.5, q97.5, ess_q50)
+#'
+#' # Default behavior
+#' example_draws_diag |>
 #'   tt_diag()
+#'
+#' # Round digits in select columns with `format_tt()`
+#' example_draws_diag |>
+#'   tt_diag() |>
+#'   format_tt(j = 2:4, digits = 2, num_fmt = "decimal", num_zero = TRUE) |>
+#'   format_tt(j = 5, digits = 1, num_fmt = "decimal", num_zero = TRUE)
 #'
 #' @import tinytable
 #' @export
