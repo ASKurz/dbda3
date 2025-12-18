@@ -7,9 +7,9 @@
 \format{
 A data frame with 99 rows and 4 columns:
 \describe{
-\item{field}{Corn field (factor with 33 levels)}
-\item{till}{Tilling method (factor with 4 levels)}
-\item{fert}{Fertilization method (factor with 4 levels)}
+\item{field}{Corn field (factor with 33 levels): \code{1} through \code{33}}
+\item{till}{Tilling method (factor with 3 levels: \code{"chisel"}, \code{"moldboard"}, \code{"ridge"})}
+\item{fert}{Fertilization method (factor with 3 levels: \code{"broad"}, \code{"deep"}, \code{"surface"})}
 \item{yield}{Number of corn bushels per acre (integer)}
 }
 }
