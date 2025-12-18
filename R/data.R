@@ -426,19 +426,26 @@
 #' tibble::glimpse(fruitfly)
 "fruitfly"
 
-#' Blah blah blah...
+#' Synthetic data of a 3 X 4 factorial experiment
 #'
-#' This is an adjusted version of blah blah blah...
+#' This is an adjusted version of the `Boik` data set from the {phia} package (`?phia::Boik`). The `Boik` data frame was based on a hypothetical example in Boik (1979). Similar to Boik (1979) and `Boik`, our `boik` data are designed to mirror a balanced 3 X 4 factorial experimental design wherein 72 persons complaining of hemophobia were randomly assigned to receive a combination of behavioral therapies (`therapy`) and antianxiety medication (`medication`). The outcome variable is electrodermal response (`edr`), which is a physiological correlate of fear.
 #'
 #' @format A data frame with 72 rows and 3 columns:
 #' \describe{
 #'   \item{therapy}{Therapy group (ordered factor with three levels: `"control"`, `"a"`, `"b"`)}
 #'   \item{medication}{Medication group (ordered factor with four levels: `"placebo"`, `"low"`, `"medium"`, `"high"`)}
-#'   \item{edr}{TBD (numeric values)}
+#'   \item{edr}{Electrodermal response (numeric values)}
 #' }
 #'
 #' @source
-#' TBD
+#' Boik, R. J. (1979).
+#' Interactions, Partial Interactions, and Interaction Contrasts in the Analysis of Variance.
+#' \emph{Psychological Bulletin}, 86(5), 1084-1089.
+#' <https://doi.org/10.1037/0033-2909.86.5.1084>
+#'
+#' De Rosario-Martinez, H. (2025).
+#' \emph{phia: Post-hoc interaction analysis} [Manual].
+#' <https://CRAN.R-project.org/package=phia>
 #'
 #' @examples
 #' tibble::glimpse(boik)
@@ -513,9 +520,9 @@
 #'
 #' @format A data frame with 99 rows and 4 columns:
 #' \describe{
-#'   \item{field}{Corn field (factor with 33 levels)}
-#'   \item{till}{Tilling method (factor with 4 levels)}
-#'   \item{fert}{Fertilization method (factor with 4 levels)}
+#'   \item{field}{Corn field (factor with 33 levels): `1` through `33`}
+#'   \item{till}{Tilling method (factor with 3 levels: `"chisel"`, `"moldboard"`, `"ridge"`)}
+#'   \item{fert}{Fertilization method (factor with 3 levels: `"broad"`, `"deep"`, `"surface"`)}
 #'   \item{yield}{Number of corn bushels per acre (integer)}
 #' }
 #'
