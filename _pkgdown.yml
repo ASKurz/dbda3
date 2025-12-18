@@ -61,6 +61,7 @@ reference:
   - rescale_bounds
   - standardize
   - summarize_draws_dbda3
+  - tt_diag
 
 - title: Data sets
   desc: Example data sets used in the text
