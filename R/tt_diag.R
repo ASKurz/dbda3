@@ -36,6 +36,7 @@ tt_diag <- function(x) {
     format_tt(j = 1, escape = TRUE) |>           # To handle the underscores in column 1
     style_tt(j = 1, align = "l") |>
     style_tt(j = 2:n_col, align = "r") |>
-    style_tt(i = 1:n_row, j = 1, monospace = TRUE)
+    style_tt(i = 1:n_row, j = 1, monospace = TRUE) |>
+    theme_latex(placement = "H")
 }
 
