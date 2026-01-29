@@ -2,6 +2,8 @@
 #'
 #' The expected loss for an MCMC sample computed from Equation 11.3 in *DBDA3*.
 #'
+#' This is currently an alternative to `loss_decision()`.
+#'
 #' @param x A numeric vector of MCMC samples.
 #' @param rope A two-element numeric vector of ROPE limits. Defaults to `NULL`.
 #' @param rope_narrow,rope_wide A two-element numeric vector of narrow or wide ROPE limits, respectively. Default to `rope`, and can be specified instead of `rope` alone.
@@ -50,42 +52,60 @@ loss_decision <- function(x,
   checkmate::assert_numeric(alpha, lower = 0, upper = 1, any.missing = FALSE)
   checkmate::assert_logical(na.rm)
 
-  # Remove NA from `x`
-  if (isTRUE(na.rm)) {
-    x <- x[!is.na(x)]
+  # Checks
+  if (is.null(rope) & (is.null(rope_narrow) | is.null(rope_wide))) {
+    stop("`rope`, or `rope_narrow` and `rope_wide`, must be specified.")
+  }
+  if (is.null(rope)) {
+    rope <- colMeans(rbind(rope_narrow, rope_wide))
+  }
+  # Many checks
+  if (rope[2] < rope[1]) {
+    stop("`rope[1]` must be less than `rope[2]`.")
+  }
+  if (rope_narrow[2] < rope_narrow[1]) {
+    stop("`rope_narrow[1]` must be less than `rope_narrow[2]`.")
+  }
+  if (rope_wide[2] < rope_wide[1]) {
+    stop("`rope_wide[1]` must be less than `rope_wide[2]`.")
+  }
+  if (isFALSE(between(rope[1], rope_wide[1], rope_narrow[1]))) {
+    stop("`rope[1]` must be between `rope_wide[1]` and `rope_narrow[1]`.")
+  }
+  if (isFALSE(between(rope[2], rope_narrow[2], rope_wide[2]))) {
+    stop("`rope[2]` must be between `rope_narrow[2]` and `rope_wide[2]`.")
   }
 
   # Compute
-  expllt <- loss_lessthan(
+  e_less <- loss_less_than(
     x = x,
     rope = rope,
     rope_wide = rope_wide,
     rope_narrow = rope_narrow,
-    loss_type = loss_type) |>
-    mean()
-  expleq <- loss_equiv(
+    loss_type = loss_type,
+    na.rm = na.rm)
+  e_eql <- loss_equivalent(
     x = x,
     rope = rope,
     rope_wide = rope_wide,
     rope_narrow = rope_narrow,
-    loss_type = loss_type) |>
-    mean()
-  explgt <- loss_greaterthan(
+    loss_type = loss_type,
+    na.rm = na.rm)
+  e_grtr <- loss_greater_than(
     x = x,
     rope = rope,
     rope_wide = rope_wide,
     rope_narrow = rope_narrow,
-    loss_type = loss_type) |>
-    mean()
-  explunc <- loss_uncom(x = x, alpha = alpha) |> mean()
+    loss_type = loss_type,
+    na.rm = na.rm)
 
-  decision <- c("less than", "equivalent", "greater than", "uncommitted")[which.min(c(expllt, expleq, explgt, alpha))]
+  decision <- c("less than", "equivalent", "greater than", "uncommitted")[which.min(c(e_less, e_eql, e_grtr, alpha))]
 
   # Arrange the summary
-  data.frame(less_than    = expllt,
-             equivalent   = expleq,
-             greater_than = explgt,
-             uncommitted  = explunc,
+  data.frame(less_than    = e_less,
+             equivalent   = e_eql,
+             greater_than = e_grtr,
+             uncommitted  = alpha,
              decision = decision)
 }
 
