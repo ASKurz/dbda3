@@ -81,6 +81,7 @@ reference:
   - height_weight_300
   - het_dat
   - income
+  - iq_two
   - iq_sat
   - linear_data
   - normal_panels
@@ -90,7 +91,6 @@ reference:
   - set_c
   - splitplot
   - therapeutic_touch
-  - two_group_iq
   - two_x_cor
   - two_x_uncor
   - weight_loss
