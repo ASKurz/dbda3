@@ -60,7 +60,7 @@ bern_beta(
 An object of class \code{patchwork}, \verb{gg,} and \code{ggplot}.
 }
 \description{
-A \link{ggplot2}-based update of the \code{BernBeta()} function, as introduced in Chapter 6 of \emph{DBDA2}. The revised \code{bern_beta()} function makes figures highlighting the effect a beta prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 6 of \emph{DBDA3}. The solution is based on exact mathematical analysis.
+A \link[ggplot2:ggplot2-package]{ggplot2::ggplot2}-based update of the \code{BernBeta()} function, as introduced in Chapter 6 of \emph{DBDA2}. The revised \code{bern_beta()} function makes figures highlighting the effect a beta prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 6 of \emph{DBDA3}. The solution is based on exact mathematical analysis.
 }
 \examples{
 # Default behavior

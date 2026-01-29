@@ -66,7 +66,7 @@ bern_grid(
 If \code{return_post == FALSE}, an object of class \code{patchwork}, \verb{gg,} and \code{ggplot}. If \code{return_post == TRUE}, a numeric vector the same length as \code{theta}.
 }
 \description{
-A \link{ggplot2}-based update of the \code{BernGrid()} function, as introduced in Chapter 5 of \emph{DBDA2}. The revised \code{bern_grid()} function makes figures highlighting the effect the prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 5 of \emph{DBDA3}. The solution is based on the grid-approximation approach.
+A \link[ggplot2:ggplot2-package]{ggplot2::ggplot2}-based update of the \code{BernGrid()} function, as introduced in Chapter 5 of \emph{DBDA2}. The revised \code{bern_grid()} function makes figures highlighting the effect the prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 5 of \emph{DBDA3}. The solution is based on the grid-approximation approach.
 }
 \examples{
 # Define the primary input values
