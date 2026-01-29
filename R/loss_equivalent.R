@@ -1,8 +1,6 @@
-#' Helper function for `loss_decision_2()`
+#' Helper function for `loss_decision()`
 #'
-#' This helper function streamlines some of the code for the `loss_decision_2()` function. It is not meant for regular use.
-#'
-#' This is currently an alternative to `loss_equiv()`, and `loss_decision_2()` is an alternative to `loss_decision()`.
+#' This helper function streamlines some of the code for the `loss_decision()` function. It is not meant for regular use.
 #'
 #' @param x A numeric vector of MCMC samples.
 #' @param rope A two-element numeric vector of ROPE limits. Defaults to `NULL`.
@@ -10,7 +8,7 @@
 #' @param loss_type A character value indicating the type of loss function. Must be `"step"`, `"halfstep"`, or `"thick"`. Defaults to `"step"`.
 #' @param na.rm A logical value passed to `na.rm` within the `mean()` function. Defaults to `FALSE`.
 #'
-#' @returns A numeric value for expected loss passed to `loss_decision_2()`.
+#' @returns A numeric value for expected loss passed to `loss_decision()`.
 #'
 #' @keywords internal
 #' @export
