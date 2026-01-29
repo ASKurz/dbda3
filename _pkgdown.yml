@@ -55,7 +55,6 @@ reference:
   - logistic
   - logit
   - loss_decision
-  - loss_decision_2
   - lpd
   - neg_log_lik
   - rescale_bounds
