@@ -2,7 +2,7 @@
 % Please edit documentation in R/loss_equivalent.R
 \name{loss_equivalent}
 \alias{loss_equivalent}
-\title{Helper function for \code{loss_decision_2()}}
+\title{Helper function for \code{loss_decision()}}
 \usage{
 loss_equivalent(
   x,
@@ -25,12 +25,9 @@ loss_equivalent(
 \item{na.rm}{A logical value passed to \code{na.rm} within the \code{mean()} function. Defaults to \code{FALSE}.}
 }
 \value{
-A numeric value for expected loss passed to \code{loss_decision_2()}.
+A numeric value for expected loss passed to \code{loss_decision()}.
 }
 \description{
-This helper function streamlines some of the code for the \code{loss_decision_2()} function. It is not meant for regular use.
-}
-\details{
-This is currently an alternative to \code{loss_equiv()}, and \code{loss_decision_2()} is an alternative to \code{loss_decision()}.
+This helper function streamlines some of the code for the \code{loss_decision()} function. It is not meant for regular use.
 }
 \keyword{internal}
