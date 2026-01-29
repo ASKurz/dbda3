@@ -358,11 +358,11 @@
 #' Johnson, J. A. (2023, December 6).
 #' Data from Johnson, J. A. (2014). Measuring thirty facets of the five factor model with a 120-item public domain inventory: Development of the IPIP-NEO-120.
 #' \emph{Journal of Research in Personality}, 51, 78-89.
-#' Retrieved from <https://osf.io/wxvth/>
+#' <https://osf.io/wxvth/>
 #'
 #' Johnson, J. A. (2024, April 4).
 #' Scoring Key for the IPIP-NEO-300 and IPIP-NEO-120.
-#' Retrieved from <https://osf.io/ycvdk>
+#' <https://osf.io/ycvdk>
 #'
 #' @examples
 #' tibble::glimpse(big5_12)
@@ -397,8 +397,8 @@
 #' <https://sites.google.com/site/doingbayesiandataanalysis/>
 #'
 #' @examples
-#' tibble::glimpse(two_group_iq)
-"two_group_iq"
+#' tibble::glimpse(iq_two)
+"iq_two"
 
 #' Sexual Activity and the Lifespan of Male Fruitflies
 #'
@@ -406,7 +406,7 @@
 #'
 #' @format A data frame with 125 rows and 3 columns:
 #' \describe{
-#'   \item{companion_number}{Experimental group (factor with five levels: `"none_0"`, `"pregnant_8"`, `"pregnant_8"`, `"virgin_1"`, and `"virgin_8"`)}
+#'   \item{group}{Experimental group (factor with five levels: `"none_0"`, `"pregnant_8"`, `"pregnant_8"`, `"virgin_1"`, and `"virgin_8"`)}
 #'   \item{thorax}{Length of thorax in millimeters (numeric values)}
 #'   \item{longevity}{Lifespan in days (integer values)}
 #' }
@@ -420,7 +420,7 @@
 #' James A., H., & Stanley H., S (1994).
 #' Sexual activity and the lifespan of male fruitflies: A dataset that gets attention.
 #' \emph{Journal of Statistics Education}, 2(1).
-#' Retrieved from <https://doi.org/10.1080/10691898.1994.11910467>
+#' <https://doi.org/10.1080/10691898.1994.11910467>
 #'
 #' @examples
 #' tibble::glimpse(fruitfly)
@@ -432,8 +432,8 @@
 #'
 #' @format A data frame with 72 rows and 3 columns:
 #' \describe{
-#'   \item{therapy}{Therapy group (ordered factor with three levels: `"control"`, `"a"`, `"b"`)}
-#'   \item{medication}{Medication group (ordered factor with four levels: `"placebo"`, `"low"`, `"medium"`, `"high"`)}
+#'   \item{therapy}{Therapy group (factor with three levels: `"control"`, `"a"`, `"b"`)}
+#'   \item{medication}{Medication group (factor with four levels: `"placebo"`, `"low"`, `"medium"`, `"high"`)}
 #'   \item{edr}{Electrodermal response (numeric values)}
 #' }
 #'
