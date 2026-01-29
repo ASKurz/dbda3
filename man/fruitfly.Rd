@@ -7,7 +7,7 @@
 \format{
 A data frame with 125 rows and 3 columns:
 \describe{
-\item{companion_number}{Experimental group (factor with five levels: \code{"none_0"}, \code{"pregnant_8"}, \code{"pregnant_8"}, \code{"virgin_1"}, and \code{"virgin_8"})}
+\item{group}{Experimental group (factor with five levels: \code{"none_0"}, \code{"pregnant_8"}, \code{"pregnant_8"}, \code{"virgin_1"}, and \code{"virgin_8"})}
 \item{thorax}{Length of thorax in millimeters (numeric values)}
 \item{longevity}{Lifespan in days (integer values)}
 }
@@ -21,7 +21,7 @@ Academic Press.
 James A., H., & Stanley H., S (1994).
 Sexual activity and the lifespan of male fruitflies: A dataset that gets attention.
 \emph{Journal of Statistics Education}, 2(1).
-Retrieved from \url{https://doi.org/10.1080/10691898.1994.11910467}
+\url{https://doi.org/10.1080/10691898.1994.11910467}
 }
 \usage{
 fruitfly

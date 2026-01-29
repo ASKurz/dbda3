@@ -29,11 +29,11 @@ Measuring thirty facets of the Five Factor Model with a 120-item public domain i
 Johnson, J. A. (2023, December 6).
 Data from Johnson, J. A. (2014). Measuring thirty facets of the five factor model with a 120-item public domain inventory: Development of the IPIP-NEO-120.
 \emph{Journal of Research in Personality}, 51, 78-89.
-Retrieved from \url{https://osf.io/wxvth/}
+\url{https://osf.io/wxvth/}
 
 Johnson, J. A. (2024, April 4).
 Scoring Key for the IPIP-NEO-300 and IPIP-NEO-120.
-Retrieved from \url{https://osf.io/ycvdk}
+\url{https://osf.io/ycvdk}
 }
 \usage{
 big5_12

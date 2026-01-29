@@ -7,8 +7,8 @@
 \format{
 A data frame with 72 rows and 3 columns:
 \describe{
-\item{therapy}{Therapy group (ordered factor with three levels: \code{"control"}, \code{"a"}, \code{"b"})}
-\item{medication}{Medication group (ordered factor with four levels: \code{"placebo"}, \code{"low"}, \code{"medium"}, \code{"high"})}
+\item{therapy}{Therapy group (factor with three levels: \code{"control"}, \code{"a"}, \code{"b"})}
+\item{medication}{Medication group (factor with four levels: \code{"placebo"}, \code{"low"}, \code{"medium"}, \code{"high"})}
 \item{edr}{Electrodermal response (numeric values)}
 }
 }
