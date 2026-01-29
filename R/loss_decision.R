@@ -2,8 +2,6 @@
 #'
 #' The expected loss for an MCMC sample computed from Equation 11.3 in *DBDA3*.
 #'
-#' This is currently an alternative to `loss_decision()`.
-#'
 #' @param x A numeric vector of MCMC samples.
 #' @param rope A two-element numeric vector of ROPE limits. Defaults to `NULL`.
 #' @param rope_narrow,rope_wide A two-element numeric vector of narrow or wide ROPE limits, respectively. Default to `rope`, and can be specified instead of `rope` alone.
