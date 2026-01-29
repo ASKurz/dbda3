@@ -12,8 +12,10 @@ splitplot <- splitplot |>
          across(.cols = till:fert, .fns = tolower),
          across(.cols = field:fert, .fns = as.factor)) |>
   # Modify so differences are smaller, and decisions change across models
-  mutate(yield = ifelse(fert == "broad", yield + 10, yield),
+  mutate(yield = ifelse(fert == "broad", yield + 10 - 5, yield),
          yield = ifelse(till == "chisel", yield + 10, yield),
+         yield = ifelse(fert == "broad" & till == "ridge", yield + 5, yield),
+         yield = ifelse(fert != "broad" & till == "ridge", yield - 5, yield),
          # Convert to integer
          yield = as.integer(yield)) |>
   # Convert to conventional data frame

@@ -2,7 +2,7 @@
 library(tidyverse)
 
 # Load the data file, as used for DBDA2
-two_group_iq <- read_csv("data-raw/data.R/TwoGroupIQ.csv") |>
+iq_two <- read_csv("data-raw/data.R/TwoGroupIQ.csv") |>
   # Rename and reorder
   transmute(group = factor(Group),         # Convert to factor
             score = as.integer(Score)) |>  # Convert to integer
@@ -10,8 +10,8 @@ two_group_iq <- read_csv("data-raw/data.R/TwoGroupIQ.csv") |>
   data.frame()
 
 # Inspect the data
-glimpse(two_group_iq)
+glimpse(iq_two)
 
-# Save `two_group_iq` as `two_group_iq.rda` in the `data` folder
-usethis::use_data(two_group_iq)
+# Save `iq_two` as `iq_two.rda` in the `data` folder
+usethis::use_data(iq_two)
 

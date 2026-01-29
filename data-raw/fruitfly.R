@@ -18,7 +18,9 @@ fruitfly <- fruitfly |>
   # Reorder columns
   select(companion_number, thorax, longevity) |>
   # Convert to conventional data frame
-  data.frame()
+  data.frame() |>
+  # Change the name of the group
+  rename(group = companion_number)
 
 # Inspect the data
 glimpse(fruitfly)

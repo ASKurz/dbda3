@@ -12,14 +12,14 @@ boik <- boik |>
       "control" ~ "control",
       "T1"      ~ "b",
       "T2"      ~ "a") |>
-      factor(levels = c("control", "a", "b"), ordered = TRUE),
+      factor(levels = c("control", "a", "b")),
     medication = case_match(
       medication,
       "placebo" ~ "placebo",
       "D1"      ~ "low",
       "D2"      ~ "medium",
       "D3"      ~ "high") |>
-      factor(levels = c("placebo", "low", "medium", "high"), ordered = TRUE))
+      factor(levels = c("placebo", "low", "medium", "high")))
 
 # Within each cell, enlarge the SD (keeping means the same), the goals being to
 # make the data a little more realistic and to show shrinkage in the
