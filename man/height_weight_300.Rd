@@ -5,7 +5,7 @@
 \alias{height_weight_300}
 \title{Height and Weight data for 300 cases}
 \format{
-A data frame with 30 rows and 3 columns:
+A data frame with 300 rows and 3 columns:
 \describe{
 \item{male}{numeric values coded \code{0} for women and \code{1} for  men}
 \item{height}{numeric values (in inches)}
