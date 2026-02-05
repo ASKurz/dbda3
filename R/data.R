@@ -148,7 +148,7 @@
 #'
 #' This is a reformatted version of the `HtWtData300.csv` used in *DBDA2*. The data were originally made with Kruschke's `HtWtDataGenerator()` function.
 #'
-#' @format A data frame with 30 rows and 3 columns:
+#' @format A data frame with 300 rows and 3 columns:
 #' \describe{
 #'   \item{male}{numeric values coded `0` for women and `1` for  men}
 #'   \item{height}{numeric values (in inches)}
@@ -164,6 +164,27 @@
 #' @examples
 #' tibble::glimpse(height_weight_300)
 "height_weight_300"
+
+#' Height and Weight data for 110 cases
+#'
+#' This is a reformatted version of the `HtWtData110.csv` used in *DBDA2*. The data were originally made with Kruschke's `HtWtDataGenerator()` function.
+#'
+#' @format A data frame with 110 rows and 3 columns:
+#' \describe{
+#'   \item{male}{numeric values coded `0` for women and `1` for  men}
+#'   \item{height}{numeric values (in inches)}
+#'   \item{weight}{numeric values (in pounds)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' @examples
+#' tibble::glimpse(height_weight_110)
+"height_weight_110"
 
 #' Height and Weight data for 30 cases
 #'
