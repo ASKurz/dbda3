@@ -51,6 +51,7 @@ reference:
   contents:
   - cor_from_01
   - cor_to_01
+  - ess_eti
   - get_inits
   - logistic
   - logit
