@@ -591,3 +591,19 @@
 #' tibble::glimpse(nomnom_wide)
 #' nomnom_wide$y
 "nomnom_wide"
+
+#' Nominal data with metric predictors
+#'
+#' Synthetic nominal data with two metric predictors. These are unique to *DBDA3*, and highlighted in Chapter 20.
+#'
+#' @format A data frame with 500 rows and 3 columns:
+#' \describe{
+#'   \item{x1}{The first metric predictor (numeric)}
+#'   \item{x2}{The second metric predictor (numeric)}
+#'   \item{y}{The nominal predicted vairable (factor with 4 levels `1` through `4`)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(nommet)
+"nommet"
+
