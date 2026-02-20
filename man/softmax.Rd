@@ -23,7 +23,7 @@ Say we define the simple linear propensity of categorical outcome \eqn{k} as
 
 for a single predictor \eqn{x}, which is on the log-odds scale. We can define the probability of outcome \eqn{k} with the \emph{softmax} function, defined as
 
-\deqn{\phi_{k} = \operatorname{softmax}_S(\{\lambda_{k}\}) = \frac{ \exp(\lambda_{k}) }{ \sum_{c \in S} \exp(\lambda_c) }}.
+\deqn{\phi_{k} = \operatorname{softmax}_S(\{\lambda_{k}\}) = \frac{ \exp(\lambda_{k}) }{ \sum_{k \in S} \exp(\lambda_k) }}.
 }
 \examples{
 
