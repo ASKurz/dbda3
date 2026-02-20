@@ -557,3 +557,37 @@
 #' tibble::glimpse(splitplot)
 "splitplot"
 
+#' Grouped nominal data
+#'
+#' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 20. This version of the data set is formatted long with respect to the four levels of `y`.
+#'
+#' @format A data frame with 44 rows and 3 columns:
+#' \describe{
+#'   \item{group}{The nominal groups (factor with 11 levels `A` through `K`)}
+#'   \item{y}{The nominal predicted vairable (factor with 4 levels `1` through `4`)}
+#'   \item{z}{The count of `y` within each level of `group` (numeric)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(nomnom_long)
+"nomnom_long"
+
+#' Grouped nominal data
+#'
+#' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 20. This version of the data set is formatted long with respect to the four levels of `y`.
+#'
+#' @format A data frame with 11 rows and 7 columns:
+#' \describe{
+#'   \item{group}{The nominal groups (factor with 11 levels `A` through `K`)}
+#'   \item{y1}{The counts for the first level of the nominal predicted vairable (integer)}
+#'   \item{y2}{The counts for the second level of the nominal predicted vairable (integer)}
+#'   \item{y3}{The counts for the third level of the nominal predicted vairable (integer)}
+#'   \item{y4}{The counts for the fourth level of the nominal predicted vairable (integer)}
+#'   \item{y}{An 11 by 4 integer matrix of the counts nominal predicted vairable}
+#'   \item{n}{The total number of counts, per row (integer)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(nomnom_wide)
+#' nomnom_wide$y
+"nomnom_wide"
