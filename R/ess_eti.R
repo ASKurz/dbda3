@@ -1,6 +1,6 @@
 #' ETI effective sample size (eti-ESS)
 #'
-#' `ess_eti()` is a light-weight generalization of the `ess_tail()` function from the posterior package. The `ess_tail()` functions computes a tail effective sample size estimate (tail-ESS) for a single variable, where the two points of the tail are strictly defined as the 5% and 95% quantiles. The `ess_tail()` function returns the minimum value of for those two quantiles. The `ess_eti()` function allows for different pairs of quantiles.
+#' `ess_eti()` is a light-weight generalization of the `ess_tail()` function from the posterior package. The `ess_tail()` function computes a tail effective sample size estimate (tail-ESS) for a single variable, where the two points of the tail are strictly defined as the 5% and 95% quantiles, and the function returns the minimum value of for those two quantiles. The `ess_eti()` function allows for different pairs of quantiles.
 #'
 #' @param x A matrix of draws for a single variable (iterations x chains), or an [`rvar`], passed to the `x` argument within the `ess_quantile()` function.
 #' @param probs A numeric vector of probability values ranging from `0` to `1` passed to the `probs` argument of the `ess_quantile()`. Defaults to `c(0.025, 0.975)`.
@@ -14,7 +14,7 @@
 #'
 #' # Default behavior
 #' posterior::example_draws() |>
-#'   posterior::summarize_draws(ess_eti = ess_eti)
+#'   posterior::summarize_draws(ess_eti)
 #'
 #' # Adjust the `probs` argument to match `posterior::ess_tail()`
 #' posterior::example_draws() |>
@@ -23,5 +23,8 @@
 #' @import posterior
 #' @export
 ess_eti <- function(x, probs = c(0.025, 0.975), ...) {
+
+  checkmate::assert_numeric(probs, len = 2)
+
   ess_quantile(x, probs = probs, ...) |> min()
 }

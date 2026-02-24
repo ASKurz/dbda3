@@ -62,7 +62,9 @@ reference:
   - softmax
   - standardize
   - summarize_draws_dbda3
+  - summarize_draws_dbda3_2
   - tt_diag
+  - tt_diag_2
 
 - title: Data sets
   desc: Example data sets used in the text
