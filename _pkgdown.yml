@@ -76,10 +76,14 @@ reference:
   - big5_usa
   - boik
   - chart_review
+  - cor_pred_dichot
   - derby
+  - few_ones
   - fruitfly
   - group_levels
   - hair_eye_color
+  - headache
+  - headache_inter
   - height_weight_30
   - height_weight_40
   - height_weight_110
@@ -89,11 +93,13 @@ reference:
   - iq_two
   - iq_sat
   - linear_data
+  - logis_out
   - nommet
   - nomnom_long
   - nomnom_wide
   - normal_panels
   - sat
+  - sep_zone
   - set_a
   - set_b
   - set_c

@@ -607,3 +607,94 @@
 #' tibble::glimpse(nommet)
 "nommet"
 
+#' Bernoulli trials with two strongly correlated metric predictors
+#'
+#' Synthetic data unique to *DBDA3*, for use in Chapter 19. The binary predicted variable `y` has two strongly correlated metric predictors, `x1` and `x2`.
+#'
+#' @format A data frame with 100 rows and 3 columns:
+#' \describe{
+#'   \item{x1}{The first metric predictor (numeric)}
+#'   \item{x2}{The second metric predictor (numeric)}
+#'   \item{y}{Bernoulli trials (integer with values `0` and `1`)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(cor_pred_dichot)
+"cor_pred_dichot"
+
+#' Bernoulli trials with strong separation
+#'
+#' Synthetic data unique to *DBDA3*, for use in Chapter 19. The binary predicted variable `y` has two correlated metric predictors, `x1` and `x2`, and the trials show strong separation by the predictors.
+#'
+#' @format A data frame with 100 rows and 3 columns:
+#' \describe{
+#'   \item{x1}{The first metric predictor (numeric)}
+#'   \item{x2}{The second metric predictor (numeric)}
+#'   \item{y}{Bernoulli trials (integer with values `0` and `1`)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(sep_zone)
+"sep_zone"
+
+#' Bernoulli trials with few 1's
+#'
+#' Synthetic data unique to *DBDA3*, for use in Chapter 19. Both versions of the binary predicted variables, `y` and `y_few`, have two weakly correlated metric predictors, `x1` and `x2`. Whereas the variable `y` has a roughtly even number of 0's and 1's, `y_few` has very few 1's.
+#'
+#' @format A data frame with 100 rows and 4 columns:
+#' \describe{
+#'   \item{x1}{The first metric predictor (numeric)}
+#'   \item{x2}{The second metric predictor (numeric)}
+#'   \item{y}{Bernoulli trials (integer with values `0` and `1`)}
+#'   \item{y_few}{Bernoulli trials (integer with values `0` and `1`)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(few_ones)
+"few_ones"
+
+#' Bernoulli headache data
+#'
+#' Synthetic data unique to *DBDA3*, for use in Chapter 19. The data are based on a hypothetical study in which participants were randomly assigned to different dosages of a drug (`dosage` measured in milligrams; with 0 used as a placebo). Each participant was asked if they experienced a headache within 24 hours of taking the drug, with yes coded as `1` and no coded as `0`.
+#'
+#' @format A data frame with 350 rows and 2 columns:
+#' \describe{
+#'   \item{dosage}{The dosages of a drug (milligrams; numeric)}
+#'   \item{headache}{Bernoulli trials (integer with values `0` and `1`) indicating whether participants had a headache}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(headache)
+"headache"
+
+#' Bernoulli headache data with two interacting predictors
+#'
+#' Synthetic data unique to *DBDA3*, for use in Chapter 19.
+#' The data are based on a hypothetical study in which participants were randomly assigned to different dosages of a drug (`dosage` measured in milligrams; with 0 used as a placebo). Each participant was asked if they experienced a headache within 24 hours of taking the drug, with yes coded as `1` and no coded as `0`. Participant `age` at baseline was also recorded.
+#'
+#' @format A data frame with 250 rows and 3 columns:
+#' \describe{
+#'   \item{age}{Years old at baseline (numeric)}
+#'   \item{dosage}{The dosages of a drug (milligrams; numeric)}
+#'   \item{headache}{Bernoulli trials (integer with values `0` and `1`) indicating whether participants had a headache}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(headache_inter)
+"headache_inter"
+
+#' Bernoulli trials with outliers
+#'
+#' Synthetic data unique to *DBDA3*, for use in Chapter 19. The binary predicted variable `y` has one metric predictor, `x`.
+#'
+#' @format A data frame with 107 rows and 2 columns:
+#' \describe{
+#'   \item{x}{The metric predictor (numeric)}
+#'   \item{y}{Bernoulli trials (integer with values `0` and `1`)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(logis_out)
+"logis_out"
+
+
