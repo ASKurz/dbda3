@@ -34,7 +34,7 @@ tt_diag_2 <- function(x,
                       digits_ess  = 0,
                       height = 0.3,
                       placement = "H") {
-  n_col <- ncol(x)
+  # n_col <- ncol(x)
   n_row <- nrow(x)
 
   x |>
@@ -47,8 +47,10 @@ tt_diag_2 <- function(x,
     format_tt(j = "rhat", digits = digits_rhat, num_fmt = "decimal", num_zero = TRUE) |>
     # ESS columns
     format_tt(j = "^[ess]", digits = digits_ess, num_fmt = "decimal", num_zero = TRUE, num_mark_big = ",") |>
-    style_tt(j = 1, align = "l") |>
-    style_tt(j = 2:n_col, align = "r") |>
+    style_tt(align = "l") |>
+    style_tt(j = "^q", align = "r") |>
+    style_tt(j = "rhat", align = "r") |>
+    style_tt(j = "^[ess]", align = "r") |>
     style_tt(i = 1:n_row, j = 1, monospace = TRUE) |>
     theme_latex(placement = placement)  # Set LaTeX inline placement (defaults to "H")
 }
