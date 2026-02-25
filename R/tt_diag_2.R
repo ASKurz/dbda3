@@ -33,12 +33,13 @@ tt_diag_2 <- function(x,
                       digits_rhat = 3,
                       digits_ess  = 0,
                       height = 0.3,
-                      placement = "H") {
+                      placement = "H",
+                      ...) {
   # n_col <- ncol(x)
   n_row <- nrow(x)
 
   x |>
-    tt(height = height) |>
+    tt(height = height, ...) |>
     format_tt(i = "colnames", escape = TRUE) |>  # To handle the underscores in the column names
     format_tt(j = 1, escape = TRUE) |>           # To handle the underscores in column 1
     # Quantile columns
