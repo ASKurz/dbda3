@@ -10,7 +10,8 @@ tt_diag_2(
   digits_rhat = 3,
   digits_ess = 0,
   height = 0.3,
-  placement = "H"
+  placement = "H",
+  ...
 )
 }
 \arguments{
