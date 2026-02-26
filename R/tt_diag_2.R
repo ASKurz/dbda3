@@ -52,7 +52,7 @@ tt_diag_2 <- function(x,
     style_tt(j = "^q", align = "r") |>
     style_tt(j = "rhat", align = "r") |>
     style_tt(j = "^[ess]", align = "r") |>
-    style_tt(i = 1:n_row, j = 1, monospace = TRUE) |>
+    style_tt(i = 1:n_row, j = 1, alignv = "m", monospace = TRUE) |>
     theme_latex(placement = placement)  # Set LaTeX inline placement (defaults to "H")
 }
 
