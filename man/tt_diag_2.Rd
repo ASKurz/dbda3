@@ -11,6 +11,7 @@ tt_diag_2(
   digits_ess = 0,
   height = 0.3,
   placement = "H",
+  variable_name = "Parameter",
   ...
 )
 }
@@ -26,6 +27,8 @@ tt_diag_2(
 \item{height}{Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to \code{tt()}. Defaults to \code{0.3}.}
 
 \item{placement}{Character string specifying LaTeX float placement options for the table environment (e.g., \code{"h"}, \code{"t"}, \code{"b"}, \code{"p"}, \code{"H"}). Only used when \code{environment_table = TRUE}. The value is passed to \code{theme_latex()}. Defaults to \code{"H"}.}
+
+\item{variable_name}{The name for the first column, which is typically \code{"variable"} in a \code{summarize_draws()} output. Defaults to \code{"Parameter"}, and \code{NULL} retains the original name.}
 }
 \value{
 An object of class \code{tt} representing the table.

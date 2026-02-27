@@ -8,6 +8,7 @@
 #' @param digits_ess Number of significant digits or decimal places for the ESS columns. The value is passed to `format_tt(j = "^[ess]")`. Defaults to `0`.
 #' @param height Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to `tt()`. Defaults to `0.3`.
 #' @param placement Character string specifying LaTeX float placement options for the table environment (e.g., `"h"`, `"t"`, `"b"`, `"p"`, `"H"`). Only used when `environment_table = TRUE`. The value is passed to `theme_latex()`. Defaults to `"H"`.
+#' @param variable_name The name for the first column, which is typically `"variable"` in a `summarize_draws()` output. Defaults to `"Parameter"`, and `NULL` retains the original name.
 #'
 #' @returns An object of class `tt` representing the table.
 #'
@@ -34,11 +35,12 @@ tt_diag_2 <- function(x,
                       digits_ess  = 0,
                       height = 0.3,
                       placement = "H",
+                      variable_name = "Parameter",
                       ...) {
   # n_col <- ncol(x)
   n_row <- nrow(x)
 
-  x |>
+  t <- x |>
     tt(height = height, ...) |>
     format_tt(i = "colnames", escape = TRUE) |>  # To handle the underscores in the column names
     format_tt(j = 1, escape = TRUE) |>           # To handle the underscores in column 1
@@ -47,12 +49,21 @@ tt_diag_2 <- function(x,
     # Rhat column
     format_tt(j = "rhat", digits = digits_rhat, num_fmt = "decimal", num_zero = TRUE) |>
     # ESS columns
-    format_tt(j = "^[ess]", digits = digits_ess, num_fmt = "decimal", num_zero = TRUE, num_mark_big = ",") |>
+    format_tt(j = "^(ess)", digits = digits_ess, num_fmt = "decimal", num_zero = TRUE, num_mark_big = ",") |>
+    # Default to left align
     style_tt(align = "l") |>
-    style_tt(j = "^q", align = "r") |>
-    style_tt(j = "rhat", align = "r") |>
-    style_tt(j = "^[ess]", align = "r") |>
-    style_tt(i = 1:n_row, j = 1, alignv = "m", monospace = TRUE) |>
+    # Right align all numeric summary columns
+    style_tt(j = "^(q|ess|rhat)", align = "r") |>
+    # Use monospace font for all non-numeric summary columns
+    style_tt(i = 1:n_row, j = "^([^q|ess|rhat])", alignv = "m", monospace = TRUE) |>
     theme_latex(placement = placement)  # Set LaTeX inline placement (defaults to "H")
+
+  # Rename `variable` column
+  if (is.null(variable_name)) {
+    t
+  } else {
+    names(t)[1] <- variable_name
+    t
+  }
 }
 
