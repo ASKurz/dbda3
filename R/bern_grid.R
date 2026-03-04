@@ -12,7 +12,6 @@
 #' @param l_point A character value for the type of central tendency displayed for the likelihood. Must be `"max"` or `"none"`. Defaults to `"none"`.
 #' @param arrow_linewidth A numeric value for the `linewidth` weight of the arrow marking off the interval. Defaults to `0.67`.
 #' @param arrow_length A numeric value for the `length` of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to `0.075`.
-#' @param col_width A numeric value for the `width` argument within `geom_col()` for all three panels, which controls the widths of the vertical bars. Defaults to `NULL`.
 #' @param fill_color A character value for the `fill` and `color` aesthetic mappings for the columns in `geom_col()`. Defaults to `"gray65"`.
 #' @param darken_amount A numeric vector of two values for the `amount` argument within the `darken()` function to decrease and increase the `fill` and `color` values for the interval. Defaults to `c(-0.25, 0.15)`.
 #' @param point_size A numeric value for the `size` argument of the central-tendency points in `geom_point()`. Defaults to `1.5`.
@@ -65,7 +64,6 @@
 #'           # new settings
 #'           arrow_linewidth = 1.25,
 #'           arrow_length = 0.1,
-#'           col_width = 0.015,
 #'           fill_color = "skyblue1",
 #'           darken_amount = c(-0.3, 0.2),
 #'           point_size = 3,
@@ -93,7 +91,6 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
                       # General aesthetic arguments
                       arrow_linewidth = 0.67,
                       arrow_length = 0.075,
-                      col_width = NULL,
                       fill_color = "gray70",
                       darken_amount = c(-0.15, 0.15),
                       point_size = 1.5,
@@ -154,8 +151,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
     # Initial prior panel with interval information
     p1 <- grid_df |>
       ggplot(aes(x = theta, y = prior)) +
-      geom_col(aes(color = prior_in_interval, fill = prior_in_interval),
-               width = col_width) +
+      geom_col(aes(color = prior_in_interval, fill = prior_in_interval)) +
       geom_line(data = grid_df |>
                   # The `index`, `diff`, and `group` columns handle broken HDI regions
                   mutate(index = 1:n()) |>
@@ -173,8 +169,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
     # Initial posterior panel with interval information
     p3 <- grid_df |>
       ggplot(aes(x = theta, y = posterior)) +
-      geom_col(aes(color = posterior_in_interval, fill = posterior_in_interval),
-               width = col_width) +
+      geom_col(aes(color = posterior_in_interval, fill = posterior_in_interval)) +
       geom_line(data = grid_df |>
                   mutate(index = 1:n()) |>
                   filter(posterior_in_interval == TRUE) |>
@@ -191,12 +186,12 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
     # Initial prior panel
     p1 <- grid_df |>
       ggplot(aes(x = theta, y = prior)) +
-      geom_col(color = fill_color, fill = fill_color, width = col_width)
+      geom_col(color = fill_color, fill = fill_color)
 
     # Initial posterior panel
     p3 <- grid_df |>
       ggplot(aes(x = theta, y = posterior)) +
-      geom_col(color = fill_color, fill = fill_color, width = col_width)
+      geom_col(color = fill_color, fill = fill_color)
   }
 
   # Prior/posterior central tendency points

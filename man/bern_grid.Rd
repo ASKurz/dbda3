@@ -21,7 +21,6 @@ bern_grid(
   l_point = c("max", "none")[2],
   arrow_linewidth = 0.67,
   arrow_length = 0.075,
-  col_width = NULL,
   fill_color = "gray70",
   darken_amount = c(-0.15, 0.15),
   point_size = 1.5,
@@ -49,8 +48,6 @@ bern_grid(
 \item{arrow_linewidth}{A numeric value for the \code{linewidth} weight of the arrow marking off the interval. Defaults to \code{0.67}.}
 
 \item{arrow_length}{A numeric value for the \code{length} of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to \code{0.075}.}
-
-\item{col_width}{A numeric value for the \code{width} argument within \code{geom_col()} for all three panels, which controls the widths of the vertical bars. Defaults to \code{NULL}.}
 
 \item{fill_color}{A character value for the \code{fill} and \code{color} aesthetic mappings for the columns in \code{geom_col()}. Defaults to \code{"gray65"}.}
 
@@ -104,7 +101,6 @@ bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
           # new settings
           arrow_linewidth = 1.25,
           arrow_length = 0.1,
-          col_width = 0.015,
           fill_color = "skyblue1",
           darken_amount = c(-0.3, 0.2),
           point_size = 3,
