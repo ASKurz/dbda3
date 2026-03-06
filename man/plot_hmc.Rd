@@ -4,7 +4,7 @@
 \alias{plot_hmc}
 \title{Plot the output of \code{hmc_proposal()}}
 \usage{
-plot_hmc(hmc_data, mo_sd = 1)
+plot_hmc(hmc_data, mo_sd = 1, fill_color = "#82BAD8", line_color = "#B6242F")
 }
 \arguments{
 \item{hmc_data}{A data frame containing at least four columns:
@@ -14,12 +14,18 @@ plot_hmc(hmc_data, mo_sd = 1)
 \item \code{step} A numeric vector of steps returned by the \code{hmc_proposal()} function.
 \item \code{proposal} A numeric vector of HMC proposal values returned by the \code{hmc_proposal()} function.
 }}
+
+\item{mo_sd}{A single numeric value for the standard deviation of the momentum distribution, which is Gaussian with a mean at zero. In the plot, this value controls the width of the arrows depicting the random impulse. Defaults to \code{1}.}
+
+\item{fill_color}{The predominant color used in the first, second, and fourth panels. Defaults to \code{"#82BAD8"}.}
+
+\item{line_color}{The color of the trajectory lines in the third panel. Defaults to \code{"#B6242F"}.}
 }
 \value{
 An object of class \code{patchwork}, \verb{gg,} and \code{ggplot}.
 }
 \description{
-Make figures displaying Hamiltonian Monte Carlo proposal distributions, based on the output of the \code{hmc_proposal()}. This will produce figures with four panels, as seen in \emph{DBDA3} Chapter 8. The first panel displays the posterior distribution and the initial position of the random walk. The second panel depicts the potential energy, and a random impulse. The third panel displays the trajectories from several impulses. The fourth panel shows a histogram of the final proposals from the third panel.
+Make figures displaying Hamiltonian Monte Carlo proposal distributions, based on the output of the \code{hmc_proposal()} function. This will produce figures with four panels, as seen in \emph{DBDA3} Chapter 8. The first panel displays the posterior distribution and the initial position of the random walk. The second panel depicts the potential energy, and a random impulse. The third panel displays the trajectories from several impulses. The fourth panel shows a histogram of the final proposals from the third panel.
 }
 \examples{
 # Load
@@ -32,7 +38,7 @@ hmc_df <- data.frame(
   epsilon = runif(n = 1e3, min = 0.005, max = 0.195)) |>
   mutate(l = runif(n = 1e3, min = 1 / epsilon, max = pi / (2 * epsilon)) |> ceiling()) |>
   mutate(hmc = pmap(.l = list(epsilon, l, impulse),
-                    .f = function(.x, .y, .z) hmc_proposal(epsilon = .x, l = .y, seed = .z))) |>
+                    .f = function(x, y, z) hmc_proposal(epsilon = x, l = y, seed = z))) |>
   unnest(hmc)
 
 # Plot
