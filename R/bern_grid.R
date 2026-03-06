@@ -110,17 +110,24 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
   checkmate::assert_choice(l_point, choices = c("max", "none"))
   checkmate::assert_logical(plot)
 
+  # Make a helper
+  density_interval <- function(x, interval, prob) {
+    if (interval == "eti") {
+      in_eti_grid(x, prob = prob)
+    } else if (interval == "hdi") {
+      in_hdi_grid(x, prob = prob)
+    } else if (interval == "none") {
+      NA
+    }
+  }
+
   # Make the primary data frame
   grid_df <- data.frame(theta = theta,
                         prior = p_theta) |>
     mutate(likelihood = dbern(x = theta, z = z, n = n)) |>
     mutate(posterior = (prior * likelihood) / sum(prior * likelihood)) |>
-    mutate(prior_in_interval = case_when(interval == "eti" ~ in_eti_grid(prior, prob = prob),
-                                         interval == "hdi" ~ in_hdi_grid(prior, prob = prob),
-                                         interval == "none" ~ NA),
-           posterior_in_interval = case_when(interval == "eti" ~ in_eti_grid(posterior, prob = prob),
-                                             interval == "hdi" ~ in_hdi_grid(posterior, prob = prob),
-                                             interval == "none" ~ NA))
+    mutate(prior_in_interval     = density_interval(x = prior,     interval = interval, prob = prob),
+           posterior_in_interval = density_interval(x = posterior, interval = interval, prob = prob))
 
   # Compute the upper limit for the y axis of the prior and posterior
   pp_ylim_upper <- grid_df |>
