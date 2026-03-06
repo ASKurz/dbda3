@@ -9,8 +9,10 @@ tt_diag_2(
   digits_q = 1,
   digits_rhat = 3,
   digits_ess = 0,
+  digits_mcse = 3,
   height = 0.3,
   placement = "H",
+  monospace_j = 1,
   variable_name = "Parameter",
   ...
 )
@@ -18,15 +20,19 @@ tt_diag_2(
 \arguments{
 \item{x}{A data frame, data table, or tibble to be rendered as a table.}
 
-\item{digits_q}{Number of significant digits or decimal places for the quantile columns. The value is passed to \code{format_tt(j = "^q")}. Defaults to \code{1}.}
+\item{digits_q}{Number of significant digits or decimal places for the quantile columns. The value is passed to the \code{digits} argument in \code{format_tt(j = "^q")}. Defaults to \code{1}.}
 
-\item{digits_rhat}{Number of significant digits or decimal places for the \code{rhat} column. The value is passed to \code{format_tt(j = "rhat")}. Defaults to \code{3}.}
+\item{digits_rhat}{Number of significant digits or decimal places for the \code{rhat} column. The value is passed to the \code{digits} argument in \code{format_tt(j = "rhat")}. Defaults to \code{3}.}
 
-\item{digits_ess}{Number of significant digits or decimal places for the ESS columns. The value is passed to \code{format_tt(j = "^[ess]")}. Defaults to \code{0}.}
+\item{digits_ess}{Number of significant digits or decimal places for the ESS columns. The value is passed to the \code{digits} argument in \code{format_tt(j = "^[ess]")}. Defaults to \code{0}.}
 
-\item{height}{Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to \code{tt()}. Defaults to \code{0.3}.}
+\item{digits_mcse}{Number of significant digits or decimal places for the MCSE columns. The value is passed to the \code{digits} argument in \code{format_tt(j = "^[mcse]")}. Defaults to \code{3}.}
+
+\item{height}{Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to the \code{height} argument in \code{tt()}. Defaults to \code{0.3}.}
 
 \item{placement}{Character string specifying LaTeX float placement options for the table environment (e.g., \code{"h"}, \code{"t"}, \code{"b"}, \code{"p"}, \code{"H"}). Only used when \code{environment_table = TRUE}. The value is passed to \code{theme_latex()}. Defaults to \code{"H"}.}
+
+\item{monospace_j}{Which columns are given monospace font. The value is passed to the \code{j} argument in \code{style_tt(alignv = "m", monospace = TRUE)}. Can take a numeric vector, and defaults to \code{1}.}
 
 \item{variable_name}{The name for the first column, which is typically \code{"variable"} in a \code{summarize_draws()} output. Defaults to \code{"Parameter"}, and \code{NULL} retains the original name.}
 }

@@ -3,11 +3,13 @@
 #' `tt_diag_2()` is a light-weight wrapper around the `tt()` function from the tinytable package, with default settings frequently used in the HMC diagnostic tables frequently used in *DBDA3*.
 #'
 #' @param x A data frame, data table, or tibble to be rendered as a table.
-#' @param digits_q Number of significant digits or decimal places for the quantile columns. The value is passed to `format_tt(j = "^q")`. Defaults to `1`.
-#' @param digits_rhat Number of significant digits or decimal places for the `rhat` column. The value is passed to `format_tt(j = "rhat")`. Defaults to `3`.
-#' @param digits_ess Number of significant digits or decimal places for the ESS columns. The value is passed to `format_tt(j = "^[ess]")`. Defaults to `0`.
-#' @param height Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to `tt()`. Defaults to `0.3`.
+#' @param digits_q Number of significant digits or decimal places for the quantile columns. The value is passed to the `digits` argument in `format_tt(j = "^q")`. Defaults to `1`.
+#' @param digits_rhat Number of significant digits or decimal places for the `rhat` column. The value is passed to the `digits` argument in `format_tt(j = "rhat")`. Defaults to `3`.
+#' @param digits_ess Number of significant digits or decimal places for the ESS columns. The value is passed to the `digits` argument in `format_tt(j = "^[ess]")`. Defaults to `0`.
+#' @param digits_mcse Number of significant digits or decimal places for the MCSE columns. The value is passed to the `digits` argument in `format_tt(j = "^[mcse]")`. Defaults to `3`.
+#' @param height Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to the `height` argument in `tt()`. Defaults to `0.3`.
 #' @param placement Character string specifying LaTeX float placement options for the table environment (e.g., `"h"`, `"t"`, `"b"`, `"p"`, `"H"`). Only used when `environment_table = TRUE`. The value is passed to `theme_latex()`. Defaults to `"H"`.
+#' @param monospace_j Which columns are given monospace font. The value is passed to the `j` argument in `style_tt(alignv = "m", monospace = TRUE)`. Can take a numeric vector, and defaults to `1`.
 #' @param variable_name The name for the first column, which is typically `"variable"` in a `summarize_draws()` output. Defaults to `"Parameter"`, and `NULL` retains the original name.
 #'
 #' @returns An object of class `tt` representing the table.
@@ -27,14 +29,17 @@
 #' example_draws_diag |>
 #'   tt_diag_2(digits_q = 2, digits_rhat = 1, height = 0.2)
 #'
+#' @importFrom stringr str_detect
 #' @import tinytable
 #' @export
 tt_diag_2 <- function(x,
                       digits_q    = 1,
                       digits_rhat = 3,
                       digits_ess  = 0,
+                      digits_mcse = 3,
                       height = 0.3,
                       placement = "H",
+                      monospace_j = 1,
                       variable_name = "Parameter",
                       ...) {
   # n_col <- ncol(x)
@@ -46,17 +51,29 @@ tt_diag_2 <- function(x,
     format_tt(j = 1, escape = TRUE) |>           # To handle the underscores in column 1
     # Quantile columns
     format_tt(j = "^q", digits = digits_q, num_fmt = "decimal", num_zero = TRUE) |>
-    # Rhat column
-    format_tt(j = "rhat", digits = digits_rhat, num_fmt = "decimal", num_zero = TRUE) |>
     # ESS columns
     format_tt(j = "^(ess)", digits = digits_ess, num_fmt = "decimal", num_zero = TRUE, num_mark_big = ",") |>
     # Default to left align
     style_tt(align = "l") |>
     # Right align all numeric summary columns
-    style_tt(j = "^(q|ess|rhat)", align = "r") |>
-    # Use monospace font for all non-numeric summary columns
-    style_tt(i = 1:n_row, j = "^([^q|ess|rhat])", alignv = "m", monospace = TRUE) |>
+    style_tt(j = "^(q|ess)", align = "r") |>
+    # Define the columns with monospace font
+    # style_tt(i = 1:n_row, j = "^([^q|ess|rhat])", alignv = "m", monospace = TRUE) |>
+    style_tt(i = 1:n_row, j = monospace_j, alignv = "m", monospace = TRUE) |>
     theme_latex(placement = placement)  # Set LaTeX inline placement (defaults to "H")
+
+  # Rhat
+  if (sum(str_detect(colnames(x), "rhat")) > 0) {
+    t <- t |>
+      format_tt(j = "rhat", digits = digits_rhat, num_fmt = "decimal", num_zero = TRUE) |>
+      style_tt(j = "rhat", align = "r")
+  }
+  # MCSE columns
+  if (sum(str_detect(colnames(x), "mcse")) > 0) {
+    t <- t |>
+      format_tt(j = "^(mcse)", digits = digits_mcse, num_fmt = "decimal", num_zero = TRUE) |>
+      style_tt(j = "^(mcse)", align = "r")
+  }
 
   # Rename `variable` column
   if (is.null(variable_name)) {
