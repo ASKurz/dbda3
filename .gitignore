@@ -3,6 +3,7 @@ README.qmd
 inst/doc
 docs
 notes.Rmd
+errors.Rmd
 .Rhistory
 /archive
 R/tt_diag_john.R
