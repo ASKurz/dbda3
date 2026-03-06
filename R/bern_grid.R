@@ -12,13 +12,14 @@
 #' @param l_point A character value for the type of central tendency displayed for the likelihood. Must be `"max"` or `"none"`. Defaults to `"none"`.
 #' @param arrow_linewidth A numeric value for the `linewidth` weight of the arrow marking off the interval. Defaults to `0.67`.
 #' @param arrow_length A numeric value for the `length` of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to `0.075`.
-#' @param fill_color A character value for the `fill` and `color` aesthetic mappings for the columns in `geom_col()`. Defaults to `"gray65"`.
+#' @param col_color A character value for the `fill` and `color` aesthetic mappings for the columns in `geom_col()`. Defaults to `"#82BAD8"`.
+#' @param point_color A character value for the `color` aesthetic mapping for the points in `geom_point()`. Defaults to `"#B6242F"`.
 #' @param darken_amount A numeric vector of two values for the `amount` argument within the `darken()` function to decrease and increase the `fill` and `color` values for the interval. Defaults to `c(-0.25, 0.15)`.
 #' @param point_size A numeric value for the `size` argument of the central-tendency points in `geom_point()`. Defaults to `1.5`.
 #' @param text_size A numeric value for the `size` argument of the text annotation describing the central tendency points, and the data description, in `geom_text()`. Defaults to `3.25`.
-#' @param return_post A logical value dictating whether to return the posterior distribution as a numeric vector. Defaults to `FALSE`.
+#' @param plot A logical value indicating whether the plot should displayed in the active graphic device. Defaults to `TRUE`.
 #'
-#' @returns If `return_post == FALSE`, an object of class `patchwork`, `gg,` and `ggplot`. If `return_post == TRUE`, a numeric vector the same length as `theta`.
+#' @returns If `plot == TRUE`, an object of class `patchwork`, `gg,` and `ggplot`. If `plot == FALSE`, a numeric vector of posterior values the same length as `theta`.
 #'
 #' @source
 #' Kruschke, J. K. (2015).
@@ -64,14 +65,15 @@
 #'           # new settings
 #'           arrow_linewidth = 1.25,
 #'           arrow_length = 0.1,
-#'           fill_color = "skyblue1",
+#'           col_color = "gray70",
+#'           point_color = "gray20",
 #'           darken_amount = c(-0.3, 0.2),
 #'           point_size = 3,
 #'           text_size = 4)
 #'
-#' # Return the vector of posterior values
+#' # Only return the vector of posterior values
 #' posterior_vec <- bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
-#'                            return_post = TRUE)
+#'                            plot = FALSE)
 #' str(posterior_vec)
 #'
 #' # Use the `posterior_vec` in `p_theta` and update `z` and `n`
@@ -91,11 +93,12 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
                       # General aesthetic arguments
                       arrow_linewidth = 0.67,
                       arrow_length = 0.075,
-                      fill_color = "gray70",
+                      col_color = "#82BAD8",
+                      point_color = "#B6242F",
                       darken_amount = c(-0.15, 0.15),
                       point_size = 1.5,
                       text_size = 3.25,
-                      return_post = c(TRUE, FALSE)[2]) {
+                      plot = c(TRUE, FALSE)[1]) {
   # Checks
   checkmate::assert_numeric(theta, lower = 0, upper = 1, any.missing = FALSE)
   checkmate::assert_numeric(p_theta, lower = 0, upper = 1, any.missing = FALSE)
@@ -105,6 +108,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
   checkmate::assert_choice(interval, choices = c("eti", "hdi", "none"))
   checkmate::assert_choice(pp_point, choices = c("mean", "median", "mode", "none"))
   checkmate::assert_choice(l_point, choices = c("max", "none"))
+  checkmate::assert_logical(plot)
 
   # Make the primary data frame
   grid_df <- data.frame(theta = theta,
@@ -163,8 +167,8 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
                 aes(group = group),
                 linewidth = arrow_linewidth,
                 arrow = arrow(length = unit(arrow_length, "in"), ends = "both")) +
-      scale_color_manual(values = darken(col = fill_color, amount = darken_amount), breaks = NULL, limits = c(FALSE, TRUE)) +
-      scale_fill_manual(values = darken(col = fill_color, amount = darken_amount), breaks = NULL, limits = c(FALSE, TRUE))
+      scale_color_manual(values = darken(col = col_color, amount = darken_amount), breaks = NULL, limits = c(FALSE, TRUE)) +
+      scale_fill_manual(values = darken(col = col_color, amount = darken_amount), breaks = NULL, limits = c(FALSE, TRUE))
 
     # Initial posterior panel with interval information
     p3 <- grid_df |>
@@ -180,18 +184,18 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
                 aes(group = group),
                 linewidth = arrow_linewidth,
                 arrow = arrow(length = unit(arrow_length, "in"), ends = "both")) +
-      scale_color_manual(values = darken(col = fill_color, amount = darken_amount), breaks = NULL, limits = c(FALSE, TRUE)) +
-      scale_fill_manual(values = darken(col = fill_color, amount = darken_amount), breaks = NULL, limits = c(FALSE, TRUE))
+      scale_color_manual(values = darken(col = col_color, amount = darken_amount), breaks = NULL, limits = c(FALSE, TRUE)) +
+      scale_fill_manual(values = darken(col = col_color, amount = darken_amount), breaks = NULL, limits = c(FALSE, TRUE))
   } else if (interval == "none") {
     # Initial prior panel
     p1 <- grid_df |>
       ggplot(aes(x = theta, y = prior)) +
-      geom_col(color = fill_color, fill = fill_color)
+      geom_col(color = col_color, fill = col_color)
 
     # Initial posterior panel
     p3 <- grid_df |>
       ggplot(aes(x = theta, y = posterior)) +
-      geom_col(color = fill_color, fill = fill_color)
+      geom_col(color = col_color, fill = col_color)
   }
 
   # Prior/posterior central tendency points
@@ -305,7 +309,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
   # Initial likelihood panel
   p2 <- grid_df |>
     ggplot(aes(x = theta, y = likelihood)) +
-    geom_point(color = fill_color, size = 1) +
+    geom_point(color = point_color, size = 1) +
     geom_text(data = text_df,
               aes(label = label, hjust = hjust),
               parse = TRUE, size = text_size, vjust = 1)
@@ -356,10 +360,7 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
     theme(panel.grid = element_blank())
 
   # Return plot or posterior vector
-  if (return_post == FALSE) {
-    p1 / p2 / p3
-  } else {
-    pull(grid_df, posterior)
-  }
+  if (isTRUE(plot)) print(p1 / p2 / p3)
+  pull(grid_df, posterior) |> invisible()
 }
 

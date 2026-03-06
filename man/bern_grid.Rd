@@ -21,11 +21,12 @@ bern_grid(
   l_point = c("max", "none")[2],
   arrow_linewidth = 0.67,
   arrow_length = 0.075,
-  fill_color = "gray70",
+  col_color = "#82BAD8",
+  point_color = "#B6242F",
   darken_amount = c(-0.15, 0.15),
   point_size = 1.5,
   text_size = 3.25,
-  return_post = c(TRUE, FALSE)[2]
+  plot = c(TRUE, FALSE)[1]
 )
 }
 \arguments{
@@ -49,7 +50,9 @@ bern_grid(
 
 \item{arrow_length}{A numeric value for the \code{length} of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to \code{0.075}.}
 
-\item{fill_color}{A character value for the \code{fill} and \code{color} aesthetic mappings for the columns in \code{geom_col()}. Defaults to \code{"gray65"}.}
+\item{col_color}{A character value for the \code{fill} and \code{color} aesthetic mappings for the columns in \code{geom_col()}. Defaults to \code{"#82BAD8"}.}
+
+\item{point_color}{A character value for the \code{color} aesthetic mapping for the points in \code{geom_point()}. Defaults to \code{"#B6242F"}.}
 
 \item{darken_amount}{A numeric vector of two values for the \code{amount} argument within the \code{darken()} function to decrease and increase the \code{fill} and \code{color} values for the interval. Defaults to \code{c(-0.25, 0.15)}.}
 
@@ -57,10 +60,10 @@ bern_grid(
 
 \item{text_size}{A numeric value for the \code{size} argument of the text annotation describing the central tendency points, and the data description, in \code{geom_text()}. Defaults to \code{3.25}.}
 
-\item{return_post}{A logical value dictating whether to return the posterior distribution as a numeric vector. Defaults to \code{FALSE}.}
+\item{plot}{A logical value indicating whether the plot should displayed in the active graphic device. Defaults to \code{TRUE}.}
 }
 \value{
-If \code{return_post == FALSE}, an object of class \code{patchwork}, \verb{gg,} and \code{ggplot}. If \code{return_post == TRUE}, a numeric vector the same length as \code{theta}.
+If \code{plot == TRUE}, an object of class \code{patchwork}, \verb{gg,} and \code{ggplot}. If \code{plot == FALSE}, a numeric vector of posterior values the same length as \code{theta}.
 }
 \description{
 A \link[ggplot2:ggplot2-package]{ggplot2::ggplot2}-based update of the \code{BernGrid()} function, as introduced in Chapter 5 of \emph{DBDA2}. The revised \code{bern_grid()} function makes figures highlighting the effect the prior has on the posterior distribution of the success probability parameter for the Bernoulli likelihood, such as seen in Chapter 5 of \emph{DBDA3}. The solution is based on the grid-approximation approach.
@@ -101,14 +104,15 @@ bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
           # new settings
           arrow_linewidth = 1.25,
           arrow_length = 0.1,
-          fill_color = "skyblue1",
+          col_color = "gray70",
+          point_color = "gray20",
           darken_amount = c(-0.3, 0.2),
           point_size = 3,
           text_size = 4)
 
-# Return the vector of posterior values
+# Only return the vector of posterior values
 posterior_vec <- bern_grid(theta = theta_vec, p_theta = prior_vec, z = z, n = n,
-                           return_post = TRUE)
+                           plot = FALSE)
 str(posterior_vec)
 
 # Use the `posterior_vec` in `p_theta` and update `z` and `n`
