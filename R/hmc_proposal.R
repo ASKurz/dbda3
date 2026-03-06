@@ -10,6 +10,8 @@
 #'
 #' @returns A data frame with rows equal to `l + 1`, and two columns, `step` and `proposal`. The `step` column is an index, starting at `0` and ending at `l`, which marks off the steps. The `proposal` column contains the draws from the proposal distribution.
 #'
+#' @seealso [plot_hmc()] for documentation on we plotted the `hmc_proposal()` output in *DBDA3*.
+#'
 #' @examples
 #' library(dplyr, warn.conflicts = FALSE)
 #' library(ggplot2)
@@ -36,7 +38,7 @@
 #'   expand_grid(iteration = 1:30) |>
 #'   mutate(seed = sample(1:n())) |>
 #'   mutate(h = pmap(.l = list(epsilon, l, seed),
-#'                   .f = ~hmc_proposal(epsilon = ..1, l = ..2, seed = ..3))) |>
+#'                   .f = function(x, y, z) hmc_proposal(epsilon = x, l = y, seed = z))) |>
 #'   unnest(h) |>
 #'
 #'   ggplot(aes(x = proposal, y = step, group = seed)) +
@@ -91,10 +93,8 @@ hmc_proposal <- function(epsilon = 0.1,
   }
 
   # Convert the primary output to a data frame
-  hmc_results <- data.frame(
+  data.frame(
     step = 0:l,
     proposal = proposal_vector)
-
-  return(hmc_results)
 }
 

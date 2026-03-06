@@ -49,11 +49,14 @@ crossing(epsilon = c(0.05, 0.1, 0.2, 0.4),
   expand_grid(iteration = 1:30) |>
   mutate(seed = sample(1:n())) |>
   mutate(h = pmap(.l = list(epsilon, l, seed),
-                  .f = ~hmc_proposal(epsilon = ..1, l = ..2, seed = ..3))) |>
+                  .f = function(x, y, z) hmc_proposal(epsilon = x, l = y, seed = z))) |>
   unnest(h) |>
 
   ggplot(aes(x = proposal, y = step, group = seed)) +
   geom_path(linewidth = 1/5) +
   facet_grid(l ~ epsilon, labeller = label_both)
 
+}
+\seealso{
+\code{\link[=plot_hmc]{plot_hmc()}} for documentation on we plotted the \code{hmc_proposal()} output in \emph{DBDA3}.
 }
