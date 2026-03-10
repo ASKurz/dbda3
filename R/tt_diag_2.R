@@ -6,7 +6,7 @@
 #' @param digits_q Number of significant digits or decimal places for the quantile columns. The value is passed to the `digits` argument in `format_tt(j = "^q")`. Defaults to `1`.
 #' @param digits_rhat Number of significant digits or decimal places for the `rhat` column. The value is passed to the `digits` argument in `format_tt(j = "rhat")`. Defaults to `3`.
 #' @param digits_ess Number of significant digits or decimal places for the ESS columns. The value is passed to the `digits` argument in `format_tt(j = "^[ess]")`. Defaults to `0`.
-#' @param digits_mcse Number of significant digits or decimal places for the MCSE columns. The value is passed to the `digits` argument in `format_tt(j = "^[mcse]")`. Defaults to `3`.
+#' @param digits_mcse Number of significant digits or decimal places for the MCSE columns. The value is passed to the `digits` argument in `format_tt(j = "^[mcse]")`. Defaults to `digits_q`.
 #' @param height Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to the `height` argument in `tt()`. Defaults to `0.3`.
 #' @param placement Character string specifying LaTeX float placement options for the table environment (e.g., `"h"`, `"t"`, `"b"`, `"p"`, `"H"`). Only used when `environment_table = TRUE`. The value is passed to `theme_latex()`. Defaults to `"H"`.
 #' @param monospace_j Which columns are given monospace font. The value is passed to the `j` argument in `style_tt(alignv = "m", monospace = TRUE)`. Can take a numeric vector, and defaults to `1`.
@@ -36,7 +36,7 @@ tt_diag_2 <- function(x,
                       digits_q    = 1,
                       digits_rhat = 3,
                       digits_ess  = 0,
-                      digits_mcse = 3,
+                      digits_mcse = digits_q,
                       height = 0.3,
                       placement = "H",
                       monospace_j = 1,

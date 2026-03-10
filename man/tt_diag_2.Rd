@@ -9,7 +9,7 @@ tt_diag_2(
   digits_q = 1,
   digits_rhat = 3,
   digits_ess = 0,
-  digits_mcse = 3,
+  digits_mcse = digits_q,
   height = 0.3,
   placement = "H",
   monospace_j = 1,
@@ -26,7 +26,7 @@ tt_diag_2(
 
 \item{digits_ess}{Number of significant digits or decimal places for the ESS columns. The value is passed to the \code{digits} argument in \code{format_tt(j = "^[ess]")}. Defaults to \code{0}.}
 
-\item{digits_mcse}{Number of significant digits or decimal places for the MCSE columns. The value is passed to the \code{digits} argument in \code{format_tt(j = "^[mcse]")}. Defaults to \code{3}.}
+\item{digits_mcse}{Number of significant digits or decimal places for the MCSE columns. The value is passed to the \code{digits} argument in \code{format_tt(j = "^[mcse]")}. Defaults to \code{digits_q}.}
 
 \item{height}{Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to the \code{height} argument in \code{tt()}. Defaults to \code{0.3}.}
 
