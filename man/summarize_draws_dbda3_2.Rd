@@ -4,12 +4,14 @@
 \alias{summarize_draws_dbda3_2}
 \title{Summarize \code{draws} objects}
 \usage{
-summarize_draws_dbda3_2(.x, probs = c(0.5, 0.025, 0.975), ...)
+summarize_draws_dbda3_2(.x, probs = c(0.5, 0.025, 0.975), mcse = FALSE, ...)
 }
 \arguments{
 \item{.x}{An object of class \code{draws} passed to the \code{.x} argument within the \code{summarize_draws()} function.}
 
-\item{probs}{A numeric vector of probability values ranging from \code{0} to \code{1} passed to the \code{probs} argument of the \code{quantile2()} function from the posterior package. Defaults to \code{c(0.50, 0.025, 0.975)}.}
+\item{probs}{A numeric vector of probability values ranging from \code{0} to \code{1}. The full vector is passed to the \code{probs} argument of the \code{quantile2()} and \code{mcse_quantile()} functions (when \code{mcse = TRUE}), and the minimum and maximum values are passed to the \code{probs} argument in the \code{ess_eti()} function. Defaults to \code{c(0.50, 0.025, 0.975)}.}
+
+\item{mcse}{A logical value indicating whether to include Monte Carlo standard errors for quantile estimates . Defaults to \code{FALSE}.}
 
 \item{...}{Additional arguments passed to \code{summarize_draws()}.}
 }
@@ -24,11 +26,11 @@ An object of \code{draws_summary}, \code{tbl_df}, \code{tbl}, and \code{data.fra
 # Default behavior
 posterior::example_draws() |>
   summarize_draws_dbda3_2() |>
-  str()
+  str(give.attr = FALSE)
 
-# Adjust the `probs` argument
+# Adjust the `probs` argument, and include MCSE
 posterior::example_draws() |>
-  summarize_draws_dbda3_2(probs = 0.5) |>
-  str()
+  summarize_draws_dbda3_2(probs = c(0.50, 0.05, 0.95), mcse = TRUE) |>
+  str(give.attr = FALSE)
 
 }
