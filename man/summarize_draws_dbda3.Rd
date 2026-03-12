@@ -24,11 +24,11 @@ An object of \code{draws_summary}, \code{tbl_df}, \code{tbl}, and \code{data.fra
 # Default behavior
 posterior::example_draws() |>
   summarize_draws_dbda3() |>
-  str()
+  str(give.attr = FALSE)
 
 # Adjust the `probs` argument
 posterior::example_draws() |>
   summarize_draws_dbda3(probs = 0.5) |>
-  str()
+  str(give.attr = FALSE)
 
 }

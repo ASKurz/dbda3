@@ -13,12 +13,12 @@
 #' # Default behavior
 #' posterior::example_draws() |>
 #'   summarize_draws_dbda3() |>
-#'   str()
+#'   str(give.attr = FALSE)
 #'
 #' # Adjust the `probs` argument
 #' posterior::example_draws() |>
 #'   summarize_draws_dbda3(probs = 0.5) |>
-#'   str()
+#'   str(give.attr = FALSE)
 #'
 #' @import posterior
 #' @export
