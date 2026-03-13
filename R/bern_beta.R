@@ -13,7 +13,8 @@
 #' @param l_point A character value for the type of central tendency displayed for the likelihood. Must be `"max"` or `"none"`. Defaults to `"none"`.
 #' @param arrow_linewidth A numeric value for the `linewidth` weight of the arrow marking off the interval. Defaults to `0.67`.
 #' @param arrow_length A numeric value for the `length` of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to `0.075`.
-#' @param fill_color A character value for the `fill` and `color` aesthetic mappings for the columns in `geom_col()`. Defaults to `"gray70"`.
+#' @param fill_color A character value for the `fill` aesthetic mapping for the interval in `geom_area()`. Defaults to `"#82BAD8"`.
+#' @param line_color A character value for the `color` aesthetic mapping for the likelihood line in `geom_line()`. Defaults to `"#B6242F"`.
 #' @param darken_amount A numeric vector of two values for the `amount` argument within the `darken()` function to decrease and increase the `fill` values for the interval. Defaults to `c(-0.15, 0.15)`.
 #' @param point_size A numeric value for the `size` argument of the central-tendency points in `geom_point()`. Defaults to `1.5`.
 #' @param text_size A numeric value for the `size` argument of the text annotation describing the central tendency points, and the data description, in `geom_text()`. Defaults to `3.25`.
@@ -63,7 +64,8 @@
 #'           # Aesthetic settings
 #'           arrow_linewidth = 1.25,
 #'           arrow_length = 0.1,
-#'           fill_color = "steelblue1",
+#'           fill_color = "gray70",
+#'           line_color = "gray20",
 #'           darken_amount = c(-0.3, 0.2),
 #'           point_size = 3,
 #'           text_size = 5)
@@ -73,19 +75,20 @@
 #' @import dplyr ggplot2 patchwork
 #' @export
 bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
-                       # Interval arguments
-                       interval = c("eti", "hdi", "none")[3],
-                       prob = 0.95,
-                       # Central tendency arguments
-                       pp_point = c("mean", "median", "mode", "none")[4],
-                       l_point = c("max", "none")[2],
-                       # General aesthetic arguments
-                       arrow_linewidth = 0.67,
-                       arrow_length = 0.075,
-                       fill_color = "gray70",
-                       darken_amount = c(-0.15, 0.15),
-                       point_size = 1.5,
-                       text_size = 3.25) {
+                      # Interval arguments
+                      interval = c("eti", "hdi", "none")[3],
+                      prob = 0.95,
+                      # Central tendency arguments
+                      pp_point = c("mean", "median", "mode", "none")[4],
+                      l_point = c("max", "none")[2],
+                      # General aesthetic arguments
+                      arrow_linewidth = 0.67,
+                      arrow_length = 0.075,
+                      fill_color = "#82BAD8",
+                      line_color = "#B6242F",
+                      darken_amount = c(-0.15, 0.15),
+                      point_size = 1.5,
+                      text_size = 3.25) {
   # Checks
   checkmate::assert_numeric(a, lower = 0)
   checkmate::assert_numeric(b, lower = 0)
@@ -297,7 +300,7 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
   # Initial likelihood panel
   p2 <- grid_df |>
     ggplot(aes(x = theta, y = likelihood)) +
-    geom_line(color = fill_color, linewidth = 1) +
+    geom_line(color = line_color, linewidth = 1) +
     geom_text(data = text_df,
               aes(label = label, hjust = hjust),
               parse = TRUE, size = text_size, vjust = 1)
@@ -329,21 +332,21 @@ bern_beta <- function(a = 1, b = 1, z = 1, n = 1,  # The primary arguments
     scale_x_continuous(NULL, breaks = NULL) +
     scale_y_continuous(expression(italic(p)(theta)), limits = c(0, pp_ylim_upper)) +
     coord_cartesian(xlim = 0:1) +
-    labs(subtitle = "Prior") +
+    facet_wrap(~ "Prior") +
     theme(panel.grid = element_blank())
   # Adjust likelihood panel
   p2 <- p2 +
     scale_x_continuous(NULL, breaks = NULL) +
     scale_y_continuous(expression(italic(p)(D*'|'*theta)), limits = c(0, l_ylim_upper)) +
     coord_cartesian(xlim = 0:1) +
-    labs(subtitle = "Likelihood") +
+    facet_wrap(~ "Likelihood") +
     theme(panel.grid = element_blank())
   # Adjust posterior panel
   p3 <- p3 +
     scale_x_continuous(expression(theta), breaks = 0:5 / 5) +
     scale_y_continuous(expression(italic(p)(theta*'|'*D)), limits = c(0, pp_ylim_upper)) +
     coord_cartesian(xlim = 0:1) +
-    labs(subtitle = "Posterior") +
+    facet_wrap(~ "Posterior") +
     theme(panel.grid = element_blank())
 
   p1 / p2 / p3

@@ -21,7 +21,8 @@ bern_beta(
   l_point = c("max", "none")[2],
   arrow_linewidth = 0.67,
   arrow_length = 0.075,
-  fill_color = "gray70",
+  fill_color = "#82BAD8",
+  line_color = "#B6242F",
   darken_amount = c(-0.15, 0.15),
   point_size = 1.5,
   text_size = 3.25
@@ -46,7 +47,9 @@ bern_beta(
 
 \item{arrow_length}{A numeric value for the \code{length} of the arrow heads marking off the ends of the interval, as measured in inches. Defaults to \code{0.075}.}
 
-\item{fill_color}{A character value for the \code{fill} and \code{color} aesthetic mappings for the columns in \code{geom_col()}. Defaults to \code{"gray70"}.}
+\item{fill_color}{A character value for the \code{fill} aesthetic mapping for the interval in \code{geom_area()}. Defaults to \code{"#82BAD8"}.}
+
+\item{line_color}{A character value for the \code{color} aesthetic mapping for the likelihood line in \code{geom_line()}. Defaults to \code{"#B6242F"}.}
 
 \item{darken_amount}{A numeric vector of two values for the \code{amount} argument within the \code{darken()} function to decrease and increase the \code{fill} values for the interval. Defaults to \code{c(-0.15, 0.15)}.}
 
@@ -97,7 +100,8 @@ bern_beta(a = a, b = b, z = z, n = n,
           # Aesthetic settings
           arrow_linewidth = 1.25,
           arrow_length = 0.1,
-          fill_color = "steelblue1",
+          fill_color = "gray70",
+          line_color = "gray20",
           darken_amount = c(-0.3, 0.2),
           point_size = 3,
           text_size = 5)
