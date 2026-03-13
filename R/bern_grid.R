@@ -349,21 +349,21 @@ bern_grid <- function(theta, p_theta, z, n,  # The primary arguments
     scale_x_continuous(NULL, breaks = NULL) +
     scale_y_continuous(expression(italic(p)(theta)), limits = c(0, pp_ylim_upper)) +
     coord_cartesian(xlim = 0:1) +
-    labs(subtitle = "Prior") +
+    facet_wrap(~ "Prior") +
     theme(panel.grid = element_blank())
   # Adjust likelihood panel
   p2 <- p2 +
     scale_x_continuous(NULL, breaks = NULL) +
     scale_y_continuous(expression(italic(p)(D*'|'*theta)), limits = c(0, l_ylim_upper)) +
     coord_cartesian(xlim = 0:1) +
-    labs(subtitle = "Likelihood") +
+    facet_wrap(~ "Likelihood") +
     theme(panel.grid = element_blank())
   # Adjust posterior panel
   p3 <- p3 +
     scale_x_continuous(expression(theta), breaks = 0:5 / 5) +
     scale_y_continuous(expression(italic(p)(theta*'|'*D)), limits = c(0, pp_ylim_upper)) +
     coord_cartesian(xlim = 0:1) +
-    labs(subtitle = "Posterior") +
+    facet_wrap(~ "Posterior") +
     theme(panel.grid = element_blank())
 
   # Return plot or posterior vector
