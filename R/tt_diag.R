@@ -32,8 +32,9 @@ tt_diag <- function(x) {
 
   x |>
     tt() |>
-    format_tt(i = "colnames", escape = TRUE) |>  # To handle the underscores in the column names
-    format_tt(j = 1, escape = TRUE) |>           # To handle the underscores in column 1
+    format_tt(escape = TRUE) |>  # To handle any underscores
+    # format_tt(i = "colnames", escape = TRUE) |>  # To handle the underscores in the column names
+    # format_tt(j = 1, escape = TRUE) |>           # To handle the underscores in column 1
     style_tt(j = 1, align = "l") |>
     style_tt(j = 2:n_col, align = "r") |>
     style_tt(i = 1:n_row, j = 1, monospace = TRUE) |>

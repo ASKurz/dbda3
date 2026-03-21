@@ -47,8 +47,9 @@ tt_diag_2 <- function(x,
 
   t <- x |>
     tt(height = height, ...) |>
-    format_tt(i = "colnames", escape = TRUE) |>  # To handle the underscores in the column names
-    format_tt(j = 1, escape = TRUE) |>           # To handle the underscores in column 1
+    format_tt(escape = TRUE) |>  # To handle any underscores
+    # format_tt(i = "colnames", escape = TRUE) |>  # To handle the underscores in the column names
+    # format_tt(j = 1, escape = TRUE) |>           # To handle the underscores in column 1
     # Quantile columns
     # format_tt(j = "^q", digits = digits_q, num_fmt = "decimal", num_zero = TRUE) |>
     # ESS columns
