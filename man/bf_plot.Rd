@@ -17,14 +17,13 @@ bf_plot(
   ylab = expression(italic(p)(Numerator ~ Model * " | " * D)),
   title = NULL,
   subtitle = "Numerator Model\\n/ Denominator Model",
-  bf_col = "deepskyblue",
+  bf_col = "#266BAF",
   accept_col = "darkgreen",
   reject_col = "darkred",
   bf_label_nudge = 0.2,
   bf_size = 6,
   ar_size = 3.5,
-  axis_breaks = 0:5/5,
-  no_plot = FALSE
+  axis_breaks = 0:5/5
 )
 }
 \arguments{
@@ -40,7 +39,7 @@ bf_plot(
 
 \item{subtitle}{The text for the subtitle. Passed to the \code{subtitle} argument within \code{labs()}. Defaults to \code{"Numerator Model\\n/ Denominator Model"}.}
 
-\item{bf_col}{The color for the BF annotation. Defaults to \code{"deepskyblue"}.}
+\item{bf_col}{The color for the BF annotation. Defaults to \code{"#266BAF"}.}
 
 \item{accept_col}{The color for the acceptance annotation. Defaults to \code{"darkgreen"}.}
 
@@ -53,11 +52,9 @@ bf_plot(
 \item{ar_size}{A single numeric value for the size of the accept/reject text annotation, passed to the \code{size} argument in \code{geom_text()}. Defaults to \code{3.5}.}
 
 \item{axis_breaks}{A numeric vector for the breaks in the x and y axes, passed to the \code{breaks} argument in \code{scale_x_continuous()} and \code{scale_y_continuous()}. Defaults to \code{0:5 / 5}.}
-
-\item{no_plot}{A logical value. Currently serves no function, and will be fleshed out later.}
 }
 \value{
-If \code{no_plot == FALSE}, an object of class \code{gg} and \code{ggplot}.
+An object of class \code{gg} and \code{ggplot}.
 }
 \description{
 A ggplot2-based revision of the \code{bfplot()} function, as introduced in Kruschke (2021). For an input Bayes factor, \code{bf_plot()} creates a plot of the posterior model probability as a function of the prior model probability.
@@ -66,12 +63,10 @@ A ggplot2-based revision of the \code{bfplot()} function, as introduced in Krusc
 For an input Bayes factor, \code{bf_plot()} plots the posterior probability of the numerator model as a function of the prior probability of the numerator model. The plot is optionally annotated with the critical posterior probability for deciding to accept or reject the models, and with the corresponding prior probability required to reach that threshold.
 }
 \examples{
-library(ggplot2)
-
 # Default behavior
 bf_plot()
 
-# Adjust a few parameters
+# Adjust a few parameters, and augment with ggplot2 functions
 bf_plot(bf = 7.5,
         xlab = expression(italic(p)(italic(M)[Fair])),
         ylab = expression(italic(p)(italic(M)[Fair]*'|'*D)),
@@ -79,6 +74,6 @@ bf_plot(bf = 7.5,
         bf_col = "steelblue",
         bf_size = 4,
         ar_size = 2.5) +
-  facet_wrap(~ "italic(M)[Fair]/italic(M)[Haldane]", labeller = label_parsed)
+  ggplot2::theme(panel.grid.major = ggplot2::element_line(color = "white"))
 
 }

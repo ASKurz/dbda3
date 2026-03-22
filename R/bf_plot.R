@@ -8,18 +8,17 @@
 #' @param ylab The title to the y axis. Passed to the `y` argument within `labs()`. Defaults to `expression(italic(p)(Numerator~Model*' | '*D))`.
 #' @param title The text for the title. Passed to the `title` argument within `labs()`. Defaults to `NULL`.
 #' @param subtitle The text for the subtitle. Passed to the `subtitle` argument within `labs()`. Defaults to `"Numerator Model\n/ Denominator Model"`.
-#' @param bf_col The color for the BF annotation. Defaults to `"deepskyblue"`.
+#' @param bf_col The color for the BF annotation. Defaults to `"#266BAF"`.
 #' @param accept_col The color for the acceptance annotation. Defaults to `"darkgreen"`.
 #' @param reject_col The color for the rejection annotation. Defaults to `"darkred"`.
 #' @param bf_label_nudge A single numeric value for the amount of position nudging the BF label takes relative to the curve. Defaults to `0.2`.
 #' @param bf_size A single numeric value for the size of the BF text annotation, passed to the `size` argument in `geom_text()`. Defaults to `6`.
 #' @param ar_size A single numeric value for the size of the accept/reject text annotation, passed to the `size` argument in `geom_text()`. Defaults to `3.5`.
 #' @param axis_breaks A numeric vector for the breaks in the x and y axes, passed to the `breaks` argument in `scale_x_continuous()` and `scale_y_continuous()`. Defaults to `0:5 / 5`.
-#' @param no_plot A logical value. Currently serves no function, and will be fleshed out later.
 #'
 #' @details For an input Bayes factor, `bf_plot()` plots the posterior probability of the numerator model as a function of the prior probability of the numerator model. The plot is optionally annotated with the critical posterior probability for deciding to accept or reject the models, and with the corresponding prior probability required to reach that threshold.
 #'
-#' @returns If `no_plot == FALSE`, an object of class `gg` and `ggplot`.
+#' @returns An object of class `gg` and `ggplot`.
 #'
 #' @source
 #' Kruschke, J. K. (2021).
@@ -28,12 +27,10 @@
 #' <https://doi.org/10.1038/s41562-021-01177-7>
 #'
 #' @examples
-#' library(ggplot2)
-#'
 #' # Default behavior
 #' bf_plot()
 #'
-#' # Adjust a few parameters
+#' # Adjust a few parameters, and augment with ggplot2 functions
 #' bf_plot(bf = 7.5,
 #'         xlab = expression(italic(p)(italic(M)[Fair])),
 #'         ylab = expression(italic(p)(italic(M)[Fair]*'|'*D)),
@@ -41,7 +38,7 @@
 #'         bf_col = "steelblue",
 #'         bf_size = 4,
 #'         ar_size = 2.5) +
-#'   facet_wrap(~ "italic(M)[Fair]/italic(M)[Haldane]", labeller = label_parsed)
+#'   ggplot2::theme(panel.grid.major = ggplot2::element_line(color = "white"))
 #'
 #' @importFrom stringr str_c
 #' @import dplyr ggplot2
@@ -53,15 +50,14 @@ bf_plot <- function(
     ylab = expression(italic(p)(Numerator~Model*' | '*D)),
     title = NULL,
     subtitle = "Numerator Model\n/ Denominator Model",
-    bf_col = "deepskyblue",
+    bf_col = "#266BAF",  # "deepskyblue",
     accept_col = "darkgreen",
     reject_col = "darkred",
     bf_label_nudge = 0.2,
     bf_size = 6,
     ar_size = 3.5,
-    axis_breaks = 0:5 / 5,
-    # If TRUE then only returns info, no plot
-    no_plot = FALSE) {
+    axis_breaks = 0:5 / 5) {
+
   # Check the inputs values
   if (bf <= 0) stop("`bf` must be greater than zero.")
   if (is.infinite(bf)) stop("`bf` must be finite.")
@@ -90,14 +86,14 @@ bf_plot <- function(
     # Data frame for the BF annotation
     bf_label_df <- bf_df |>
       slice_max(post - prior) |>
-      mutate(label = str_c("BF==", signif(bf, digits = 3)))
+      mutate(label = str_c("italic(BF)==", signif(bf, digits = 3)))
     # Adjust the horizontal and vertical text alignment within geom_text()
     h_just <- 0 - bf_label_nudge
     v_just <- 1 + bf_label_nudge + 1.3 * (abs(log10(bf)) > bf_label_nudge_crit)
   } else {
     bf_label_df <- bf_df |>
       slice_min(post - prior, with_ties = FALSE) |>
-      mutate(label = str_c("BF==", signif(bf, digits = 3)))
+      mutate(label = str_c("italic(BF)==", signif(bf, digits = 3)))
     h_just <- 1
     v_just <- 0 - bf_label_nudge + 1.3 * (abs(log10(bf)) > bf_label_nudge_crit)
   }
@@ -140,7 +136,7 @@ bf_plot <- function(
   }
 
   # Make the plot
-  the_bf_plot <- bf_df |>
+  bf_df |>
     ggplot(aes(x = prior, y = post)) +
     # The BF curve
     geom_line(color = bf_col, linewidth = 1) +
@@ -173,7 +169,5 @@ bf_plot <- function(
           panel.grid = element_blank(),
           plot.title = element_text(hjust = 0.5),
           plot.subtitle = element_text(hjust = 0.5))
-
-  the_bf_plot
 }
 
