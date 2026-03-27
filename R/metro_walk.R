@@ -97,9 +97,7 @@ metro_walk <- function(pro_sd = 0.02, init_pos = 0.01,
   }
 
   # Store the primary results in a data frame
-  df <- data.frame(step = 1:n_steps,
-                   theta = traj)
-  return(df)
-
+  data.frame(step = 1:n_steps,
+             theta = traj)
 }
 
