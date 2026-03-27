@@ -10,7 +10,7 @@
 #'
 #' @returns A data frame with rows equal to `l + 1`, and two columns, `step` and `proposal`. The `step` column is an index, starting at `0` and ending at `l`, which marks off the steps. The `proposal` column contains the draws from the proposal distribution.
 #'
-#' @seealso [plot_hmc()] for documentation on we plotted the `hmc_proposal()` output in *DBDA3*.
+#' @seealso [hmc_plot()] for documentation on we plotted the `hmc_proposal()` output in *DBDA3*.
 #'
 #' @examples
 #' library(dplyr, warn.conflicts = FALSE)

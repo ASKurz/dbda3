@@ -58,5 +58,5 @@ crossing(epsilon = c(0.05, 0.1, 0.2, 0.4),
 
 }
 \seealso{
-\code{\link[=plot_hmc]{plot_hmc()}} for documentation on we plotted the \code{hmc_proposal()} output in \emph{DBDA3}.
+\code{\link[=hmc_plot]{hmc_plot()}} for documentation on we plotted the \code{hmc_proposal()} output in \emph{DBDA3}.
 }

@@ -37,7 +37,7 @@ reference:
   - bern_grid
   - bern_beta
   - bf_plot
-  - plot_hmc
+  - hmc_plot
 
 - title: Sampler functions
   desc: Functions designed to highlight various MCMC samplers and their technical details
@@ -62,7 +62,6 @@ reference:
   - softmax
   - standardize
   - summarize_draws_dbda3
-  - summarize_draws_dbda3_2
   - tt_diag
   - tt_diag_2
   - tt_loss
