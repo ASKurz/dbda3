@@ -4,7 +4,7 @@
 \name{two_x_cor}
 \alias{two_x_cor}
 \alias{two_x_uncor}
-\title{Trivariate-Normal Data}
+\title{Data with a continuous predicted, and two continuous predictor variables}
 \format{
 Each data set is a data frame with 200 rows and 3 columns:
 \describe{
@@ -19,7 +19,7 @@ two_x_cor
 two_x_uncor
 }
 \description{
-Two data sets (\code{two_x_cor} and \code{two_x_uncor}) used in Chapter 16 of \emph{DBDA3} to show the consequences of weakly- and strongly-correlated predictors in simple regression models of the form \eqn{y_i = \beta_0 + \beta_1 x1_i + \beta_2 x2_i + \epsilon}.
+Two data sets (\code{two_x_cor} and \code{two_x_uncor}) used in Chapter 16 of \emph{DBDA3} to show the consequences of weakly- and strongly-correlated predictors in simple regression models of the form \eqn{y_i = \beta_0 + \beta_1 x1_i + \beta_2 x2_i + \epsilon_i}.
 }
 \examples{
 tibble::glimpse(two_x_cor)

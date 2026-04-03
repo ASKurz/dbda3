@@ -2,10 +2,10 @@
 library(tidyverse)
 library(dbda3)
 
-data(nomnom_long, package = "dbda3")
+data(nom_nom_long, package = "dbda3")
 
 # Convert from the long to the wide
-nom_nom_wide <- nomnom_long |>
+nom_nom_wide <- nom_nom_long |>
   pivot_wider(names_from = y, values_from = z) |>
   mutate(y = cbind(`1`, `2`, `3`, `4`)) |>
   rename_with(.cols = `1`:`4`, .fn = \(x) str_c("y", x)) |>
