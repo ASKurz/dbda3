@@ -102,7 +102,7 @@ reference:
   - set_a
   - set_b
   - set_c
-  - splitplot
+  - split_plot
   - therapeutic_touch
   - two_x_cor
   - two_x_uncor

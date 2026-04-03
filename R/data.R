@@ -554,8 +554,8 @@
 #' <https://sites.google.com/site/doingbayesiandataanalysis/>
 #'
 #' @examples
-#' tibble::glimpse(splitplot)
-"splitplot"
+#' tibble::glimpse(split_plot)
+"split_plot"
 
 #' Grouped nominal data
 #'

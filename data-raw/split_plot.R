@@ -2,9 +2,9 @@
 library(tidyverse)
 
 # Load the data file, as used for DBDA2
-splitplot <- read_csv("data-raw/data.R/SplitPlotAgriData.csv")
+split_plot <- read_csv("data-raw/data.R/SplitPlotAgriData.csv")
 
-splitplot <- splitplot |>
+split_plot <- split_plot |>
   # Adjust names
   rename_all(.funs = tolower) |>
   # Rename levels and save as a factor
@@ -22,8 +22,8 @@ splitplot <- splitplot |>
   data.frame()
 
 # Inspect the data
-glimpse(splitplot)
+glimpse(split_plot)
 
-# Save `splitplot` as `splitplot.rda` in the `data` folder
-usethis::use_data(splitplot)
+# Save `split_plot` as `split_plot.rda` in the `data` folder
+usethis::use_data(split_plot)
 
