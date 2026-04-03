@@ -63,7 +63,6 @@ reference:
   - standardize
   - summarize_draws_dbda3
   - tt_diag
-  - tt_diag_2
   - tt_loss
 
 - title: Data sets
