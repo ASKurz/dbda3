@@ -53,10 +53,11 @@ hmc_plot <- function(hmc_data,
                      breaks = NULL,  # or `waiver()`
                      top_facet_label = NULL,
                      top_facet_labeller = NULL,
-                     fill_posterior = "#82BAD8",
-                     color_potential = "#266BAF",
-                     color_hd = "#266BAF",
-                     fill_proposals = "#82BAD8") {
+                     fill_posterior = "#9FCFE4",  #"#82BAD8",
+                     color_potential = "#4B7BB7",  #"#266BAF",
+                     color_hd = "#4B7BB7",  # "#266BAF",
+                     fill_proposals = "#9FCFE4"  #"#82BAD8"
+                     ) {
 
   # Check the `hmc_data` input
   checkmate::assert_data_frame(hmc_data)
