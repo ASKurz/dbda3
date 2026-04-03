@@ -6,7 +6,7 @@
 \usage{
 gibbs_walk(
   init_pos = c(0.01, 0.01),
-  n_cycle = 1000,
+  n_cycle = 350,
   seed = 47405,
   z1 = 5,
   n1 = 7,
@@ -15,13 +15,14 @@ gibbs_walk(
   z2 = 2,
   n2 = 7,
   a2 = 1,
-  b2 = 1
+  b2 = 1,
+  exclude_inits = TRUE
 )
 }
 \arguments{
 \item{init_pos}{A numeric vector of two values defining the initial positions for the two parameters. Defaults to \code{c(0.01, 0.01)}.}
 
-\item{n_cycle}{A single numeric value for the number of Gibbs cycles. Defaults to \code{1000}.}
+\item{n_cycle}{A single numeric value for the number of Gibbs cycles. Defaults to \code{350}.}
 
 \item{seed}{A single numeric value passed to the \code{seed} argument in \code{set.seed()}, to make the results computationally reproducible. Defaults to \code{47405}.}
 
@@ -32,6 +33,8 @@ gibbs_walk(
 \item{a1, a2}{The numeric value denoting the first parameter in the beta prior for each of the two examples. Each value is passed to the \code{shape1} argument in the \code{dbeta()} function. Default to \code{1} and \code{1}.}
 
 \item{b1, b2}{The numeric value denoting the second parameter in the beta prior for each of the two examples. Each value is passed to the \code{shape2} argument in the \code{dbeta()} function. Default to \code{1} and \code{1}.}
+
+\item{exclude_inits}{A logical value indicating whether to drop the initial values. Defaults to \code{TRUE}.}
 }
 \value{
 A data frame with rows equal to \code{n_steps}, and two columns, \code{step} and \code{theta}. The \code{step} column is an index, starting at \code{1} and ending at \code{n_steps}, which marks off the MCMC steps. The \code{theta} column contains the posterior draws for the focal parameter,  \eqn{theta}.
