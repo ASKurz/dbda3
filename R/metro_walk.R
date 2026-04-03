@@ -59,7 +59,7 @@ metro_walk <- function(pro_sd = 0.02, init_pos = 0.01,
   checkmate::assert_numeric(pro_sd, lower = 0)
   checkmate::assert_numeric(init_pos, lower = 0, upper = 1)
   checkmate::assert_numeric(n_steps, lower = 0)
-  checkmate::assert_numeric(seed)
+  checkmate::assert_numeric(seed, null.ok = TRUE)
   checkmate::assert_numeric(z, lower = 0)
   checkmate::assert_numeric(n, lower = 1)
   checkmate::assert_numeric(a, lower = 0)
