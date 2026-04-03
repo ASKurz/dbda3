@@ -3,7 +3,7 @@
 ## Package {dbda3}
 
 Welcome to the homepage for the dbda3 package. This is an R package
-supporting the third edition of *Doing Bayesian Data Analysis* (order [here](https://www.amazon.com/Doing-Bayesian-Data-Analysis-tidyverse-ebook/dp/B0F93CXTRL)). The
+supporting the third edition of *Doing Bayesian Data Analysis*. The
 dbda3 package provides a variety of convenience functions supporting
 Bayesian data analysis, with an emphasis on a tidyverse-oriented
 workflow, and on models fit with the brms package.
@@ -17,36 +17,31 @@ repository](https://github.com/ASKurz/dbda3). Just execute this code in
 your R console.
 
 ``` r
-if (!requireNamespace("devtools")) install.packages("devtools")
-devtools::install_github("ASKurz/dbda3")
+if (!requireNamespace("pak")) install.packages("pak")
+pak::pak("ASKurz/dbda3")
 ```
 
-The first line of the code checks whether you already have the devtools
+The first line of the code checks whether you already have the pak
 package on your computer, and installs that package if you do not. We
-first need the devtools package so we can access its `install_github()`
-function. Then in the second line, we use the `install_github()`
-function to install dbda3 from GitHub.
+first need the pak package so we can access its `pak()` function. Then
+in the second line, we use the `pak()` function to install dbda3 from
+GitHub.
 
 For newer R users, you may see some red-font output in your console when
-installing devtools along the lines of:
+installing pak along the lines of:
 
 ``` default
-Loading required namespace: devtools
-Failed with error:  ‘there is no package called ‘devtools’’
-trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-arm64/contrib/4.4/devtools_2.4.5.tgz'
-Content type 'application/x-gzip' length 434637 bytes (424 KB)
+trying URL 'https://mirrors.nics.utk.edu/cran/bin/macosx/big-sur-arm64/contrib/4.5/pak_0.9.2.tgz'
+Content type 'application/x-gzip' length 6439812 bytes (6.1 MB)
 ==================================================
-downloaded 424 KB
-
-The downloaded binary packages are in
-    /var/folders/ff/pyxx17ws0l38sr420ztg3rdw0000gn/T//RtmpvTk9jU/downloaded_packages
+downloaded 6.1 MB
 ```
 
 This is normal, and generally does not require anything else from your
 end. In a similar way, you’ll also likely see a bunch of text output in
-your console after executing `devtools::install_github("ASKurz/dbda3")`.
-If it ends in line reading `* DONE (dbda3)`, congratulations, you’ve
-downloaded the dbda3 package!
+your console after executing `pak::pak("ASKurz/dbda3")`. If it ends in
+line reading `* DONE (dbda3)`, congratulations, you’ve downloaded the
+dbda3 package!
 
 When executing, some users may see a few lines in their console that
 looks similar to
