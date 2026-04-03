@@ -604,8 +604,8 @@
 #' }
 #'
 #' @examples
-#' tibble::glimpse(nommet)
-"nommet"
+#' tibble::glimpse(nom_met)
+"nom_met"
 
 #' Bernoulli trials with two strongly correlated metric predictors
 #'
