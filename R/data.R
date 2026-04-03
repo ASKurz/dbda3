@@ -444,8 +444,8 @@
 #' <https://doi.org/10.1080/10691898.1994.11910467>
 #'
 #' @examples
-#' tibble::glimpse(fruitfly)
-"fruitfly"
+#' tibble::glimpse(fruit_fly)
+"fruit_fly"
 
 #' Synthetic data of a 3 X 4 factorial experiment
 #'

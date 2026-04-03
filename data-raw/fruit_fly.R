@@ -2,9 +2,9 @@
 library(tidyverse)
 
 # Load the data file, as used for DBDA2
-fruitfly <- read_csv("data-raw/data.R/FruitflyDataReduced.csv")
+fruit_fly <- read_csv("data-raw/data.R/FruitflyDataReduced.csv")
 
-fruitfly <- fruitfly |>
+fruit_fly <- fruit_fly |>
   # Adjust names
   rename_all(.funs = tolower) |>
   rename(companion_number = companionnumber) |>
@@ -23,8 +23,8 @@ fruitfly <- fruitfly |>
   rename(group = companion_number)
 
 # Inspect the data
-glimpse(fruitfly)
+glimpse(fruit_fly)
 
-# Save `fruitfly` as `fruitfly.rda` in the `data` folder
-usethis::use_data(fruitfly)
+# Save `fruit_fly` as `fruit_fly.rda` in the `data` folder
+usethis::use_data(fruit_fly)
 
