@@ -568,6 +568,8 @@
 #'   \item{z}{The count of `y` within each level of `group` (numeric)}
 #' }
 #'
+#' @seealso [nom_nom_wide] for the wide formatted version of the data.
+#'
 #' @examples
 #' tibble::glimpse(nom_nom_long)
 "nom_nom_long"
@@ -586,6 +588,8 @@
 #'   \item{y}{An 11 by 4 integer matrix of the counts nominal predicted vairable}
 #'   \item{n}{The total number of counts, per row (integer)}
 #' }
+#'
+#' @seealso [nom_nom_long] for the long formatted version of the data.
 #'
 #' @examples
 #' tibble::glimpse(nom_nom_wide)
