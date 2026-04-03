@@ -569,8 +569,8 @@
 #' }
 #'
 #' @examples
-#' tibble::glimpse(nomnom_long)
-"nomnom_long"
+#' tibble::glimpse(nom_nom_long)
+"nom_nom_long"
 
 #' Grouped nominal data
 #'
@@ -588,9 +588,9 @@
 #' }
 #'
 #' @examples
-#' tibble::glimpse(nomnom_wide)
-#' nomnom_wide$y
-"nomnom_wide"
+#' tibble::glimpse(nom_nom_wide)
+#' nom_nom_wide$y
+"nom_nom_wide"
 
 #' Nominal data with metric predictors
 #'
