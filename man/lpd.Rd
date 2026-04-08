@@ -33,11 +33,12 @@ kappa <- 12
 ab_head <- beta_a_b_from_mode_kappa(mode = mode_head, kappa = kappa)
 ab_tail <- beta_a_b_from_mode_kappa(mode = mode_tail, kappa = kappa)
 
-# Compute the log of the marginal likelihoods for the two models (i.e., the log of the probabilities of the data)
-(log_pd_head <- lpd(z = z, n = n, a = ab_head$a, b = ab_head$b))
-(log_pd_tail <- lpd(z = z, n = n, a = ab_tail$a, b = ab_tail$b))
+# Compute the log of the marginal likelihoods for the two models
+# (i.e., the log of the probabilities of the data)
+(lpd_head <- lpd(z = z, n = n, a = ab_head$a, b = ab_head$b))
+(lpd_tail <- lpd(z = z, n = n, a = ab_tail$a, b = ab_tail$b))
 
 # Compute the Bayes factor of the head-biased model over the tail-biased model
-exp(log_pd_head - log_pd_tail)
+exp(lpd_head - lpd_tail)
 
 }
