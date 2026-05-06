@@ -7,7 +7,7 @@
 \format{
 A data frame with 70 rows and 1 column:
 \describe{
-\item{y}{Ordinal predicted variable (ordered factor with five levels: \code{"1"}, \code{"2"}, \code{"3"}, \code{"4"}, and \code{"5"})}
+\item{y}{Ordinal predicted variable (ordered factor with seven levels: \code{"1"} to \code{"7"})}
 }
 }
 \source{

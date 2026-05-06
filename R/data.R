@@ -707,7 +707,7 @@
 #'
 #' @format A data frame with 70 rows and 1 column:
 #' \describe{
-#'   \item{y}{Ordinal predicted variable (ordered factor with five levels: `"1"`, `"2"`, `"3"`, `"4"`, and `"5"`)}
+#'   \item{y}{Ordinal predicted variable (ordered factor with seven levels: `"1"` to `"7"`)}
 #' }
 #'
 #' @source
