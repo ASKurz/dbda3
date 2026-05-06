@@ -23,7 +23,8 @@ bf_plot(
   bf_label_nudge = 0.2,
   bf_size = 6,
   ar_size = 3.5,
-  axis_breaks = 0:5/5
+  axis_breaks = 0:5/5,
+  coord_equal = TRUE
 )
 }
 \arguments{
@@ -52,6 +53,8 @@ bf_plot(
 \item{ar_size}{A single numeric value for the size of the accept/reject text annotation, passed to the \code{size} argument in \code{geom_text()}. Defaults to \code{3.5}.}
 
 \item{axis_breaks}{A numeric vector for the breaks in the x and y axes, passed to the \code{breaks} argument in \code{scale_x_continuous()} and \code{scale_y_continuous()}. Defaults to \code{0:5 / 5}.}
+
+\item{coord_equal}{A logical value indicating whether to include \code{coord_equal()}. Defaults to \code{TRUE}.}
 }
 \value{
 An object of class \code{gg} and \code{ggplot}.

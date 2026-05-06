@@ -15,6 +15,7 @@
 #' @param color_potential The `color` of the negative log posterior ("potential") line (second panel). Defaults to `"#266BAF"`.
 #' @param color_hd The `color` of the Hamiltonian dynamics trajectory lines and dots (third panel). Defaults to `"#266BAF"`.
 #' @param fill_proposals The `fill` color for the HMC proposal histogram (fourth panel). Defaults to `"#82BAD8"`.
+#'
 #' @returns An object of class `patchwork`, `gg,` and `ggplot`.
 #'
 #' @seealso [hmc_proposal()] for documentation on the HMC proposal inputs.

@@ -15,6 +15,7 @@
 #' @param bf_size A single numeric value for the size of the BF text annotation, passed to the `size` argument in `geom_text()`. Defaults to `6`.
 #' @param ar_size A single numeric value for the size of the accept/reject text annotation, passed to the `size` argument in `geom_text()`. Defaults to `3.5`.
 #' @param axis_breaks A numeric vector for the breaks in the x and y axes, passed to the `breaks` argument in `scale_x_continuous()` and `scale_y_continuous()`. Defaults to `0:5 / 5`.
+#' @param coord_equal A logical value indicating whether to include `coord_equal()`. Defaults to `TRUE`.
 #'
 #' @details For an input Bayes factor, `bf_plot()` plots the posterior probability of the numerator model as a function of the prior probability of the numerator model. The plot is optionally annotated with the critical posterior probability for deciding to accept or reject the models, and with the corresponding prior probability required to reach that threshold.
 #'
@@ -56,7 +57,8 @@ bf_plot <- function(
     bf_label_nudge = 0.2,
     bf_size = 6,
     ar_size = 3.5,
-    axis_breaks = 0:5 / 5) {
+    axis_breaks = 0:5 / 5,
+    coord_equal = TRUE) {
 
   # Check the inputs values
   if (bf <= 0) stop("`bf` must be greater than zero.")
@@ -69,6 +71,7 @@ bf_plot <- function(
   }
   if (!is.numeric(bf_size)) stop("`bf_size` must be numeric.")
   if (!is.numeric(ar_size)) stop("`ar_size` must be numeric.")
+  checkmate::assert_logical(coord_equal)
 
   # Primary data frame for the curve
   bf_df <- data.frame(prior = seq(from = 0, to = 1, length.out = 501)) |>
@@ -136,7 +139,7 @@ bf_plot <- function(
   }
 
   # Make the plot
-  bf_df |>
+  the_plot <- bf_df |>
     ggplot(aes(x = prior, y = post)) +
     # The BF curve
     geom_line(color = bf_col, linewidth = 1) +
@@ -164,10 +167,13 @@ bf_plot <- function(
          y = ylab,
          title = title,
          subtitle = subtitle) +
-    coord_equal() +
     theme(legend.position = "none",
           panel.grid = element_blank(),
           plot.title = element_text(hjust = 0.5),
           plot.subtitle = element_text(hjust = 0.5))
+
+  if (isTRUE(coord_equal)) the_plot <- the_plot + coord_equal()
+
+  return(the_plot)
 }
 
