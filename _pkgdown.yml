@@ -38,6 +38,8 @@ reference:
   - bern_beta
   - bf_plot
   - hmc_plot
+  - mass_in_rope_beta_plot
+  - mass_in_rope_hmc_plot
 
 - title: Sampler functions
   desc: Functions designed to highlight various MCMC samplers and their technical details
@@ -46,12 +48,20 @@ reference:
   - hmc_proposal
   - metro_walk
 
+- title: Table functions
+  desc: Convenience functions to make some of the tables in the text
+  contents:
+  - tt_diag
+  - tt_loss
+  - tt_prior
+
 - title: Miscelaneous
   desc: This is a placeholder section for functions without clear categories [may be ammended]
   contents:
   - cor_from_01
   - cor_to_01
   - ess_eti
+  - format_num
   - get_inits
   - logistic
   - logit
@@ -59,11 +69,10 @@ reference:
   - lpd
   - neg_log_lik
   - rescale_bounds
+  - rope_category
   - softmax
   - standardize
   - summarize_draws_dbda3
-  - tt_diag
-  - tt_loss
 
 - title: Data sets
   desc: Example data sets used in the text
