@@ -720,3 +720,23 @@
 #' tibble::glimpse(ord_bimod)
 "ord_bimod"
 
+#' Extremely skewed ordinal data
+#'
+#' This is a reformatted version of the `OrdinalProbitData-1grp-1.csv` daat used in *DBDA2*. The data are synthetic, and designed to follow an extremely skewed distribution.
+#'
+#' @format A data frame with 100 rows and 1 column:
+#' \describe{
+#'   \item{y}{Ordinal predicted variable (ordered factor with seven levels: `"1"` to `"7"`)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' @examples
+#' tibble::glimpse(ord_skew)
+"ord_skew"
+
+

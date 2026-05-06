@@ -106,6 +106,7 @@ reference:
   - nom_nom_wide
   - normal_panels
   - ord_bimod
+  - ord_skew
   - sat
   - sep_zone
   - set_a
