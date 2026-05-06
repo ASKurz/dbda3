@@ -14,12 +14,14 @@ tt_loss(x, digits = 2, height = 0.3, placement = "H", ...)
 \item{height}{Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to \code{tt()}. Defaults to \code{0.3}.}
 
 \item{placement}{Character string specifying LaTeX float placement options for the table environment (e.g., \code{"h"}, \code{"t"}, \code{"b"}, \code{"p"}, \code{"H"}). Only used when \code{environment_table = TRUE}. The value is passed to \code{theme_latex()}. Defaults to \code{"H"}.}
+
+\item{...}{Further arguments passed to \code{tt()}.}
 }
 \value{
 An object of class \code{tt} representing the table.
 }
 \description{
-\code{tt_loss()} is a light-weight wrapper around the \code{tt()} function from the tinytable package, with default settings for the loss-decision tables frequently used in \emph{DBDA3}.
+\code{tt_loss()} is an extension of a few functions from the tinytable package, such as \code{tt()} and \code{format_tt()}, with default settings for the loss-decision tables frequently used in \emph{DBDA3}.
 }
 \examples{
 library(tinytable)

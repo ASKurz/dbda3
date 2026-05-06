@@ -1,6 +1,6 @@
 #' Draw a tiny diagnostic table
 #'
-#' `tt_diag()` is a light-weight wrapper around the `tt()` function from the tinytable package, with default settings frequently used in the HMC diagnostic tables frequently used in *DBDA3*.
+#' `tt_diag()` is an extension of a few functions from the tinytable package, such as `tt()` and `format_tt()`, with default settings frequently used in the HMC diagnostic tables in *DBDA3*.
 #'
 #' @param x A data frame, data table, or tibble to be rendered as a table.
 #' @param digits_q Number of significant digits or decimal places for the quantile columns. The value is passed to the `digits` argument in `format_tt(j = "^q")`. Defaults to `2`.
@@ -8,9 +8,12 @@
 #' @param digits_ess Number of significant digits or decimal places for the ESS columns. The value is passed to the `digits` argument in `format_tt(j = "^[ess]")`. Defaults to `0`.
 #' @param digits_mcse Number of significant digits or decimal places for the MCSE columns. The value is passed to the `digits` argument in `format_tt(j = "^[mcse]")`. Defaults to `digits_q`.
 #' @param height Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to the `height` argument in `tt()`. Defaults to `0.3`.
-#' @param placement Character string specifying LaTeX float placement options for the table environment (e.g., `"h"`, `"t"`, `"b"`, `"p"`, `"H"`). Only used when `environment_table = TRUE`. The value is passed to `theme_latex()`. Defaults to `"H"`.
+#' @param escape_body Logical indicating whether to set `escape = TRUE` within `format_tt(i = 1:nrow(x))`, which applies to the body of the table. Defaults to `TRUE`.
+#' @param escape_colnames Logical indicating whether to set `escape = TRUE` within `format_tt(i = "colnames")`, which applies to the column names of the table. Defaults to `TRUE`.
 #' @param monospace_j Which columns are given monospace font. The value is passed to the `j` argument in `style_tt(alignv = "m", monospace = TRUE)`. Can take a numeric vector, and defaults to `1`. For no monospace, set to `NULL`.
+#' @param placement Character string specifying LaTeX float placement options for the table environment (e.g., `"h"`, `"t"`, `"b"`, `"p"`, `"H"`). Only used when `environment_table = TRUE`. The value is passed to `theme_latex()`. Defaults to `"H"`.
 #' @param variable_name The name for the first column, which is typically `"variable"` in a `summarize_draws()` output. Defaults to `"Parameter"`, and `NULL` retains the original name.
+#' @param ... Further arguments passed to `tt()`.
 #'
 #' @returns An object of class `tt` representing the table.
 #'
@@ -38,17 +41,22 @@ tt_diag <- function(x,
                     digits_ess  = 0,
                     digits_mcse = digits_q,
                     height = 0.3,
-                    placement = "H",
+                    escape_body = TRUE,
+                    escape_colnames = TRUE,
                     monospace_j = 1,
+                    placement = "H",
                     variable_name = "Parameter",
                     ...) {
   n_row <- nrow(x)
 
   t <- x |>
     tt(height = height, ...) |>
-    format_tt(escape = TRUE) |>  # To handle any underscores
     style_tt(align = "l") |>
     theme_latex(placement = placement)  # Set LaTeX inline placement (defaults to "H")
+
+  # To handle any underscores
+  if (isTRUE(escape_body))     t <- t |> format_tt(i = 1:n_row,    escape = TRUE)
+  if (isTRUE(escape_colnames)) t <- t |> format_tt(i = "colnames", escape = TRUE)
 
   # Quantile columns
   if (sum(str_starts(colnames(x), pattern = "q")) > 0) {

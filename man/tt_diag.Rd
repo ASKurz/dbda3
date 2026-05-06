@@ -11,8 +11,10 @@ tt_diag(
   digits_ess = 0,
   digits_mcse = digits_q,
   height = 0.3,
-  placement = "H",
+  escape_body = TRUE,
+  escape_colnames = TRUE,
   monospace_j = 1,
+  placement = "H",
   variable_name = "Parameter",
   ...
 )
@@ -30,17 +32,23 @@ tt_diag(
 
 \item{height}{Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to the \code{height} argument in \code{tt()}. Defaults to \code{0.3}.}
 
-\item{placement}{Character string specifying LaTeX float placement options for the table environment (e.g., \code{"h"}, \code{"t"}, \code{"b"}, \code{"p"}, \code{"H"}). Only used when \code{environment_table = TRUE}. The value is passed to \code{theme_latex()}. Defaults to \code{"H"}.}
+\item{escape_body}{Logical indicating whether to set \code{escape = TRUE} within \code{format_tt(i = 1:nrow(x))}, which applies to the body of the table. Defaults to \code{TRUE}.}
+
+\item{escape_colnames}{Logical indicating whether to set \code{escape = TRUE} within \code{format_tt(i = "colnames")}, which applies to the column names of the table. Defaults to \code{TRUE}.}
 
 \item{monospace_j}{Which columns are given monospace font. The value is passed to the \code{j} argument in \code{style_tt(alignv = "m", monospace = TRUE)}. Can take a numeric vector, and defaults to \code{1}. For no monospace, set to \code{NULL}.}
 
+\item{placement}{Character string specifying LaTeX float placement options for the table environment (e.g., \code{"h"}, \code{"t"}, \code{"b"}, \code{"p"}, \code{"H"}). Only used when \code{environment_table = TRUE}. The value is passed to \code{theme_latex()}. Defaults to \code{"H"}.}
+
 \item{variable_name}{The name for the first column, which is typically \code{"variable"} in a \code{summarize_draws()} output. Defaults to \code{"Parameter"}, and \code{NULL} retains the original name.}
+
+\item{...}{Further arguments passed to \code{tt()}.}
 }
 \value{
 An object of class \code{tt} representing the table.
 }
 \description{
-\code{tt_diag()} is a light-weight wrapper around the \code{tt()} function from the tinytable package, with default settings frequently used in the HMC diagnostic tables frequently used in \emph{DBDA3}.
+\code{tt_diag()} is an extension of a few functions from the tinytable package, such as \code{tt()} and \code{format_tt()}, with default settings frequently used in the HMC diagnostic tables in \emph{DBDA3}.
 }
 \examples{
 library(tinytable)

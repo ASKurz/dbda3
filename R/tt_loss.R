@@ -1,11 +1,12 @@
 #' Draw a tiny loss-decision table
 #'
-#' `tt_loss()` is a light-weight wrapper around the `tt()` function from the tinytable package, with default settings for the loss-decision tables frequently used in *DBDA3*.
+#' `tt_loss()` is an extension of a few functions from the tinytable package, such as `tt()` and `format_tt()`, with default settings for the loss-decision tables frequently used in *DBDA3*.
 #'
 #' @param x A data frame, data table, or tibble to be rendered as a table.
 #' @param digits Number of significant digits or decimal places for the numeric columns. The value is passed to `format_tt()`. Defaults to `2`.
 #' @param height Row height in em units. Single numeric value greater than zero that determines the row height spacing. The value is passed to `tt()`. Defaults to `0.3`.
 #' @param placement Character string specifying LaTeX float placement options for the table environment (e.g., `"h"`, `"t"`, `"b"`, `"p"`, `"H"`). Only used when `environment_table = TRUE`. The value is passed to `theme_latex()`. Defaults to `"H"`.
+#' @param ... Further arguments passed to `tt()`.
 #'
 #' @returns An object of class `tt` representing the table.
 #'
