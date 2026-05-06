@@ -701,4 +701,22 @@
 #' tibble::glimpse(logis_out)
 "logis_out"
 
+#' Synthetic bimodal ordinal data
+#'
+#' This is a reformatted version of the `OrdinalProbitData-1grp-2.csv` daat used in *DBDA2*. The data are synthetic, and designed to follow a bimodal distribution.
+#'
+#' @format A data frame with 70 rows and 1 column:
+#' \describe{
+#'   \item{y}{Ordinal predicted variable (ordered factor with five levels: `"1"`, `"2"`, `"3"`, `"4"`, and `"5"`)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' @examples
+#' tibble::glimpse(ord_bimod)
+"ord_bimod"
 
