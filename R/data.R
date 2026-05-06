@@ -739,4 +739,18 @@
 #' tibble::glimpse(ord_skew)
 "ord_skew"
 
+#' Grouped aggregated ordinal data
+#'
+#' Synthetic data unique to *DBDA3*, for use in Chapter 21. There are three groups, and each group has about 500 total count.
+#'
+#' @format A data frame with 21 rows and 3 columns:
+#' \describe{
+#'   \item{group}{Grouping variable (character values`"A"`, `"B"`, and `"C"`)}
+#'   \item{rating}{Ordinal predicted variable (ordered factor with seven levels: `"1"` to `"7"`)}
+#'   \item{count}{The number of occasions for each level of `rating` per `group` (numeric)}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(ord_abc)
+"ord_abc"
 
