@@ -777,3 +777,34 @@
 #' tibble::glimpse(movies)
 "movies"
 
+#' Joke ratings
+#'
+#' This is a reformatted version of the joke rating data from Kruschke & Vollmer (2014).
+#'
+#' @format A data frame with 4,425 rows and 8 columns:
+#' \describe{
+#'   \item{subj}{Unique participant identifier (factor with levels `1` to `177`)}
+#'   \item{joke_id}{Unique joke identifier (factor with 25 levels)}
+#'   \item{found}{The moral foundation targeted by the joke; (factor with five levels: `Auth`, `Care`, `Fair`, `Loya`, and `Puri`)}
+#'   \item{joke}{Unique joke identifier, the label of which begins with the targeted foundation (factor with 25 levels)}
+#'   \item{moral}{The score from the Moral Foundations Questionnaire (MFQ; Graham et al, 2011) of that participant on that foundation (numeric)}
+#'   \item{z_moral}{Standardized version of `moral` (numeric)}
+#'   \item{z_moral_wf}{Version of `moral` standardized within `found` (numeric)}
+#'   \item{funny}{Ordinal funniness rating (ordered factor with seven levels: `"1"` to `"7"`)}
+#' }
+#'
+#' @source
+#' Graham, J., Nosek, B. A., Haidt, J., Iyer, R., Koleva, S., & Ditto, P. H. (2011).
+#' Mapping the moral domain.
+#' \emph{Journal of Personality and Social Psychology, 101}(2), 366–385.
+#' <https://doi.org/10.1037/a0021847>
+#'
+#' Kruschke, J. K., & Vollmer, A. (2014).
+#' Moral foundation sensitivity and perceived humor.
+#' \emph{Available at SSRN}.
+#' <https://doi.org/10.2139/ssrn.2519218>
+#'
+#' @examples
+#' tibble::glimpse(humor)
+"humor"
+
