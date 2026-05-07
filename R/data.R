@@ -754,3 +754,26 @@
 #' tibble::glimpse(ord_abc)
 "ord_abc"
 
+#' Movie ratings
+#'
+#' This is a reformatted version of the movies data from Liddell & Kruschke (2018). They contain star ratings of movies, collected from Amazon.com in the Movies and TV category, sorted by relevance, and the first 36 entries with at least 500 reviews.
+#'
+#' @format A data frame with 180 rows and 5 columns:
+#' \describe{
+#'   \item{id}{Unique row identifier for each movie (ordered factor with levels `1` to `36`)}
+#'   \item{title}{Movie title (character)}
+#'   \item{rating}{Ordinal star rating level (ordered factor with five levels: `"1"` to `"5"`)}
+#'   \item{count}{The number of occasions for each level of `rating` per `id` (numeric)}
+#'   \item{prop}{The proportions of counts within level of `id` (numeric)}
+#' }
+#'
+#' @source
+#' Liddell, T. M., & Kruschke, J. K. (2018).
+#' Analyzing ordinal data with metric models: What could possibly go wrong?
+#' \emph{Journal of Experimental Social Psychology, 79}, 328-348.
+#' <https://doi.org/10.1016/j.jesp.2018.08.009>
+#'
+#' @examples
+#' tibble::glimpse(movies)
+"movies"
+
