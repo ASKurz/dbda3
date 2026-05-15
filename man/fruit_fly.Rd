@@ -3,7 +3,7 @@
 \docType{data}
 \name{fruit_fly}
 \alias{fruit_fly}
-\title{Sexual Activity and the Lifespan of Male Fruitflies}
+\title{Sexual Activity and the Lifespan of Male Fruit flies}
 \format{
 A data frame with 125 rows and 3 columns:
 \describe{
