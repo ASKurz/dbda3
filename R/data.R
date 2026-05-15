@@ -421,7 +421,7 @@
 #' tibble::glimpse(iq_two)
 "iq_two"
 
-#' Sexual Activity and the Lifespan of Male Fruitflies
+#' Sexual Activity and the Lifespan of Male Fruit flies
 #'
 #' This is a reformatted version of the `FruitflyDataReduced.csv` used in *DBDA2*, as published in James and Stanley (1994). In the original experiment, `longevity` was the primary outcome variable, and `thorax` was one of the baseline covariates.
 #'
@@ -807,4 +807,33 @@
 #' @examples
 #' tibble::glimpse(humor)
 "humor"
+
+#' Alcohol Preferences of Sexually Deprived Male Fruit flies
+#'
+#' This is a reformatted version of the `ShohatOphirKAMH2012dataReduced.csv` used in *DBDA2*, as published in Shohat-Ophir et al (2012). The data are more fully explained in an exercize at the end of Chapter 18 of *DBDA3*.
+#'
+#' @format A data frame with 20 rows and 6 columns:
+#' \describe{
+#'   \item{group}{Experimental group (factor with two levels: `"mated"` and `"rejected"`)}
+#'   \item{id_in_group}{Subject identification number, within each experimental group (factor with ten levels: `"1"` to `"10"`)}
+#'   \item{non_ethanol_3_day}{Summary preference score of non-ethanol across days 6–8 (numeric values)}
+#'   \item{ethanol_3_day}{Summary preference score of ethanol across days 6–8 (numeric values)}
+#'   \item{total}{The sum of `non_ethanol_3_day` and `ethanol_3_day` (numeric values)}
+#'   \item{pref}{Summary preference score, which is `(ethanol_3_day - non_ethanol_3_day) / total`, rounded to three digits (numeric values)}
+#' }
+#'
+#' @source
+#' Kruschke, J. K. (2015).
+#' \emph{Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan}.
+#' Academic Press.
+#' <https://sites.google.com/site/doingbayesiandataanalysis/>
+#'
+#' Shohat-Ophir, G., Kaun, K. R., Azanchi, R., Mohammed, H., & Heberlein, U. (2012).
+#' Sexual deprivation increases ethanol intake in drosophila.
+#' \emph{Science}, 335, 1351–1355.
+#' <https://doi.org/10.1126/science.1215932>
+#'
+#' @examples
+#' tibble::glimpse(depriv)
+"depriv"
 
