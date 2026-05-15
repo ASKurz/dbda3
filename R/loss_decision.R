@@ -42,7 +42,7 @@ loss_decision <- function(x,
                           alpha = 0.05,
                           na.rm = FALSE) {
   # Checks
-  checkmate::assert_numeric(x, any.missing = FALSE)
+  checkmate::assert_numeric(x)
   checkmate::assert_numeric(rope, null.ok = TRUE)
   checkmate::assert_numeric(rope_narrow, null.ok = TRUE)
   checkmate::assert_numeric(rope_wide, null.ok = TRUE)
