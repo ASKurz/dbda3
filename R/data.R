@@ -407,7 +407,7 @@
 #'
 #' @format A tibble with 120 rows and 2 columns:
 #' \describe{
-#'   \item{group}{Experimental group (factor with two levels: `"Placebo"` and `"Smart Drug"`)}
+#'   \item{group}{Experimental group (factor with two levels: `"Placebo"` and `"Smart drug"`)}
 #'   \item{score}{IQ test score (integer values)}
 #' }
 #'
