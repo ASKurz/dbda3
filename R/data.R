@@ -491,18 +491,18 @@
 
 #' Grouped Gaussian data
 #'
-#' A synthetic data set of a single Gaussian predicted variable `y`, and two factor variables `group_first` and `group_last`, made originally for Chapter 17 of *DBDA3*.
+#' A synthetic data set of a single Gaussian predicted variable `y`, and two factor variables `group_orig` and `group_perm`, made originally for Chapter 17 of *DBDA3*.
 #'
 #' @format A data frame with 25 rows and 3 columns:
 #' \describe{
 #'   \item{y}{A numeric variable simulated to be Gaussian with a mean varying by group.}
-#'   \item{group_first}{An ordered factor with five levels: `"A"`, `"B"`, `"C"`, `"D"`, `"E"`.}
-#'   \item{group_last}{An ordered factor with five levels: `"A"`, `"B"`, `"C"`, `"D"`, `"E"`.}
+#'   \item{group_orig}{A factor with five levels: `"A"`, `"B"`, `"C"`, `"D"`, `"E"`.}
+#'   \item{group_perm}{A factor with five levels: `"A"`, `"B"`, `"C"`, `"D"`, `"E"`.}
 #' }
 #'
 #' @examples
-#' tibble::glimpse(group_levels)
-"group_levels"
+#' tibble::glimpse(group_ae)
+"group_ae"
 
 #' Two group IQ data with a covariate
 #'
