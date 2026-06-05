@@ -5,11 +5,10 @@
 \alias{nom_nom_long}
 \title{Grouped nominal data}
 \format{
-A data frame with 44 rows and 3 columns:
+A data frame with 264 rows and 2 columns:
 \describe{
 \item{group}{The nominal groups (factor with 11 levels \code{A} through \code{K})}
 \item{y}{The nominal predicted vairable (factor with 4 levels \code{1} through \code{4})}
-\item{z}{The count of \code{y} within each level of \code{group} (numeric)}
 }
 }
 \usage{

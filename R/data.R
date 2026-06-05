@@ -561,11 +561,10 @@
 #'
 #' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 20. This version of the data set is formatted long with respect to the four levels of `y`.
 #'
-#' @format A data frame with 44 rows and 3 columns:
+#' @format A data frame with 264 rows and 2 columns:
 #' \describe{
 #'   \item{group}{The nominal groups (factor with 11 levels `A` through `K`)}
 #'   \item{y}{The nominal predicted vairable (factor with 4 levels `1` through `4`)}
-#'   \item{z}{The count of `y` within each level of `group` (numeric)}
 #' }
 #'
 #' @seealso [nom_nom_wide] for the wide formatted version of the data.

@@ -21,9 +21,30 @@ nom_nom_long |>
   ungroup() |>
   distinct(n)
 
-# Confirm the desired distribution (Yes)
+# Create temporary `nom_nom_1` data frame that has a single observation in
+# each row, to imitate what might be created by actual research:
+
+set.seed(47)
+nom_nom_1 <- nom_nom_long |>
+  uncount(z) |>
+  slice_sample(prop = 1, replace = FALSE)
+
+# Confirm all this does is disaggregate and reorder, but
+# the original summaries are retained (yes)
+all.equal(
+  nom_nom_long |>
+    arrange(group, y),
+  nom_nom_1 |>
+    count(group, y, name = "z")
+)
+
+# Confirm both versions have the desired distribution (Yes)
 nom_nom_long |>
   ggplot(aes(x = group, fill = y, weight = z)) +
+  geom_bar()
+
+nom_nom_1 |>
+  ggplot(aes(x = group, fill = y)) +
   geom_bar()
 
 # Does it work to make a wide matrix version (Yes)
@@ -34,6 +55,12 @@ nomnom_wide <- nom_nom_long |>
   mutate(n = y1 + y2 + y3 + y4)
 
 str(nomnom_wide)
+
+# Save the disaggregated `nom_nom_1` as `nom_nom_long`
+nom_nom_long <- nom_nom_1
+
+# Check updated structure
+str(nom_nom_long)
 
 # Save `nom_nom_long` as `nom_nom_long.rda` in the `data` folder
 usethis::use_data(nom_nom_long)
