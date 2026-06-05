@@ -575,16 +575,15 @@
 
 #' Grouped nominal data
 #'
-#' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 20. This version of the data set is formatted long with respect to the four levels of `y`.
+#' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 20. This version of the data set is formatted wide with respect to the four levels of `y`.
 #'
-#' @format A data frame with 11 rows and 7 columns:
+#' @format A data frame with 11 rows and 6 columns:
 #' \describe{
 #'   \item{group}{The nominal groups (factor with 11 levels `A` through `K`)}
 #'   \item{y1}{The counts for the first level of the nominal predicted vairable (integer)}
 #'   \item{y2}{The counts for the second level of the nominal predicted vairable (integer)}
 #'   \item{y3}{The counts for the third level of the nominal predicted vairable (integer)}
 #'   \item{y4}{The counts for the fourth level of the nominal predicted vairable (integer)}
-#'   \item{y}{An 11 by 4 integer matrix of the counts nominal predicted vairable}
 #'   \item{n}{The total number of counts, per row (integer)}
 #' }
 #'
@@ -592,7 +591,6 @@
 #'
 #' @examples
 #' tibble::glimpse(nom_nom_wide)
-#' nom_nom_wide$y
 "nom_nom_wide"
 
 #' Nominal data with metric predictors

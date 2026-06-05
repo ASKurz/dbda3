@@ -5,14 +5,13 @@
 \alias{nom_nom_wide}
 \title{Grouped nominal data}
 \format{
-A data frame with 11 rows and 7 columns:
+A data frame with 11 rows and 6 columns:
 \describe{
 \item{group}{The nominal groups (factor with 11 levels \code{A} through \code{K})}
 \item{y1}{The counts for the first level of the nominal predicted vairable (integer)}
 \item{y2}{The counts for the second level of the nominal predicted vairable (integer)}
 \item{y3}{The counts for the third level of the nominal predicted vairable (integer)}
 \item{y4}{The counts for the fourth level of the nominal predicted vairable (integer)}
-\item{y}{An 11 by 4 integer matrix of the counts nominal predicted vairable}
 \item{n}{The total number of counts, per row (integer)}
 }
 }
@@ -20,11 +19,10 @@ A data frame with 11 rows and 7 columns:
 nom_nom_wide
 }
 \description{
-Synthetic grouped nominal data unique to \emph{DBDA3}, for use in Chapter 20. This version of the data set is formatted long with respect to the four levels of \code{y}.
+Synthetic grouped nominal data unique to \emph{DBDA3}, for use in Chapter 20. This version of the data set is formatted wide with respect to the four levels of \code{y}.
 }
 \examples{
 tibble::glimpse(nom_nom_wide)
-nom_nom_wide$y
 }
 \seealso{
 \link{nom_nom_long} for the long formatted version of the data.
