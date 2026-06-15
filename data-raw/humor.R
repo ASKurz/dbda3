@@ -29,11 +29,3 @@ glimpse(humor)
 # Save `humor` as `humor.rda` in the `data` folder
 usethis::use_data(humor)
 
-humor |>
-  distinct(funny) |> str()
-humor |>
-  distinct(found) |> pull()
-
-humor |>
-  distinct(joke)
-
