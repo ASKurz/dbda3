@@ -10,7 +10,7 @@ softplus(x)
 \item{x}{A vector of numeric values.}
 }
 \value{
-A vector of real numeric values the same length of \code{x}.
+A vector of positive real numeric values the same length of \code{x}.
 }
 \description{
 Transform numeric values with the softplus function.
@@ -18,10 +18,13 @@ Transform numeric values with the softplus function.
 \details{
 The softplus function follows the form
 
-\deqn{f(x) = \log(1 + \exp(x))}.
+\deqn{f(x) = \log(1 + \exp(x)).}
 }
 \examples{
-softplus(1)
-softplus(1:5)
+softplus(0)
+softplus(-5:5)
 
+}
+\seealso{
+\code{\link[=softplus_inverse]{softplus_inverse()}} for the inverse function.
 }

@@ -73,6 +73,7 @@ reference:
   - rope_category
   - softmax
   - softplus
+  - softplus_inverse
   - standardize
   - summarize_draws_dbda3
 
