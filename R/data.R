@@ -834,3 +834,22 @@
 #' tibble::glimpse(depriv)
 "depriv"
 
+#' Fish data
+#'
+#' [To be completed later]
+#'
+#' @format A data frame with 250 rows and 5 columns:
+#' \describe{
+#'   \item{count}{The number of fish caught (integer values)}
+#'   \item{child}{The number of children per group (integer values )}
+#'   \item{persons}{The total number of people per group (integer values)}
+#'   \item{livebait}{Whether the group used live bait (factor with two levels: `"0"` and `"1"`)}
+#'   \item{camper}{Whether the group brought a camper (factor with two levels: `"0"` and `"1"`)}
+#' }
+#'
+#' @source
+#' Some source
+#'
+#' @examples
+#' tibble::glimpse(fish)
+"fish"
