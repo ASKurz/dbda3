@@ -72,6 +72,7 @@ reference:
   - rescale_bounds
   - rope_category
   - softmax
+  - softplus
   - standardize
   - summarize_draws_dbda3
 
