@@ -853,3 +853,18 @@
 #' @examples
 #' tibble::glimpse(fish)
 "fish"
+
+#' Negative-binomial data for unbounded count regression
+#'
+#' A synthetic data set of a single unbounded count predicted variable `y`, and two continuous predictor variables `x`, made originally for Chapter 21 of *DBDA3*.
+#'
+#' @format A data frame with 1000 rows and 3 columns:
+#' \describe{
+#'   \item{x}{A numeric variable uniformly distributed between -1 and 3.}
+#'   \item{y}{A count variable (integer values)}
+#'   \item{y_m}{The `mu` parameter underlying the `y` count (numeric values).}
+#' }
+#'
+#' @examples
+#' tibble::glimpse(negbin_1met)
+"negbin_1met"
