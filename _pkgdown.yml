@@ -68,6 +68,7 @@ reference:
   - loss_decision
   - lpd
   - neg_log_lik
+  - peek_pipe
   - rescale_bounds
   - rope_category
   - softmax
