@@ -18,15 +18,28 @@
 #'   head()
 #'
 #' @export
-peek_pipe <- function(x, view = c("glimpse", "str", "print")[1], ...) {
-  if (view == "str") {
+peek_pipe <- function(x, view = glimpse, ...) {
+  view_str <- rlang::as_string(rlang::ensym(view)) # for quoted or unquoted
+  if (view_str == "str") {
     str(x, ...)
-  } else if (view == "print") {
+  } else if (view_str == "print") {
     print(x, ...)
   } else {
     dplyr::glimpse(x, ...)
   }
   cat("\n")
-  invisible(x) # return x invisibly, to continue in pipe
+  invisible(x)
 }
+
+# peek_pipe <- function(x, view = c("glimpse", "str", "print")[1], ...) {
+#   if (view == "str") {
+#     str(x, ...)
+#   } else if (view == "print") {
+#     print(x, ...)
+#   } else {
+#     dplyr::glimpse(x, ...)
+#   }
+#   cat("\n")
+#   invisible(x) # return x invisibly, to continue in pipe
+# }
 

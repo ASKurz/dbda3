@@ -4,7 +4,7 @@
 \alias{peek_pipe}
 \title{Peek in a pipe sequence}
 \usage{
-peek_pipe(x, view = c("glimpse", "str", "print")[1], ...)
+peek_pipe(x, view = glimpse, ...)
 }
 \arguments{
 \item{x}{an \strong{R} object, typically a data frame.}
