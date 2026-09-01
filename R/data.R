@@ -475,18 +475,15 @@
 #' tibble::glimpse(boik)
 "boik"
 
-#' Blah blah blah...
+#' Four-group heteroscedastic data
 #'
-#' This is an adjusted version of blah blah blah...
+#' A synthetic data set of a single Gaussian predicted variable `y`, and a grouping factor variable, made originally for Chapter 18 of *DBDA3*. The means and variances of `y` can vary by `group`.
 #'
 #' @format A data frame with 100 rows and 2 columns:
 #' \describe{
 #'   \item{group}{Experimental group (factor with four levels: `"A"`, `"B"`, `"C"`, `"D"`)}
-#'   \item{y}{blah... (numeric values)}
+#'   \item{y}{Metric predicted variable, on an IQ-score like metric (numeric values)}
 #' }
-#'
-#' @source
-#' TBD
 #'
 #' @examples
 #' tibble::glimpse(het_dat)
@@ -562,7 +559,7 @@
 
 #' Grouped nominal data
 #'
-#' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 20. This version of the data set is formatted long with respect to the four levels of `y`.
+#' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 21. This version of the data set is formatted long with respect to the four levels of `y`.
 #'
 #' @format A data frame with 264 rows and 2 columns:
 #' \describe{
@@ -578,7 +575,7 @@
 
 #' Grouped nominal data
 #'
-#' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 20. This version of the data set is formatted wide with respect to the four levels of `y`.
+#' Synthetic grouped nominal data unique to *DBDA3*, for use in Chapter 21. This version of the data set is formatted wide with respect to the four levels of `y`.
 #'
 #' @format A data frame with 11 rows and 6 columns:
 #' \describe{
@@ -598,7 +595,7 @@
 
 #' Nominal data with metric predictors
 #'
-#' Synthetic nominal data with two metric predictors. These are unique to *DBDA3*, and highlighted in Chapter 20.
+#' Synthetic nominal data with two metric predictors. These are unique to *DBDA3*, and highlighted in Chapter 21.
 #'
 #' @format A data frame with 500 rows and 3 columns:
 #' \describe{
@@ -613,7 +610,7 @@
 
 #' Bernoulli trials with two strongly correlated metric predictors
 #'
-#' Synthetic data unique to *DBDA3*, for use in Chapter 19. The binary predicted variable `y` has two strongly correlated metric predictors, `x1` and `x2`.
+#' Synthetic data unique to *DBDA3*, for use in Chapter 20. The binary predicted variable `y` has two strongly correlated metric predictors, `x1` and `x2`.
 #'
 #' @format A data frame with 100 rows and 3 columns:
 #' \describe{
@@ -628,7 +625,7 @@
 
 #' Bernoulli trials with strong separation
 #'
-#' Synthetic data unique to *DBDA3*, for use in Chapter 19. The binary predicted variable `y` has two correlated metric predictors, `x1` and `x2`, and the trials show strong separation by the predictors.
+#' Synthetic data unique to *DBDA3*, for use in Chapter 20. The binary predicted variable `y` has two correlated metric predictors, `x1` and `x2`, and the trials show strong separation by the predictors.
 #'
 #' @format A data frame with 100 rows and 3 columns:
 #' \describe{
@@ -643,7 +640,7 @@
 
 #' Bernoulli trials with few 1's
 #'
-#' Synthetic data unique to *DBDA3*, for use in Chapter 19. Both versions of the binary predicted variables, `y` and `y_few`, have two weakly correlated metric predictors, `x1` and `x2`. Whereas the variable `y` has a roughtly even number of 0's and 1's, `y_few` has very few 1's.
+#' Synthetic data unique to *DBDA3*, for use in Chapter 20. Both versions of the binary predicted variables, `y` and `y_few`, have two weakly correlated metric predictors, `x1` and `x2`. Whereas the variable `y` has a roughtly even number of 0's and 1's, `y_few` has very few 1's.
 #'
 #' @format A data frame with 100 rows and 4 columns:
 #' \describe{
@@ -659,7 +656,7 @@
 
 #' Bernoulli headache data
 #'
-#' Synthetic data unique to *DBDA3*, for use in Chapter 19. The data are based on a hypothetical study in which participants were randomly assigned to different dosages of a drug (`dosage` measured in milligrams; with 0 used as a placebo). Each participant was asked if they experienced a headache within 24 hours of taking the drug, with yes coded as `1` and no coded as `0`.
+#' Synthetic data unique to *DBDA3*, for use in Chapter 20. The data are based on a hypothetical study in which participants were randomly assigned to different dosages of a drug (`dosage` measured in milligrams; with 0 used as a placebo). Each participant was asked if they experienced a headache within 24 hours of taking the drug, with yes coded as `1` and no coded as `0`.
 #'
 #' @format A data frame with 350 rows and 2 columns:
 #' \describe{
@@ -673,8 +670,7 @@
 
 #' Bernoulli headache data with two interacting predictors
 #'
-#' Synthetic data unique to *DBDA3*, for use in Chapter 19.
-#' The data are based on a hypothetical study in which participants were randomly assigned to different dosages of a drug (`dosage` measured in milligrams; with 0 used as a placebo). Each participant was asked if they experienced a headache within 24 hours of taking the drug, with yes coded as `1` and no coded as `0`. Participant `age` at baseline was also recorded.
+#' Synthetic data unique to *DBDA3*, for use in Chapter 20. The data are based on a hypothetical study in which participants were randomly assigned to different dosages of a drug (`dosage` measured in milligrams; with 0 used as a placebo). Each participant was asked if they experienced a headache within 24 hours of taking the drug, with yes coded as `1` and no coded as `0`. Participant `age` at baseline was also recorded.
 #'
 #' @format A data frame with 250 rows and 3 columns:
 #' \describe{
@@ -689,7 +685,7 @@
 
 #' Bernoulli trials with outliers
 #'
-#' Synthetic data unique to *DBDA3*, for use in Chapter 19. The binary predicted variable `y` has one metric predictor, `x`.
+#' Synthetic data unique to *DBDA3*, for use in Chapter 20. The binary predicted variable `y` has one metric predictor, `x`.
 #'
 #' @format A data frame with 107 rows and 2 columns:
 #' \describe{
@@ -741,7 +737,7 @@
 
 #' Grouped aggregated ordinal data
 #'
-#' Synthetic data unique to *DBDA3*, for use in Chapter 21. There are three groups, and each group has about 500 total count.
+#' Synthetic data unique to *DBDA3*, for use in Chapter 22. There are three groups, and each group has about 500 total count.
 #'
 #' @format A data frame with 21 rows and 3 columns:
 #' \describe{
@@ -810,7 +806,7 @@
 
 #' Alcohol Preferences of Sexually Deprived Male Fruit flies
 #'
-#' This is a reformatted version of the `ShohatOphirKAMH2012dataReduced.csv` used in *DBDA2*, as published in Shohat-Ophir et al (2012). The data are more fully explained in an exercize at the end of Chapter 18 of *DBDA3*.
+#' This is a reformatted version of the `ShohatOphirKAMH2012dataReduced.csv` used in *DBDA2*, as published in Shohat-Ophir et al (2012). The data are more fully explained in an exercise at the end of Chapter 18 of *DBDA3*.
 #'
 #' @format A data frame with 20 rows and 6 columns:
 #' \describe{
@@ -859,7 +855,7 @@
 
 #' Negative-binomial data for unbounded count regression
 #'
-#' A synthetic data set of a single unbounded count predicted variable `y`, and two continuous predictor variables `x`, made originally for Chapter 21 of *DBDA3*.
+#' A synthetic data set of a single unbounded count predicted variable `y`, and two continuous predictor variables `x`, made originally for Chapter 23 of *DBDA3*.
 #'
 #' @format A data frame with 1000 rows and 3 columns:
 #' \describe{
