@@ -286,22 +286,25 @@
 
 #' Kentucky Derby data
 #'
-#' [To be completed later]
+#' This is a reformatted version of the Kentucky-Derby data introduced by Chance & Reynolds (2019). As they wrote in their introduction: "The Kentucky Derby is an annual horse race run at Churchill Downs in Louisville, KY, USA, on the first Saturday in May" (p. 120).
 #'
 #' @format A data frame with 143 rows and 8 columns:
 #' \describe{
-#'   \item{year}{ (numeric values)}
-#'   \item{winner}{ (character values )}
-#'   \item{surface}{ (character values )}
-#'   \item{condition}{ (character values )}
-#'   \item{starters}{ (numeric values)}
-#'   \item{poleposition}{ (numeric values)}
-#'   \item{time}{ (numeric values)}
-#'   \item{speed}{ (numeric values)}
+#'   \item{year}{Year of the race (numeric values; 1875--2017)}
+#'   \item{winner}{Name of the winning horse (character values)}
+#'   \item{surface}{The surface of track (character values; currently alwayse `dirt`)}
+#'   \item{condition}{The rating of condition of track at start of race (character values )}
+#'   \item{starters}{The number of horses lined up at the start of the race (numeric values)}
+#'   \item{poleposition}{The starting gate of the winning horse (numeric values)}
+#'   \item{time}{Winning time of the race (numeric values; seconds)}
+#'   \item{speed}{The speed of the winning horse (numeric values; miles per hour)}
 #' }
 #'
 #' @source
-#' Some source
+#' Chance, B., & Reynolds, S. (2019).
+#' Predicting the Kentucky derby winner! Sort of.
+#' \emph{Journal of Statistics Education, 27}(2), 120–127.
+#' <https://doi.org/10.1080/10691898.2019.1623137>
 #'
 #' @examples
 #' tibble::glimpse(derby)
