@@ -8,6 +8,8 @@
 #' @returns A factor vector of length `x`. The factor will have three levels: `"less"`, `"in"`, and `"greater"`.
 #'
 #' @examples
+#' library(dplyr)
+#'
 #' data.frame(theta = rbeta(n = 1e4, shape1 = 40, shape2 = 30)) |>
 #'   mutate(rope_category = rope_category(x = theta)) |>
 #'   str()

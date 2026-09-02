@@ -3,7 +3,8 @@
 #' A convenience function for viewing the intermediate results in a piped sequence without interrupting the pipe.
 #'
 #' @param x an **R** object, typically a data frame.
-#' @param view A character value selecting either `"glimpse"`, `"str"`, or `"print"`. Defaults to `"glimpse"`.
+#' @param view Either `glimpse`, `str`, or `print` (quoted or unquoted, via non-standard evaluation), selecting which function is used to display `x`. Defaults to `glimpse`.
+#' @param ... Additional arguments passed to the function selected by `view` (i.e., `dplyr::glimpse()`, `str()`, or `print()`).
 #'
 #' @returns `x`, unchanged and invisibly. As a side effect, `peek_pipe()` prints a view of `x` to the console (via `dplyr::glimpse()`, `str()`, or `print()`, depending on `view`), followed by a blank line, before returning.
 #'
@@ -17,6 +18,8 @@
 #'   dplyr::arrange(mpg) |>
 #'   head()
 #'
+#' @importFrom rlang as_string ensym
+#' @importFrom utils str
 #' @export
 peek_pipe <- function(x, view = glimpse, ...) {
   view_str <- rlang::as_string(rlang::ensym(view)) # for quoted or unquoted
