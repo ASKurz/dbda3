@@ -6,7 +6,7 @@
 #' @param interval A character value corresponding to the `interval` argument in the `bern_beta()` function.
 #' @param pp_point A character value corresponding to the `pp_point` argument in the `bern_beta()` function.
 #' @param prob A numeric value corresponding to the `prob` argument in the `bern_beta()` function.
-#' @param unique_mode A logical value matching a logical test internal to the `bern_beta()` function.
+#' @param unique_mode A logical value matching a logical test internal to the `bern_beta()` function. If `unique_mode` doesn't match the actual shape of the beta distribution (e.g., `TRUE` is passed for a bimodal `Beta(a, b)` with `a = b <= 1`), none of the internal conditions are met and the function returns `NA`.
 #'
 #' @returns A numeric value between zero and one to be passed internally to `bern_beta()`.
 #'

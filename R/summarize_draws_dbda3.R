@@ -5,7 +5,7 @@
 #' @param .x An object of class `draws` passed to the `.x` argument within the `summarize_draws()` function.
 #' @param probs A numeric vector of probability values ranging from `0` to `1`. The full vector is passed to the `probs` argument of the `quantile2()` and `mcse_quantile()` functions (when `mcse = TRUE`), and the minimum and maximum values are passed to the `probs` argument in the `ess_eti()` function. Defaults to `c(0.50, 0.025, 0.975)`.
 #' @param mcse A logical value indicating whether to include Monte Carlo standard errors for quantile estimates . Defaults to `FALSE`.
-#' @param ... Additional arguments passed to `summarize_draws()`.
+#' @param ... Additional arguments passed to `summarize_draws()`. Because `probs` occupies the second positional argument, extra summary measures must be passed by name (e.g., `mean = mean`) rather than positionally.
 #'
 #' @returns An object of `draws_summary`, `tbl_df`, `tbl`, and `data.frame` returned by the `summarize_draws()` function. The first column, `variable`, is a character vector of the names of the summarized columns. The remaining columns contain numeric values for the summary statistics and convergence measures from the following functions: `quantile2()`, `rhat()`, `ess_quantile()`, and `ess_eti()`.
 #'
