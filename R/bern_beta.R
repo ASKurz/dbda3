@@ -4,7 +4,6 @@
 #'
 #' @param a,b The numeric values for the first and second parameters in the beta prior. The values are passed to the `shape1` and `shape2` arguments of the `dbeta()` function, respectively. Both default to `1`.
 
-#' @param p_theta A vector of probability mass values for the values of `theta`, of the same length as `theta`.
 #' @param z The number of `1`'s for the Bernoulli likelihood. Defaults to `1`.
 #' @param n The total number of Bernoulli trials. Defaults to `1`.
 #' @param interval The type of credible interval displayed. Must be `"eti"`, `"hdi"`, or `"none"`. Defaults to `"none"`.
@@ -71,6 +70,7 @@
 #'           text_size = 5)
 #'
 #' @importFrom colorspace darken
+#' @importFrom stats dbeta
 #' @importFrom stringr str_c
 #' @import dplyr ggplot2 patchwork
 #' @export

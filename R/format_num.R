@@ -12,8 +12,6 @@
 #' format_num(1e4, digits = 0)
 #'
 #' @keywords internal
-#' @importFrom dplyr case_when
-#' @importFrom stringr str_c
 #' @export
 format_num <- function(x, digits = 2) {
   formatC(x,

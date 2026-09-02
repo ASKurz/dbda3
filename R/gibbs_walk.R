@@ -49,6 +49,7 @@
 #'   coord_equal(xlim = 0:1, ylim = 0:1) +
 #'   ggtitle("Off the defaults")
 #'
+#' @importFrom stats rbeta
 #' @export
 gibbs_walk <- function(init_pos = c(0.01, 0.01),
                        n_cycle = 350, seed = 47405,

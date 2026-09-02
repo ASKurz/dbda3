@@ -60,7 +60,7 @@
 
 #' Hair and eye color data
 #'
-#' This is a reformatted version of the `HairEyeColor.csv` used in *DBDA2*, which were themselves from the `HairEyeColor` data from the {datasets} package (`?datasets::HairEyeColor`).
+#' This is a reformatted version of the `HairEyeColor.csv` used in *DBDA2*, which were themselves from the `HairEyeColor` data from the \pkg{datasets} package (`?datasets::HairEyeColor`).
 #'
 #' @format A tibble with 16 rows and 3 columns:
 #' \describe{
@@ -452,7 +452,7 @@
 
 #' Synthetic data of a 3 X 4 factorial experiment
 #'
-#' This is an adjusted version of the `Boik` data set from the {phia} package (`?phia::Boik`). The `Boik` data frame was based on a hypothetical example in Boik (1979). Similar to Boik (1979) and `Boik`, our `boik` data are designed to mirror a balanced 3 X 4 factorial experimental design wherein 72 persons complaining of hemophobia were randomly assigned to receive a combination of behavioral therapies (`therapy`) and antianxiety medication (`medication`). The outcome variable is electrodermal response (`edr`), which is a physiological correlate of fear.
+#' This is an adjusted version of the `Boik` data set from the \pkg{phia} package (`?phia::Boik`). The `Boik` data frame was based on a hypothetical example in Boik (1979). Similar to Boik (1979) and `Boik`, our `boik` data are designed to mirror a balanced 3 X 4 factorial experimental design wherein 72 persons complaining of hemophobia were randomly assigned to receive a combination of behavioral therapies (`therapy`) and antianxiety medication (`medication`). The outcome variable is electrodermal response (`edr`), which is a physiological correlate of fear.
 #'
 #' @format A data frame with 72 rows and 3 columns:
 #' \describe{
