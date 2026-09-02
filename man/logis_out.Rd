@@ -15,7 +15,7 @@ A data frame with 107 rows and 2 columns:
 logis_out
 }
 \description{
-Synthetic data unique to \emph{DBDA3}, for use in Chapter 19. The binary predicted variable \code{y} has one metric predictor, \code{x}.
+Synthetic data unique to \emph{DBDA3}, for use in Chapter 20. The binary predicted variable \code{y} has one metric predictor, \code{x}.
 }
 \examples{
 tibble::glimpse(logis_out)

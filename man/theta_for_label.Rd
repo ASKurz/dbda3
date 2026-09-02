@@ -15,7 +15,7 @@ theta_for_label(shape1, shape2, interval, pp_point, prob, unique_mode)
 
 \item{prob}{A numeric value corresponding to the \code{prob} argument in the \code{bern_beta()} function.}
 
-\item{unique_mode}{A logical value matching a logical test internal to the \code{bern_beta()} function.}
+\item{unique_mode}{A logical value matching a logical test internal to the \code{bern_beta()} function. If \code{unique_mode} doesn't match the actual shape of the beta distribution (e.g., \code{TRUE} is passed for a bimodal \code{Beta(a, b)} with \code{a = b <= 1}), none of the internal conditions are met and the function returns \code{NA}.}
 }
 \value{
 A numeric value between zero and one to be passed internally to \code{bern_beta()}.

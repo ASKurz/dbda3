@@ -16,7 +16,7 @@ tt_prior(x, height = 0.2, placement = "H", ...)
 \item{...}{Further arguments passed to \code{tt()}.}
 }
 \value{
-An object of class \code{tt} representing the table.
+An object of class \code{tinytable} (S4) representing the table.
 }
 \description{
 \code{tt_prior()} is an extension of a few functions from the tinytable package, such as \code{tt()} and \code{format_tt()}, with default settings used in the prior tables in \emph{DBDA3}.

@@ -16,7 +16,7 @@ A data frame with 500 rows and 3 columns:
 nom_met
 }
 \description{
-Synthetic nominal data with two metric predictors. These are unique to \emph{DBDA3}, and highlighted in Chapter 20.
+Synthetic nominal data with two metric predictors. These are unique to \emph{DBDA3}, and highlighted in Chapter 21.
 }
 \examples{
 tibble::glimpse(nom_met)

@@ -13,7 +13,7 @@ summarize_draws_dbda3(.x, probs = c(0.5, 0.025, 0.975), mcse = FALSE, ...)
 
 \item{mcse}{A logical value indicating whether to include Monte Carlo standard errors for quantile estimates . Defaults to \code{FALSE}.}
 
-\item{...}{Additional arguments passed to \code{summarize_draws()}.}
+\item{...}{Additional arguments passed to \code{summarize_draws()}. Because \code{probs} occupies the second positional argument, extra summary measures must be passed by name (e.g., \code{mean = mean}) rather than positionally.}
 }
 \value{
 An object of \code{draws_summary}, \code{tbl_df}, \code{tbl}, and \code{data.frame} returned by the \code{summarize_draws()} function. The first column, \code{variable}, is a character vector of the names of the summarized columns. The remaining columns contain numeric values for the summary statistics and convergence measures from the following functions: \code{quantile2()}, \code{rhat()}, \code{ess_quantile()}, and \code{ess_eti()}.

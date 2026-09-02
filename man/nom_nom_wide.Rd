@@ -19,7 +19,7 @@ A data frame with 11 rows and 6 columns:
 nom_nom_wide
 }
 \description{
-Synthetic grouped nominal data unique to \emph{DBDA3}, for use in Chapter 20. This version of the data set is formatted wide with respect to the four levels of \code{y}.
+Synthetic grouped nominal data unique to \emph{DBDA3}, for use in Chapter 21. This version of the data set is formatted wide with respect to the four levels of \code{y}.
 }
 \examples{
 tibble::glimpse(nom_nom_wide)

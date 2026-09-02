@@ -27,7 +27,7 @@ R Foundation for Statistical Computing, Vienna, Austria.
 hair_eye_color
 }
 \description{
-This is a reformatted version of the \code{HairEyeColor.csv} used in \emph{DBDA2}, which were themselves from the \code{HairEyeColor} data from the {datasets} package (\code{?datasets::HairEyeColor}).
+This is a reformatted version of the \code{HairEyeColor.csv} used in \emph{DBDA2}, which were themselves from the \code{HairEyeColor} data from the \pkg{datasets} package (\code{?datasets::HairEyeColor}).
 }
 \examples{
 tibble::glimpse(hair_eye_color)

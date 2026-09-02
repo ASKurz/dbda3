@@ -3,22 +3,19 @@
 \docType{data}
 \name{het_dat}
 \alias{het_dat}
-\title{Blah blah blah...}
+\title{Four-group heteroscedastic data}
 \format{
 A data frame with 100 rows and 2 columns:
 \describe{
 \item{group}{Experimental group (factor with four levels: \code{"A"}, \code{"B"}, \code{"C"}, \code{"D"})}
-\item{y}{blah... (numeric values)}
+\item{y}{Metric predicted variable, on an IQ-score like metric (numeric values)}
 }
-}
-\source{
-TBD
 }
 \usage{
 het_dat
 }
 \description{
-This is an adjusted version of blah blah blah...
+A synthetic data set of a single Gaussian predicted variable \code{y}, and a grouping factor variable, made originally for Chapter 18 of \emph{DBDA3}. The means and variances of \code{y} can vary by \code{group}.
 }
 \examples{
 tibble::glimpse(het_dat)

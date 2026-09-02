@@ -16,8 +16,7 @@ A data frame with 250 rows and 3 columns:
 headache_inter
 }
 \description{
-Synthetic data unique to \emph{DBDA3}, for use in Chapter 19.
-The data are based on a hypothetical study in which participants were randomly assigned to different dosages of a drug (\code{dosage} measured in milligrams; with 0 used as a placebo). Each participant was asked if they experienced a headache within 24 hours of taking the drug, with yes coded as \code{1} and no coded as \code{0}. Participant \code{age} at baseline was also recorded.
+Synthetic data unique to \emph{DBDA3}, for use in Chapter 20. The data are based on a hypothetical study in which participants were randomly assigned to different dosages of a drug (\code{dosage} measured in milligrams; with 0 used as a placebo). Each participant was asked if they experienced a headache within 24 hours of taking the drug, with yes coded as \code{1} and no coded as \code{0}. Participant \code{age} at baseline was also recorded.
 }
 \examples{
 tibble::glimpse(headache_inter)

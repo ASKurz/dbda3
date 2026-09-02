@@ -18,6 +18,8 @@ A factor vector of length \code{x}. The factor will have three levels: \code{"le
 Categorize a vector of posterior draws with respect to a region of practical equivalence (ROPE).
 }
 \examples{
+library(dplyr)
+
 data.frame(theta = rbeta(n = 1e4, shape1 = 40, shape2 = 30)) |>
   mutate(rope_category = rope_category(x = theta)) |>
   str()

@@ -17,7 +17,7 @@ A data frame with 100 rows and 4 columns:
 few_ones
 }
 \description{
-Synthetic data unique to \emph{DBDA3}, for use in Chapter 19. Both versions of the binary predicted variables, \code{y} and \code{y_few}, have two weakly correlated metric predictors, \code{x1} and \code{x2}. Whereas the variable \code{y} has a roughtly even number of 0's and 1's, \code{y_few} has very few 1's.
+Synthetic data unique to \emph{DBDA3}, for use in Chapter 20. Both versions of the binary predicted variables, \code{y} and \code{y_few}, have two weakly correlated metric predictors, \code{x1} and \code{x2}. Whereas the variable \code{y} has a roughtly even number of 0's and 1's, \code{y_few} has very few 1's.
 }
 \examples{
 tibble::glimpse(few_ones)

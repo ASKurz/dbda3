@@ -30,7 +30,7 @@ Sexual deprivation increases ethanol intake in drosophila.
 depriv
 }
 \description{
-This is a reformatted version of the \code{ShohatOphirKAMH2012dataReduced.csv} used in \emph{DBDA2}, as published in Shohat-Ophir et al (2012). The data are more fully explained in an exercize at the end of Chapter 18 of \emph{DBDA3}.
+This is a reformatted version of the \code{ShohatOphirKAMH2012dataReduced.csv} used in \emph{DBDA2}, as published in Shohat-Ophir et al (2012). The data are more fully explained in an exercise at the end of Chapter 18 of \emph{DBDA3}.
 }
 \examples{
 tibble::glimpse(depriv)

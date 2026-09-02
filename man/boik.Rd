@@ -26,7 +26,7 @@ De Rosario-Martinez, H. (2025).
 boik
 }
 \description{
-This is an adjusted version of the \code{Boik} data set from the {phia} package (\code{?phia::Boik}). The \code{Boik} data frame was based on a hypothetical example in Boik (1979). Similar to Boik (1979) and \code{Boik}, our \code{boik} data are designed to mirror a balanced 3 X 4 factorial experimental design wherein 72 persons complaining of hemophobia were randomly assigned to receive a combination of behavioral therapies (\code{therapy}) and antianxiety medication (\code{medication}). The outcome variable is electrodermal response (\code{edr}), which is a physiological correlate of fear.
+This is an adjusted version of the \code{Boik} data set from the \pkg{phia} package (\code{?phia::Boik}). The \code{Boik} data frame was based on a hypothetical example in Boik (1979). Similar to Boik (1979) and \code{Boik}, our \code{boik} data are designed to mirror a balanced 3 X 4 factorial experimental design wherein 72 persons complaining of hemophobia were randomly assigned to receive a combination of behavioral therapies (\code{therapy}) and antianxiety medication (\code{medication}). The outcome variable is electrodermal response (\code{edr}), which is a physiological correlate of fear.
 }
 \examples{
 tibble::glimpse(boik)

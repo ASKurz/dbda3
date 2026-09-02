@@ -16,7 +16,7 @@ A data frame with 100 rows and 3 columns:
 cor_pred_dichot
 }
 \description{
-Synthetic data unique to \emph{DBDA3}, for use in Chapter 19. The binary predicted variable \code{y} has two strongly correlated metric predictors, \code{x1} and \code{x2}.
+Synthetic data unique to \emph{DBDA3}, for use in Chapter 20. The binary predicted variable \code{y} has two strongly correlated metric predictors, \code{x1} and \code{x2}.
 }
 \examples{
 tibble::glimpse(cor_pred_dichot)

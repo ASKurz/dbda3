@@ -16,7 +16,7 @@ A data frame with 1000 rows and 3 columns:
 negbin_1met
 }
 \description{
-A synthetic data set of a single unbounded count predicted variable \code{y}, and two continuous predictor variables \code{x}, made originally for Chapter 21 of \emph{DBDA3}.
+A synthetic data set of a single unbounded count predicted variable \code{y}, and two continuous predictor variables \code{x}, made originally for Chapter 23 of \emph{DBDA3}.
 }
 \examples{
 tibble::glimpse(negbin_1met)

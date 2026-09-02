@@ -9,10 +9,12 @@ peek_pipe(x, view = glimpse, ...)
 \arguments{
 \item{x}{an \strong{R} object, typically a data frame.}
 
-\item{view}{A character value selecting either \code{"glimpse"}, \code{"str"}, or \code{"print"}. Defaults to \code{"glimpse"}.}
+\item{view}{Either \code{glimpse}, \code{str}, or \code{print} (quoted or unquoted, via non-standard evaluation), selecting which function is used to display \code{x}. Defaults to \code{glimpse}.}
+
+\item{...}{Additional arguments passed to the function selected by \code{view} (i.e., \code{dplyr::glimpse()}, \code{str()}, or \code{print()}).}
 }
 \value{
-Blah
+\code{x}, unchanged and invisibly. As a side effect, \code{peek_pipe()} prints a view of \code{x} to the console (via \code{dplyr::glimpse()}, \code{str()}, or \code{print()}, depending on \code{view}), followed by a blank line, before returning.
 }
 \description{
 A convenience function for viewing the intermediate results in a piped sequence without interrupting the pipe.

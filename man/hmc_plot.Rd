@@ -50,6 +50,7 @@ Make figures displaying Hamiltonian Monte Carlo proposal distributions, based on
 \examples{
 # Load
 library(dplyr)
+library(ggplot2)
 library(purrr)
 library(tidyr)
 

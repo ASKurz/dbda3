@@ -18,7 +18,7 @@ tt_loss(x, digits = 2, height = 0.3, placement = "H", ...)
 \item{...}{Further arguments passed to \code{tt()}.}
 }
 \value{
-An object of class \code{tt} representing the table.
+An object of class \code{tinytable} (S4) representing the table.
 }
 \description{
 \code{tt_loss()} is an extension of a few functions from the tinytable package, such as \code{tt()} and \code{format_tt()}, with default settings for the loss-decision tables frequently used in \emph{DBDA3}.

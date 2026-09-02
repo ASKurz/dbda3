@@ -15,7 +15,7 @@ A data frame with 264 rows and 2 columns:
 nom_nom_long
 }
 \description{
-Synthetic grouped nominal data unique to \emph{DBDA3}, for use in Chapter 20. This version of the data set is formatted long with respect to the four levels of \code{y}.
+Synthetic grouped nominal data unique to \emph{DBDA3}, for use in Chapter 21. This version of the data set is formatted long with respect to the four levels of \code{y}.
 }
 \examples{
 tibble::glimpse(nom_nom_long)

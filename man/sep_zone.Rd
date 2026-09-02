@@ -16,7 +16,7 @@ A data frame with 100 rows and 3 columns:
 sep_zone
 }
 \description{
-Synthetic data unique to \emph{DBDA3}, for use in Chapter 19. The binary predicted variable \code{y} has two correlated metric predictors, \code{x1} and \code{x2}, and the trials show strong separation by the predictors.
+Synthetic data unique to \emph{DBDA3}, for use in Chapter 20. The binary predicted variable \code{y} has two correlated metric predictors, \code{x1} and \code{x2}, and the trials show strong separation by the predictors.
 }
 \examples{
 tibble::glimpse(sep_zone)

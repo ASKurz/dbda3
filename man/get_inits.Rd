@@ -13,7 +13,10 @@ get_inits(object)
 A list of lists, one per MCMC chain (4 by default). Within each chain-level list, each component is a named for each parameter for the corresponding chain.
 }
 \description{
-Extract the \code{init} values for parameters used in sampling all chains for models of class \code{brmsfit}. This is a simple analogue to the \code{get_inits()} function form {rstan}.
+Extract the \code{init} values for parameters used in sampling all chains for models of class \code{brmsfit}. This is a simple analogue to the \code{get_inits()} function form \pkg{rstan}.
+}
+\note{
+brms already provides an equivalent \code{brms::inits.brmsfit()} method with the same output structure. \code{get_inits()} predates that method and is kept here as a direct analogue to \pkg{rstan}'s \code{get_inits()}; consider using \code{brms::inits()} instead.
 }
 \examples{
 \dontrun{

@@ -16,7 +16,7 @@ A data frame with 21 rows and 3 columns:
 ord_abc
 }
 \description{
-Synthetic data unique to \emph{DBDA3}, for use in Chapter 21. There are three groups, and each group has about 500 total count.
+Synthetic data unique to \emph{DBDA3}, for use in Chapter 22. There are three groups, and each group has about 500 total count.
 }
 \examples{
 tibble::glimpse(ord_abc)

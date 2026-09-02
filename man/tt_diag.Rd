@@ -45,7 +45,7 @@ tt_diag(
 \item{...}{Further arguments passed to \code{tt()}.}
 }
 \value{
-An object of class \code{tt} representing the table.
+An object of class \code{tinytable} (S4) representing the table.
 }
 \description{
 \code{tt_diag()} is an extension of a few functions from the tinytable package, such as \code{tt()} and \code{format_tt()}, with default settings frequently used in the HMC diagnostic tables in \emph{DBDA3}.

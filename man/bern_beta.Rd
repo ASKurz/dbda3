@@ -56,8 +56,6 @@ bern_beta(
 \item{point_size}{A numeric value for the \code{size} argument of the central-tendency points in \code{geom_point()}. Defaults to \code{1.5}.}
 
 \item{text_size}{A numeric value for the \code{size} argument of the text annotation describing the central tendency points, and the data description, in \code{geom_text()}. Defaults to \code{3.25}.}
-
-\item{p_theta}{A vector of probability mass values for the values of \code{theta}, of the same length as \code{theta}.}
 }
 \value{
 An object of class \code{patchwork}, \verb{gg,} and \code{ggplot}.
