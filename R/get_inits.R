@@ -6,6 +6,8 @@
 #'
 #' @returns A list of lists, one per MCMC chain (4 by default). Within each chain-level list, each component is a named for each parameter for the corresponding chain.
 #'
+#' @note brms already provides an equivalent `brms::inits.brmsfit()` method with the same output structure. `get_inits()` predates that method and is kept here as a direct analogue to {rstan}'s `get_inits()`; consider using `brms::inits()` instead.
+#'
 #' @examples
 #' \dontrun{
 #' dat <- data.frame(y = rnorm(n = 100))

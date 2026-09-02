@@ -27,5 +27,9 @@ softmax <- function(x) {
   # Check
   checkmate::assert_numeric(x)
 
+  # Subtract `max(x)` for numerical stability; mathematically equivalent
+  # because softmax is invariant to a constant shift in `x`.
+  x <- x - max(x)
   exp(x) / sum(exp(x))
 }
+

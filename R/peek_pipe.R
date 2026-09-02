@@ -5,7 +5,7 @@
 #' @param x an **R** object, typically a data frame.
 #' @param view A character value selecting either `"glimpse"`, `"str"`, or `"print"`. Defaults to `"glimpse"`.
 #'
-#' @returns Blah
+#' @returns `x`, unchanged and invisibly. As a side effect, `peek_pipe()` prints a view of `x` to the console (via `dplyr::glimpse()`, `str()`, or `print()`, depending on `view`), followed by a blank line, before returning.
 #'
 #' @examples
 #' mtcars |>
