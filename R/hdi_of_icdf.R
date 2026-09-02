@@ -15,6 +15,7 @@
 #' hdi_of_icdf(qbeta, shape1 = 30, shape2 = 12)
 #' hdi_of_icdf(qnorm)
 #'
+#' @importFrom stats optimize
 #' @export
 hdi_of_icdf <- function(name, prob = 0.95, tol = 1e-8, ...) {
   # Checks

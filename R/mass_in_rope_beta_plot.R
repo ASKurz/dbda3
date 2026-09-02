@@ -29,6 +29,7 @@
 #'   theme(panel.grid = element_blank())
 #'
 #' @import dplyr ggplot2
+#' @importFrom stats dbeta pbeta
 #' @export
 mass_in_rope_beta_plot <- function(
     mode = 0.50,

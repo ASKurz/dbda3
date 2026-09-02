@@ -23,6 +23,7 @@
 #' @examples
 #' # Load
 #' library(dplyr)
+#' library(ggplot2)
 #' library(purrr)
 #' library(tidyr)
 #'
@@ -48,6 +49,8 @@
 #'          fill_proposals = "plum2")
 #'
 #' @import dplyr ggplot2 patchwork
+#' @importFrom stats dnorm
+#' @importFrom tidyr expand_grid
 #' @export
 hmc_plot <- function(hmc_data,
                      mo_sd = 1,
@@ -108,7 +111,7 @@ hmc_plot <- function(hmc_data,
                size = point_size) +
     geom_line(data = post_df |>
                 filter(theta == init_pos) |>
-                expand_grid(row = 1:2) |>
+                tidyr::expand_grid(row = 1:2) |>
                 mutate(theta = init_pos + c(-1, 1) * 0.65 * mo_sd),
               arrow = arrow(length = unit(0.075, "inches"), ends = "both"),
               linewidth = 0.5) +

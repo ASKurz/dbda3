@@ -50,6 +50,7 @@
 #'                   subtitle = "The red line shows the analytic solution.") +
 #'   plot_layout(widths = c(4, 1))
 #'
+#' @importFrom stats dbeta rnorm runif
 #' @export
 metro_walk <- function(pro_sd = 0.02, init_pos = 0.01,
                        n_steps = 2000, seed = 47405,

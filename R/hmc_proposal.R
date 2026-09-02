@@ -45,6 +45,7 @@
 #'   geom_path(linewidth = 1/5) +
 #'   facet_grid(l ~ epsilon, labeller = label_both)
 #'
+#' @importFrom stats rnorm
 #' @export
 hmc_proposal <- function(epsilon = 0.1,
                          l = 5,

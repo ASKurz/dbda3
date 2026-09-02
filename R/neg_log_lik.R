@@ -14,6 +14,7 @@
 #' param_try <- c(theta = z_ex / n_ex, omega = sum(z_ex) / sum(n_ex), kappa = 2.01)
 #' neg_log_lik(param = param_try, z = z_ex, n = n_ex)
 #'
+#' @importFrom stats dbeta
 #' @export
 neg_log_lik = function(param, z, n) {
 

@@ -39,6 +39,7 @@
 #'   theme(panel.grid = element_blank())
 #'
 #' @import dplyr ggplot2
+#' @importFrom graphics hist
 #' @export
 mass_in_rope_hmc_plot <- function(
     data,

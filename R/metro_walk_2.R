@@ -10,6 +10,7 @@
 #'
 #' @returns A data frame with rows equal to `n_steps`, and two columns, `step` and `theta`. The `step` column is an index marking off the MCMC steps, starting at `1` and ending at `n_steps`. The `theta` column contains the posterior draws for \eqn{\theta}, the probability parmeter of the Bernoulli likelihood.
 #'
+#' @importFrom stats dbeta rnorm runif
 #' @export
 #' @keywords internal
 metro_walk_2 <- function(seed = 47405, n_steps = 1000,
