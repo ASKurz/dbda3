@@ -8,7 +8,7 @@
 #' @param placement Character string specifying LaTeX float placement options for the table environment (e.g., `"h"`, `"t"`, `"b"`, `"p"`, `"H"`). Only used when `environment_table = TRUE`. The value is passed to `theme_latex()`. Defaults to `"H"`.
 #' @param ... Further arguments passed to `tt()`.
 #'
-#' @returns An object of class `tt` representing the table.
+#' @returns An object of class `tinytable` (S4) representing the table.
 #'
 #' @examples
 #' library(tinytable)

@@ -15,7 +15,7 @@
 #' @param variable_name The name for the first column, which is typically `"variable"` in a `summarize_draws()` output. Defaults to `"Parameter"`, and `NULL` retains the original name.
 #' @param ... Further arguments passed to `tt()`.
 #'
-#' @returns An object of class `tt` representing the table.
+#' @returns An object of class `tinytable` (S4) representing the table.
 #'
 #' @examples
 #' library(tinytable)
