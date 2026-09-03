@@ -57,25 +57,42 @@ reference:
 
 - title: Miscelaneous
   desc: This is a placeholder section for functions without clear categories [may be ammended]
+
+- subtitle: Transform functions
   contents:
   - cor_from_01
   - cor_to_01
-  - ess_eti
-  - format_num
-  - get_inits
   - logistic
   - logit
-  - loss_decision
-  - lpd
-  - neg_log_lik
-  - peek_pipe
   - rescale_bounds
-  - rope_category
   - softmax
   - softplus
   - softplus_inverse
   - standardize
+
+- subtitle: Loss functions
+  contents:
+  - loss_decision
+  - loss_equivalent
+  - loss_greater_than
+  - loss_less_than
+
+- subtitle: Posterior summary/diagnostics
+  contents:
+  - ess_eti
+  - lpd
+  - neg_log_lik
+  - rope_category
+  - str_point_interval
   - summarize_draws_dbda3
+  - theta_for_label
+
+- subtitle: Utilities
+  contents:
+  - format_num
+  - format_pval
+  - get_inits
+  - peek_pipe
 
 - title: Data sets
   desc: Example data sets used in the text
