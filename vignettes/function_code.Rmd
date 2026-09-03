@@ -29,7 +29,7 @@ After executing `library("dbda3")` once, all other functions from dbda3 remain a
 gamma_s_r_from_mean_sd(mean = 10, sd = 2)
 ```
 
-### Access dbda3 functions withoug loading the dbda3 package
+### Access dbda3 functions without loading the dbda3 package
 
 The double-colon operator `::` allows users to access functions from a package without loading that package (execute `help("::")`). For example, if you had not loaded package dbda3 with the `library()` function, as above, you could have instead used the `beta_a_b_from_mean_sd()` like so.
 

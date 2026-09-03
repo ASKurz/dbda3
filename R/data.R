@@ -31,12 +31,12 @@
 #' \describe{
 #'   \item{obsno}{Participant number (numeric values ranging from `1` to `178`)}
 #'   \item{age}{Years old (numeric values)}
-#'   \item{sex}{Binary (factor)}
+#'   \item{sex}{Binary (factor with two levels: `"male"` and `"female"`)}
 #'   \item{alkphos}{Alkaline phosphatase (numeric values in liters)}
-#'   \item{lab}{Lab (factor)}
+#'   \item{lab}{Lab (factor with six levels: `"Metpath"`, `"Deyor"`, `"St. Elizabeth's"`, `"CB Rouche"`, `"YOH"`, and `"Horizon"`)}
 #'   \item{cammol}{Calcium (numeric values in mmol/L)}
 #'   \item{phosmmol}{Inorganic phosphorus (numeric values in mmol/L)}
-#'   \item{age_group}{Binned age (factor)}
+#'   \item{age_group}{Binned age (factor with five levels: `"65-69"`, `"70-74"`, `"75-79"`, `"80-84"`, and `"85-89"`)}
 #' }
 #'
 #' @source
@@ -64,8 +64,8 @@
 #'
 #' @format A tibble with 16 rows and 3 columns:
 #' \describe{
-#'   \item{hair}{Hair color (factor with 4 levels)}
-#'   \item{eye}{Eye color (factor with 4 levels)}
+#'   \item{hair}{Hair color (factor with four levels: `"Black"`, `"Brunette"`, `"Red"`, and `"Blond"`)}
+#'   \item{eye}{Eye color (factor with four levels: `"Brown"`, `"Blue"`, `"Hazel"`, and `"Green"`)}
 #'   \item{count}{The number of each combination of `hair` and `eye` (numeric)}
 #' }
 #'
@@ -93,7 +93,7 @@
 #'
 #' @format A tibble with 4 rows and 3 columns:
 #' \describe{
-#'   \item{treatment}{The experimental groups (ordered factor)}
+#'   \item{treatment}{The experimental groups (ordered factor with four levels: `"delayed"` < `"placebo"` < `"scheduled"` < `"experimental"`)}
 #'   \item{z}{The number who lost weight in each group (numeric)}
 #'   \item{n}{Total number per group (numeric)}
 #' }
@@ -135,22 +135,13 @@
 #' @format NULL
 "set_c"
 
-#' Example data
-#'
-#' This is the description of the example `my_pkg_data` data set, created under the direction of the *R Packages (2e)* book, Section 7.1.2.
-#'
-#' @format A vector of 1000 integers created with the `sample()` function, without reference to a specific seed value.
-#'
-#' @source <https://r-pkgs.org/data.html#sec-documenting-data>
-"my_pkg_data"
-
 #' Height and Weight data for 300 cases
 #'
 #' This is a reformatted version of the `HtWtData300.csv` used in *DBDA2*. The data were originally made with Kruschke's `HtWtDataGenerator()` function.
 #'
 #' @format A data frame with 300 rows and 3 columns:
 #' \describe{
-#'   \item{male}{numeric values coded `0` for women and `1` for  men}
+#'   \item{male}{numeric values coded `0` for women and `1` for men}
 #'   \item{height}{numeric values (in inches)}
 #'   \item{weight}{numeric values (in pounds)}
 #' }
@@ -171,7 +162,7 @@
 #'
 #' @format A data frame with 110 rows and 3 columns:
 #' \describe{
-#'   \item{male}{numeric values coded `0` for women and `1` for  men}
+#'   \item{male}{numeric values coded `0` for women and `1` for men}
 #'   \item{height}{numeric values (in inches)}
 #'   \item{weight}{numeric values (in pounds)}
 #' }
@@ -192,7 +183,7 @@
 #'
 #' @format A data frame with 30 rows and 3 columns:
 #' \describe{
-#'   \item{male}{numeric values coded `0` for women and `1` for  men}
+#'   \item{male}{numeric values coded `0` for women and `1` for men}
 #'   \item{height}{numeric values (in inches)}
 #'   \item{weight}{numeric values (in pounds)}
 #' }
@@ -260,9 +251,9 @@
 #' @format A data frame with 50 rows and 8 columns:
 #' \describe{
 #'   \item{state}{One of the 50 US states (character values ranging from `"Alabama"` to `"Wyoming"`)}
-#'   \item{spend}{The average spending per student (numeric values, in thousands of dolars)}
+#'   \item{spend}{The average spending per student (numeric values, in thousands of dollars)}
 #'   \item{stutearat}{The student/teacher ratio (numeric values)}
-#'   \item{salary}{The average teacher salary (numeric values, in thousands of dolars)}
+#'   \item{salary}{The average teacher salary (numeric values, in thousands of dollars)}
 #'   \item{prcnttake}{The percentage of students who take the SAT (numeric values)}
 #'   \item{satv}{The verbal subscore of the SAT (numeric values)}
 #'   \item{satm}{The math subscore of the SAT (numeric values)}
@@ -292,8 +283,8 @@
 #' \describe{
 #'   \item{year}{Year of the race (numeric values; 1875--2017)}
 #'   \item{winner}{Name of the winning horse (character values)}
-#'   \item{surface}{The surface of track (character values; currently alwayse `dirt`)}
-#'   \item{condition}{The rating of condition of track at start of race (character values )}
+#'   \item{surface}{The surface of track (character values; currently always `dirt`)}
+#'   \item{condition}{The rating of condition of track at start of race (character values)}
 #'   \item{starters}{The number of horses lined up at the start of the race (numeric values)}
 #'   \item{poleposition}{The starting gate of the winning horse (numeric values)}
 #'   \item{time}{Winning time of the race (numeric values; seconds)}
@@ -363,7 +354,7 @@
 #' @format `big5_mexico` and `big5_usa` contain 100 rows each, and `big5_12` contains 1200 rows. All three data sets contain 9 columns:
 #' \describe{
 #'   \item{id}{Participant identifier (integers)}
-#'   \item{sex}{Binary (factor)}
+#'   \item{sex}{Binary (factor with two levels: `"male"` and `"female"`)}
 #'   \item{age}{Years old (integer values)}
 #'   \item{country}{The country from which the data were collected (character values)}
 #'   \item{a}{The sum score for the Agreeableness scale (numeric values)}
@@ -430,7 +421,7 @@
 #'
 #' @format A data frame with 125 rows and 3 columns:
 #' \describe{
-#'   \item{group}{Experimental group (factor with five levels: `"none_0"`, `"pregnant_8"`, `"pregnant_8"`, `"virgin_1"`, and `"virgin_8"`)}
+#'   \item{group}{Experimental group (factor with five levels: `"none_0"`, `"pregnant_1"`, `"pregnant_8"`, `"virgin_1"`, and `"virgin_8"`)}
 #'   \item{thorax}{Length of thorax in millimeters (numeric values)}
 #'   \item{longevity}{Lifespan in days (integer values)}
 #' }
@@ -441,7 +432,7 @@
 #' Academic Press.
 #' <https://sites.google.com/site/doingbayesiandataanalysis/>
 #'
-#' James A., H., & Stanley H., S (1994).
+#' James, A. H., & Stanley, H. S. (1994).
 #' Sexual activity and the lifespan of male fruitflies: A dataset that gets attention.
 #' \emph{Journal of Statistics Education}, 2(1).
 #' <https://doi.org/10.1080/10691898.1994.11910467>
@@ -464,7 +455,7 @@
 #' @source
 #' Boik, R. J. (1979).
 #' Interactions, Partial Interactions, and Interaction Contrasts in the Analysis of Variance.
-#' \emph{Psychological Bulletin}, 86(5), 1084-1089.
+#' \emph{Psychological Bulletin}, 86(5), 1084–1089.
 #' <https://doi.org/10.1037/0033-2909.86.5.1084>
 #'
 #' De Rosario-Martinez, H. (2025).
@@ -506,13 +497,13 @@
 
 #' Two group IQ data with a covariate
 #'
-#' Simulated data based loosely on the `TwoGroupIQ.csv` used in *DBDA2*. The data follow a basic two-group design where each person received one of the two levels of the intervention. The outcome variable is full-scale IQ (`iq`), and SAT total scores (`sat`) are a baseline covariate. The SAT population mean and standard deviation some from National Center for Education Statistics, and its correlation with IQ is based on Frey & Detterman (2004).
+#' Simulated data based loosely on the `TwoGroupIQ.csv` used in *DBDA2*. The data follow a basic two-group design where each person received one of the two levels of the intervention. The outcome variable is full-scale IQ (`iq`), and SAT total scores (`sat`) are a baseline covariate. The SAT population mean and standard deviation come from National Center for Education Statistics, and its correlation with IQ is based on Frey & Detterman (2004).
 #'
 #' @format A data frame with 100 rows and 4 columns:
 #' \describe{
 #'   \item{group}{Experimental group (factor with two levels: `"Placebo"` and `"Smart Drug"`)}
 #'   \item{tx}{Experimental group as an integer of `0` (`"Placebo"`) and `1` (`"Smart Drug"`)}
-#'   \item{iq}{A numeric variable of full-scale IQ scores simulated to be Gaussian, consitional on `group`.}
+#'   \item{iq}{A numeric variable of full-scale IQ scores simulated to be Gaussian, conditional on `group`.}
 #'   \item{sat}{A numeric variable of SAT total scores simulated to be Gaussian.}
 #' }
 #'
@@ -524,11 +515,11 @@
 #'
 #' Frey, M. C., & Detterman, D. K. (2004).
 #' Scholastic Assessment or g?: The Relationship Between the Scholastic Assessment Test and General Cognitive Ability.
-#' \emph{Psychological Science}, 15(6), 373-378.
+#' \emph{Psychological Science}, 15(6), 373–378.
 #' <https://doi.org/10.1111/j.0956-7976.2004.00687.x>
 #'
 #' National Center for Education Statistics (2025, October 10).
-#' \emph{Table 226.40.	SAT mean scores, standard deviations, and score ranges for high school seniors, and percentage of the graduating class taking the SAT, by state: 2017.}
+#' \emph{Table 226.40. SAT mean scores, standard deviations, and score ranges for high school seniors, and percentage of the graduating class taking the SAT, by state: 2017.}
 #' <https://nces.ed.gov/programs/digest/d17/tables/dt17_226.40.asp>
 #'
 #' @examples
@@ -564,7 +555,7 @@
 #' @format A data frame with 264 rows and 2 columns:
 #' \describe{
 #'   \item{group}{The nominal groups (factor with 11 levels `A` through `K`)}
-#'   \item{y}{The nominal predicted vairable (factor with 4 levels `1` through `4`)}
+#'   \item{y}{The nominal predicted variable (factor with 4 levels `1` through `4`)}
 #' }
 #'
 #' @seealso [nom_nom_wide] for the wide formatted version of the data.
@@ -580,10 +571,10 @@
 #' @format A data frame with 11 rows and 6 columns:
 #' \describe{
 #'   \item{group}{The nominal groups (factor with 11 levels `A` through `K`)}
-#'   \item{y1}{The counts for the first level of the nominal predicted vairable (integer)}
-#'   \item{y2}{The counts for the second level of the nominal predicted vairable (integer)}
-#'   \item{y3}{The counts for the third level of the nominal predicted vairable (integer)}
-#'   \item{y4}{The counts for the fourth level of the nominal predicted vairable (integer)}
+#'   \item{y1}{The counts for the first level of the nominal predicted variable (integer)}
+#'   \item{y2}{The counts for the second level of the nominal predicted variable (integer)}
+#'   \item{y3}{The counts for the third level of the nominal predicted variable (integer)}
+#'   \item{y4}{The counts for the fourth level of the nominal predicted variable (integer)}
 #'   \item{n}{The total number of counts, per row (integer)}
 #' }
 #'
@@ -601,7 +592,7 @@
 #' \describe{
 #'   \item{x1}{The first metric predictor (numeric)}
 #'   \item{x2}{The second metric predictor (numeric)}
-#'   \item{y}{The nominal predicted vairable (factor with 4 levels `1` through `4`)}
+#'   \item{y}{The nominal predicted variable (factor with 4 levels `1` through `4`)}
 #' }
 #'
 #' @examples
@@ -640,7 +631,7 @@
 
 #' Bernoulli trials with few 1's
 #'
-#' Synthetic data unique to *DBDA3*, for use in Chapter 20. Both versions of the binary predicted variables, `y` and `y_few`, have two weakly correlated metric predictors, `x1` and `x2`. Whereas the variable `y` has a roughtly even number of 0's and 1's, `y_few` has very few 1's.
+#' Synthetic data unique to *DBDA3*, for use in Chapter 20. Both versions of the binary predicted variables, `y` and `y_few`, have two weakly correlated metric predictors, `x1` and `x2`. Whereas the variable `y` has a roughly even number of 0's and 1's, `y_few` has very few 1's.
 #'
 #' @format A data frame with 100 rows and 4 columns:
 #' \describe{
@@ -699,7 +690,7 @@
 
 #' Synthetic bimodal ordinal data
 #'
-#' This is a reformatted version of the `OrdinalProbitData-1grp-2.csv` daat used in *DBDA2*. The data are synthetic, and designed to follow a bimodal distribution.
+#' This is a reformatted version of the `OrdinalProbitData-1grp-2.csv` data used in *DBDA2*. The data are synthetic, and designed to follow a bimodal distribution.
 #'
 #' @format A data frame with 70 rows and 1 column:
 #' \describe{
@@ -718,7 +709,7 @@
 
 #' Extremely skewed ordinal data
 #'
-#' This is a reformatted version of the `OrdinalProbitData-1grp-1.csv` daat used in *DBDA2*. The data are synthetic, and designed to follow an extremely skewed distribution.
+#' This is a reformatted version of the `OrdinalProbitData-1grp-1.csv` data used in *DBDA2*. The data are synthetic, and designed to follow an extremely skewed distribution.
 #'
 #' @format A data frame with 100 rows and 1 column:
 #' \describe{
@@ -766,7 +757,7 @@
 #' @source
 #' Liddell, T. M., & Kruschke, J. K. (2018).
 #' Analyzing ordinal data with metric models: What could possibly go wrong?
-#' \emph{Journal of Experimental Social Psychology, 79}, 328-348.
+#' \emph{Journal of Experimental Social Psychology, 79}, 328–348.
 #' <https://doi.org/10.1016/j.jesp.2018.08.009>
 #'
 #' @examples
@@ -783,7 +774,7 @@
 #'   \item{joke_id}{Unique joke identifier (factor with 25 levels)}
 #'   \item{found}{The moral foundation targeted by the joke; (factor with five levels: `Auth`, `Care`, `Fair`, `Loya`, and `Puri`)}
 #'   \item{joke}{Unique joke identifier, the label of which begins with the targeted foundation (factor with 25 levels)}
-#'   \item{moral}{The score from the Moral Foundations Questionnaire (MFQ; Graham et al, 2011) of that participant on that foundation (numeric)}
+#'   \item{moral}{The score from the Moral Foundations Questionnaire (MFQ; Graham et al., 2011) of that participant on that foundation (numeric)}
 #'   \item{z_moral}{Standardized version of `moral` (numeric)}
 #'   \item{z_moral_wf}{Version of `moral` standardized within `found` (numeric)}
 #'   \item{funny}{Ordinal funniness rating (ordered factor with seven levels: `"1"` to `"7"`)}
@@ -840,7 +831,7 @@
 #' @format A data frame with 250 rows and 5 columns:
 #' \describe{
 #'   \item{count}{The number of fish caught (integer values)}
-#'   \item{child}{The number of children per group (integer values )}
+#'   \item{child}{The number of children per group (integer values)}
 #'   \item{persons}{The total number of people per group (integer values)}
 #'   \item{livebait}{Whether the group used live bait (factor with two levels: `"0"` and `"1"`)}
 #'   \item{camper}{Whether the group brought a camper (factor with two levels: `"0"` and `"1"`)}
