@@ -1,11 +1,13 @@
 Package: dbda3
-Title: R package supporting the third edition of 'Doing Bayesian Data Analysis'
-Version: 0.0.0.9000
+Title: Support Functions for the Third Edition of 'Doing Bayesian Data Analysis'
+Version: 0.0.0.9001
 Authors@R: c(
     person("A. Solomon", "Kurz", email = "a.solomon.kurz@gmail.com", role = c("aut", "cre")),
     person("John", "Kruschke", email = "johnkruschke@gmail.com", role = "aut"))
-Description: This provides a variety of convenience functions supporting Bayesian data analysis, with an emphasis on a tidyverse-oriented workflow, and models fit with the brms package.
+Description: Provides a variety of convenience functions supporting Bayesian data analysis, with an emphasis on a tidyverse-oriented workflow, and models fit with the brms package.
 License: MIT + file LICENSE
+URL: https://github.com/ASKurz/dbda3
+BugReports: https://github.com/ASKurz/dbda3/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
