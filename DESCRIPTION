@@ -19,7 +19,6 @@ Imports:
   MASS,
   patchwork,
   posterior,
-  purrr,
   rlang,
   stats,
   stringr,
@@ -29,6 +28,7 @@ Imports:
 Suggests:
   ggdist,
   knitr,
+  purrr,
   rmarkdown,
   testthat (>= 3.0.0),
   tidybayes,
