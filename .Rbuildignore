@@ -7,3 +7,9 @@
 ^data-raw$
 ^\.positai$
 ^\.claude$
+^AGENTS\.md$
+^README\.qmd$
+^archive$
+^errors\.Rmd$
+^notes\.Rmd$
+^notes\.nb\.html$
