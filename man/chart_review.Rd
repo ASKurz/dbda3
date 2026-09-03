@@ -9,12 +9,12 @@ A tibble with 178 rows and 8 columns:
 \describe{
 \item{obsno}{Participant number (numeric values ranging from \code{1} to \code{178})}
 \item{age}{Years old (numeric values)}
-\item{sex}{Binary (factor)}
+\item{sex}{Binary (factor with two levels: \code{"male"} and \code{"female"})}
 \item{alkphos}{Alkaline phosphatase (numeric values in liters)}
-\item{lab}{Lab (factor)}
+\item{lab}{Lab (factor with six levels: \code{"Metpath"}, \code{"Deyor"}, \code{"St. Elizabeth's"}, \code{"CB Rouche"}, \code{"YOH"}, and \code{"Horizon"})}
 \item{cammol}{Calcium (numeric values in mmol/L)}
 \item{phosmmol}{Inorganic phosphorus (numeric values in mmol/L)}
-\item{age_group}{Binned age (factor)}
+\item{age_group}{Binned age (factor with five levels: \code{"65-69"}, \code{"70-74"}, \code{"75-79"}, \code{"80-84"}, and \code{"85-89"})}
 }
 }
 \source{

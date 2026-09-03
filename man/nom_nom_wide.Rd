@@ -8,10 +8,10 @@
 A data frame with 11 rows and 6 columns:
 \describe{
 \item{group}{The nominal groups (factor with 11 levels \code{A} through \code{K})}
-\item{y1}{The counts for the first level of the nominal predicted vairable (integer)}
-\item{y2}{The counts for the second level of the nominal predicted vairable (integer)}
-\item{y3}{The counts for the third level of the nominal predicted vairable (integer)}
-\item{y4}{The counts for the fourth level of the nominal predicted vairable (integer)}
+\item{y1}{The counts for the first level of the nominal predicted variable (integer)}
+\item{y2}{The counts for the second level of the nominal predicted variable (integer)}
+\item{y3}{The counts for the third level of the nominal predicted variable (integer)}
+\item{y4}{The counts for the fourth level of the nominal predicted variable (integer)}
 \item{n}{The total number of counts, per row (integer)}
 }
 }

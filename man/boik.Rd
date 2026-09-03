@@ -15,7 +15,7 @@ A data frame with 72 rows and 3 columns:
 \source{
 Boik, R. J. (1979).
 Interactions, Partial Interactions, and Interaction Contrasts in the Analysis of Variance.
-\emph{Psychological Bulletin}, 86(5), 1084-1089.
+\emph{Psychological Bulletin}, 86(5), 1084–1089.
 \url{https://doi.org/10.1037/0033-2909.86.5.1084}
 
 De Rosario-Martinez, H. (2025).

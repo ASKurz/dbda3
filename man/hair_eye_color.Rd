@@ -7,8 +7,8 @@
 \format{
 A tibble with 16 rows and 3 columns:
 \describe{
-\item{hair}{Hair color (factor with 4 levels)}
-\item{eye}{Eye color (factor with 4 levels)}
+\item{hair}{Hair color (factor with four levels: \code{"Black"}, \code{"Brunette"}, \code{"Red"}, and \code{"Blond"})}
+\item{eye}{Eye color (factor with four levels: \code{"Brown"}, \code{"Blue"}, \code{"Hazel"}, and \code{"Green"})}
 \item{count}{The number of each combination of \code{hair} and \code{eye} (numeric)}
 }
 }

@@ -11,7 +11,7 @@ A data frame with 4,425 rows and 8 columns:
 \item{joke_id}{Unique joke identifier (factor with 25 levels)}
 \item{found}{The moral foundation targeted by the joke; (factor with five levels: \code{Auth}, \code{Care}, \code{Fair}, \code{Loya}, and \code{Puri})}
 \item{joke}{Unique joke identifier, the label of which begins with the targeted foundation (factor with 25 levels)}
-\item{moral}{The score from the Moral Foundations Questionnaire (MFQ; Graham et al, 2011) of that participant on that foundation (numeric)}
+\item{moral}{The score from the Moral Foundations Questionnaire (MFQ; Graham et al., 2011) of that participant on that foundation (numeric)}
 \item{z_moral}{Standardized version of \code{moral} (numeric)}
 \item{z_moral_wf}{Version of \code{moral} standardized within \code{found} (numeric)}
 \item{funny}{Ordinal funniness rating (ordered factor with seven levels: \code{"1"} to \code{"7"})}

@@ -8,9 +8,9 @@
 A data frame with 50 rows and 8 columns:
 \describe{
 \item{state}{One of the 50 US states (character values ranging from \code{"Alabama"} to \code{"Wyoming"})}
-\item{spend}{The average spending per student (numeric values, in thousands of dolars)}
+\item{spend}{The average spending per student (numeric values, in thousands of dollars)}
 \item{stutearat}{The student/teacher ratio (numeric values)}
-\item{salary}{The average teacher salary (numeric values, in thousands of dolars)}
+\item{salary}{The average teacher salary (numeric values, in thousands of dollars)}
 \item{prcnttake}{The percentage of students who take the SAT (numeric values)}
 \item{satv}{The verbal subscore of the SAT (numeric values)}
 \item{satm}{The math subscore of the SAT (numeric values)}

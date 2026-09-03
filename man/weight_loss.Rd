@@ -7,7 +7,7 @@
 \format{
 A tibble with 4 rows and 3 columns:
 \describe{
-\item{treatment}{The experimental groups (ordered factor)}
+\item{treatment}{The experimental groups (ordered factor with four levels: \code{"delayed"} < \code{"placebo"} < \code{"scheduled"} < \code{"experimental"})}
 \item{z}{The number who lost weight in each group (numeric)}
 \item{n}{Total number per group (numeric)}
 }

@@ -8,7 +8,7 @@
 A data frame with 264 rows and 2 columns:
 \describe{
 \item{group}{The nominal groups (factor with 11 levels \code{A} through \code{K})}
-\item{y}{The nominal predicted vairable (factor with 4 levels \code{1} through \code{4})}
+\item{y}{The nominal predicted variable (factor with 4 levels \code{1} through \code{4})}
 }
 }
 \usage{

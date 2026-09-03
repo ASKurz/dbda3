@@ -9,8 +9,8 @@ A data frame with 143 rows and 8 columns:
 \describe{
 \item{year}{Year of the race (numeric values; 1875--2017)}
 \item{winner}{Name of the winning horse (character values)}
-\item{surface}{The surface of track (character values; currently alwayse \code{dirt})}
-\item{condition}{The rating of condition of track at start of race (character values )}
+\item{surface}{The surface of track (character values; currently always \code{dirt})}
+\item{condition}{The rating of condition of track at start of race (character values)}
 \item{starters}{The number of horses lined up at the start of the race (numeric values)}
 \item{poleposition}{The starting gate of the winning horse (numeric values)}
 \item{time}{Winning time of the race (numeric values; seconds)}

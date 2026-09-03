@@ -10,7 +10,7 @@
 \code{big5_mexico} and \code{big5_usa} contain 100 rows each, and \code{big5_12} contains 1200 rows. All three data sets contain 9 columns:
 \describe{
 \item{id}{Participant identifier (integers)}
-\item{sex}{Binary (factor)}
+\item{sex}{Binary (factor with two levels: \code{"male"} and \code{"female"})}
 \item{age}{Years old (integer values)}
 \item{country}{The country from which the data were collected (character values)}
 \item{a}{The sum score for the Agreeableness scale (numeric values)}

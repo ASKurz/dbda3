@@ -8,7 +8,7 @@
 A data frame with 250 rows and 5 columns:
 \describe{
 \item{count}{The number of fish caught (integer values)}
-\item{child}{The number of children per group (integer values )}
+\item{child}{The number of children per group (integer values)}
 \item{persons}{The total number of people per group (integer values)}
 \item{livebait}{Whether the group used live bait (factor with two levels: \code{"0"} and \code{"1"})}
 \item{camper}{Whether the group brought a camper (factor with two levels: \code{"0"} and \code{"1"})}

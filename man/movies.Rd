@@ -17,7 +17,7 @@ A data frame with 180 rows and 5 columns:
 \source{
 Liddell, T. M., & Kruschke, J. K. (2018).
 Analyzing ordinal data with metric models: What could possibly go wrong?
-\emph{Journal of Experimental Social Psychology, 79}, 328-348.
+\emph{Journal of Experimental Social Psychology, 79}, 328–348.
 \url{https://doi.org/10.1016/j.jesp.2018.08.009}
 }
 \usage{

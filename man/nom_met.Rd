@@ -9,7 +9,7 @@ A data frame with 500 rows and 3 columns:
 \describe{
 \item{x1}{The first metric predictor (numeric)}
 \item{x2}{The second metric predictor (numeric)}
-\item{y}{The nominal predicted vairable (factor with 4 levels \code{1} through \code{4})}
+\item{y}{The nominal predicted variable (factor with 4 levels \code{1} through \code{4})}
 }
 }
 \usage{

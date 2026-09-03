@@ -9,7 +9,7 @@ A data frame with 100 rows and 4 columns:
 \describe{
 \item{group}{Experimental group (factor with two levels: \code{"Placebo"} and \code{"Smart Drug"})}
 \item{tx}{Experimental group as an integer of \code{0} (\code{"Placebo"}) and \code{1} (\code{"Smart Drug"})}
-\item{iq}{A numeric variable of full-scale IQ scores simulated to be Gaussian, consitional on \code{group}.}
+\item{iq}{A numeric variable of full-scale IQ scores simulated to be Gaussian, conditional on \code{group}.}
 \item{sat}{A numeric variable of SAT total scores simulated to be Gaussian.}
 }
 }
@@ -21,18 +21,18 @@ Academic Press.
 
 Frey, M. C., & Detterman, D. K. (2004).
 Scholastic Assessment or g?: The Relationship Between the Scholastic Assessment Test and General Cognitive Ability.
-\emph{Psychological Science}, 15(6), 373-378.
+\emph{Psychological Science}, 15(6), 373–378.
 \url{https://doi.org/10.1111/j.0956-7976.2004.00687.x}
 
 National Center for Education Statistics (2025, October 10).
-\emph{Table 226.40.	SAT mean scores, standard deviations, and score ranges for high school seniors, and percentage of the graduating class taking the SAT, by state: 2017.}
+\emph{Table 226.40. SAT mean scores, standard deviations, and score ranges for high school seniors, and percentage of the graduating class taking the SAT, by state: 2017.}
 \url{https://nces.ed.gov/programs/digest/d17/tables/dt17_226.40.asp}
 }
 \usage{
 iq_sat
 }
 \description{
-Simulated data based loosely on the \code{TwoGroupIQ.csv} used in \emph{DBDA2}. The data follow a basic two-group design where each person received one of the two levels of the intervention. The outcome variable is full-scale IQ (\code{iq}), and SAT total scores (\code{sat}) are a baseline covariate. The SAT population mean and standard deviation some from National Center for Education Statistics, and its correlation with IQ is based on Frey & Detterman (2004).
+Simulated data based loosely on the \code{TwoGroupIQ.csv} used in \emph{DBDA2}. The data follow a basic two-group design where each person received one of the two levels of the intervention. The outcome variable is full-scale IQ (\code{iq}), and SAT total scores (\code{sat}) are a baseline covariate. The SAT population mean and standard deviation come from National Center for Education Statistics, and its correlation with IQ is based on Frey & Detterman (2004).
 }
 \examples{
 tibble::glimpse(iq_sat)

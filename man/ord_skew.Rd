@@ -20,7 +20,7 @@ Academic Press.
 ord_skew
 }
 \description{
-This is a reformatted version of the \verb{OrdinalProbitData-1grp-1.csv} daat used in \emph{DBDA2}. The data are synthetic, and designed to follow an extremely skewed distribution.
+This is a reformatted version of the \verb{OrdinalProbitData-1grp-1.csv} data used in \emph{DBDA2}. The data are synthetic, and designed to follow an extremely skewed distribution.
 }
 \examples{
 tibble::glimpse(ord_skew)

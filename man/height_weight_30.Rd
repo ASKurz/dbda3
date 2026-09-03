@@ -7,7 +7,7 @@
 \format{
 A data frame with 30 rows and 3 columns:
 \describe{
-\item{male}{numeric values coded \code{0} for women and \code{1} for  men}
+\item{male}{numeric values coded \code{0} for women and \code{1} for men}
 \item{height}{numeric values (in inches)}
 \item{weight}{numeric values (in pounds)}
 }

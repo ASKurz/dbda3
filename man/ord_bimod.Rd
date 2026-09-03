@@ -20,7 +20,7 @@ Academic Press.
 ord_bimod
 }
 \description{
-This is a reformatted version of the \verb{OrdinalProbitData-1grp-2.csv} daat used in \emph{DBDA2}. The data are synthetic, and designed to follow a bimodal distribution.
+This is a reformatted version of the \verb{OrdinalProbitData-1grp-2.csv} data used in \emph{DBDA2}. The data are synthetic, and designed to follow a bimodal distribution.
 }
 \examples{
 tibble::glimpse(ord_bimod)
