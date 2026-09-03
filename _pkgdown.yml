@@ -1,4 +1,4 @@
-url: ~
+url: https://dbda3.com
 template:
   bootstrap: 5
   math-rendering: mathjax
@@ -97,7 +97,6 @@ reference:
 - title: Data sets
   desc: Example data sets used in the text
   contents:
-  - my_pkg_data
   - big5_12
   - big5_mexico
   - big5_usa
