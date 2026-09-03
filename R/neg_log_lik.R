@@ -18,6 +18,11 @@
 #' @export
 neg_log_lik = function(param, z, n) {
 
+  # Checks
+  checkmate::assert_numeric(param, min.len = 3)
+  checkmate::assert_numeric(z)
+  checkmate::assert_numeric(n, len = length(z))
+
   # Convert param components to meaningful names, and
   # ensure that the parameter values respect range restrictions:
   theta <- pmax(0.00001, pmin(0.99999, param[1:(length(param) - 2)]))  # All `param` but the last 2

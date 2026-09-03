@@ -51,6 +51,11 @@
 #'
 #' @export
 standardize <- function(x, na.rm = FALSE) {
+
+  # Check
+  checkmate::assert_numeric(x)
+  checkmate::assert_flag(na.rm)
+
   (x - mean(x, na.rm = na.rm)) / sd(x, na.rm = na.rm)
 }
 

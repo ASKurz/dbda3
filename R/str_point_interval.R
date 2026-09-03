@@ -19,6 +19,14 @@
 #' @export
 str_point_interval <- function(shape1, shape2, interval, pp_point, prob, unique_mode) {
 
+  # Checks
+  checkmate::assert_number(shape1, lower = 0)
+  checkmate::assert_number(shape2, lower = 0)
+  checkmate::assert_choice(interval, choices = c("eti", "hdi", "none"))
+  checkmate::assert_choice(pp_point, choices = c("mean", "median", "mode", "none"))
+  checkmate::assert_number(prob, lower = 0, upper = 1)
+  checkmate::assert_flag(unique_mode)
+
   # Define new character values
   interval_text <- str_to_upper(interval)
   pp_point_name <- str_to_sentence(pp_point)

@@ -18,6 +18,14 @@
 #' @export
 theta_for_label <- function(shape1, shape2, interval, pp_point, prob, unique_mode) {
 
+  # Checks
+  checkmate::assert_number(shape1, lower = 0)
+  checkmate::assert_number(shape2, lower = 0)
+  checkmate::assert_choice(interval, choices = c("eti", "hdi", "none"))
+  checkmate::assert_choice(pp_point, choices = c("mean", "median", "mode", "none"))
+  checkmate::assert_number(prob, lower = 0, upper = 1)
+  checkmate::assert_flag(unique_mode)
+
   # To streamline the logical statements
   a <- shape1
   b <- shape2

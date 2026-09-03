@@ -18,5 +18,11 @@
 #' softplus_inverse(0:19)
 #'
 #' @export
-softplus_inverse <- function(x) log(exp(x) - 1)
+softplus_inverse <- function(x) {
+
+  # Check
+  checkmate::assert_numeric(x)
+
+  log(exp(x) - 1)
+}
 

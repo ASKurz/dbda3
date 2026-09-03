@@ -18,5 +18,11 @@
 #' softplus(-5:5)
 #'
 #' @export
-softplus <- function(x) log(1 + exp(x))
+softplus <- function(x) {
+
+  # Check
+  checkmate::assert_numeric(x)
+
+  log(1 + exp(x))
+}
 

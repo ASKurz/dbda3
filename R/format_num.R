@@ -14,6 +14,11 @@
 #' @keywords internal
 #' @export
 format_num <- function(x, digits = 2) {
+
+  # Check
+  checkmate::assert(checkmate::check_numeric(x), checkmate::check_character(x))
+  checkmate::assert_int(digits, lower = 0)
+
   formatC(x,
           digits = digits,        # Number of decimal places
           format = "f",           # "f" for fixed decimal places
