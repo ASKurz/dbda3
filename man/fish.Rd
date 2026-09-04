@@ -15,13 +15,21 @@ A data frame with 250 rows and 5 columns:
 }
 }
 \source{
-Some source
+UCLA Statistical Methods and Data Analytics. (n.d.).
+Fish dataset [Data set].
+\url{https://stats.idre.ucla.edu/stat/data/fish.csv}
+
+UCLA Statistical Methods and Data Analytics. (n.d.).
+\emph{Zero-inflated Poisson regression | R data analysis examples}.
+Office of Advanced Research Computing.
+Retrieved September 4, 2026, from
+\url{https://stats.oarc.ucla.edu/r/dae/zip/}
 }
 \usage{
 fish
 }
 \description{
-\link{To be completed later}
+These data are originally from a zero-inflated regression tutorial by UCLA Statistical Methods and Data Analytics (n.d.). They are results from a survey of 250 groups at a state park. The researchers wanted to know what factors influenced how many fish each group caught.
 }
 \examples{
 tibble::glimpse(fish)

@@ -19,7 +19,7 @@ Interactions, Partial Interactions, and Interaction Contrasts in the Analysis of
 \url{https://doi.org/10.1037/0033-2909.86.5.1084}
 
 De Rosario-Martinez, H. (2025).
-\emph{phia: Post-hoc interaction analysis} \link{Manual}.
+\emph{phia: Post-hoc interaction analysis} [Manual].
 \url{https://CRAN.R-project.org/package=phia}
 }
 \usage{
