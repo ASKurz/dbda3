@@ -1,5 +1,7 @@
-The `.rda` files in this folder contain the data sets exported by the package.
-The code used to make them can be found in the `data-raw` folder.
-The folder was made by executing `my_pkg_data <- sample(1000)` and then `usethis::use_data(my_pkg_data)`,
-as recommended in Section 7.1 of *R Packages (2e)* (https://r-pkgs.org/data.html#sec-data-data).
+The files in this folder contain the code used to make the `.rda` files in the `data` folder.
+The folder was made by executing `usethis::use_data_raw()`,
+as recommended in Section 7.1.1 of *R Packages (2e)* (https://r-pkgs.org/data.html#sec-data-data-raw).
+
+The `data.R` subfolder contains the data used in DBDA2.
+The `data_new` subfolder contains new data files downloaded or otherwise collected for DBDA3.
 
