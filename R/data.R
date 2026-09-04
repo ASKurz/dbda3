@@ -459,7 +459,7 @@
 #' <https://doi.org/10.1037/0033-2909.86.5.1084>
 #'
 #' De Rosario-Martinez, H. (2025).
-#' \emph{phia: Post-hoc interaction analysis} [Manual].
+#' \emph{phia: Post-hoc interaction analysis} \[Manual\].
 #' <https://CRAN.R-project.org/package=phia>
 #'
 #' @examples
@@ -826,7 +826,7 @@
 
 #' Fish data
 #'
-#' [To be completed later]
+#' These data are originally from a zero-inflated regression tutorial by UCLA Statistical Methods and Data Analytics (n.d.). They are results from a survey of 250 groups at a state park. The researchers wanted to know what factors influenced how many fish each group caught.
 #'
 #' @format A data frame with 250 rows and 5 columns:
 #' \describe{
@@ -838,7 +838,15 @@
 #' }
 #'
 #' @source
-#' Some source
+#' UCLA Statistical Methods and Data Analytics. (n.d.).
+#' Fish dataset \[Data set\].
+#' <https://stats.idre.ucla.edu/stat/data/fish.csv>
+#'
+#' UCLA Statistical Methods and Data Analytics. (n.d.).
+#' \emph{Zero-inflated Poisson regression | R data analysis examples}.
+#' Office of Advanced Research Computing.
+#' Retrieved September 4, 2026, from
+#' <https://stats.oarc.ucla.edu/r/dae/zip/>
 #'
 #' @examples
 #' tibble::glimpse(fish)
