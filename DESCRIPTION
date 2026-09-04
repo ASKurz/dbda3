@@ -6,7 +6,7 @@ Authors@R: c(
     person("John", "Kruschke", email = "johnkruschke@gmail.com", role = "aut"))
 Description: Provides a variety of convenience functions supporting Bayesian data analysis, with an emphasis on a tidyverse-oriented workflow, and models fit with the brms package.
 License: MIT + file LICENSE
-URL: https://github.com/ASKurz/dbda3
+URL: https://dbda3.com, https://github.com/ASKurz/dbda3
 BugReports: https://github.com/ASKurz/dbda3/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
