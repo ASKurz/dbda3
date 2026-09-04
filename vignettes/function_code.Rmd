@@ -2,7 +2,7 @@
 title: "Function code"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{function_code}
+  %\VignetteIndexEntry{Function code}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
