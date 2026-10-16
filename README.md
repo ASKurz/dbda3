@@ -2,6 +2,11 @@
 
 ## Package {dbda3}
 
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/ASKurz/dbda3/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ASKurz/dbda3/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 Welcome to the homepage for the dbda3 package. This is an R package
 supporting the third edition of *Doing Bayesian Data Analysis*. The
 dbda3 package provides a variety of convenience functions supporting
@@ -10,7 +15,7 @@ workflow, and on models fit with the brms package.
 
 ## Installation
 
-The dbda3 package is not on CRAN, and we do have plans to make it
+The dbda3 package is not on CRAN, and we have no plans to make it
 available on CRAN for the foreseeable future. You can install the dbda3
 package directly from its [GitHub
 repository](https://github.com/ASKurz/dbda3). Just execute this code in

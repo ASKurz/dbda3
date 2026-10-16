@@ -5,6 +5,7 @@
 ^docs$
 ^pkgdown$
 ^data-raw$
+^data/README\.md$
 ^\.positai$
 ^\.claude$
 ^AGENTS\.md$
@@ -13,3 +14,4 @@
 ^errors\.Rmd$
 ^notes\.Rmd$
 ^notes\.nb\.html$
+^\.github$

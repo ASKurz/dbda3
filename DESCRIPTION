@@ -1,6 +1,6 @@
 Package: dbda3
 Title: Support Functions for the Third Edition of 'Doing Bayesian Data Analysis'
-Version: 0.0.0.9001
+Version: 0.0.1
 Authors@R: c(
     person("A. Solomon", "Kurz", email = "a.solomon.kurz@gmail.com", role = c("aut", "cre")),
     person("John", "Kruschke", email = "johnkruschke@gmail.com", role = "aut"))
